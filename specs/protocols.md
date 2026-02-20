@@ -50,3 +50,4 @@ Flagged for investigation — need verification of active buyback programs:
 | Hyperliquid | 2026-02-19 | 2026-02-19 | 2026-02-19 |
 | Jupiter | 2026-02-19 | 2026-02-19 | 2026-02-19 |
 | Ethena | 2026-02-19 | 2026-02-19 | 2026-02-19 |
+| Jito | 2026-02-19 | 2026-02-19 | 2026-02-19 |

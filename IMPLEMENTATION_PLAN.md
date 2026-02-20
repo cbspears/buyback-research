@@ -9,8 +9,8 @@ created: 2026-02-19
 
 ## Status
 
-- **Current iteration**: 3
-- **Reports completed**: 3
+- **Current iteration**: 4
+- **Reports completed**: 4
 - **Last updated**: 2026-02-19
 - **Last discovery scan**: Iteration 3 (2026-02-19)
 
@@ -25,7 +25,7 @@ Priority order for analysis. Project Lead works top-to-bottom.
 | 1 | Hyperliquid | HYPE | Done | 2026-02-19 | Benchmark protocol, 54% fee buyback-burn. Consensus: mechanism best-in-class, unlock overhang dominant risk. |
 | 2 | Jupiter | JUP | Done | 2026-02-19 | 50% fee buyback HALTED. Litterbox Trust spent $70M at avg $0.74, token at $0.16. Unanimous Bearish from all 5 analysts. Pivoting to Net-Zero Emissions. |
 | 3 | Ethena | ENA | Done | 2026-02-19 | $890M SPAC buyback (held, not burned). Token -92% from ATH, -83% during buyback. Fee switch is superior mechanism. 4 Bearish, 1 Neutral. |
-| 4 | Jito | JTO | Queued | | Auction-based buyback |
+| 4 | Jito | JTO | Done | 2026-02-19 | 100% DAO rev to buyback via CSD. $2.5M deployed at $1.91 avg (now $0.29). 0.49x buyback-to-unlock ratio. 3 Neutral, 2 Bearish. Infrastructure strong, token value accrual nascent. |
 | 5 | Ether.fi | ETHFI | Queued | | $50M approved, auto-trigger |
 | 6 | Pump.fun | PUMP | Queued | | 100% revenue to buyback |
 | 7 | Pyth Network | PYTH | Queued | | 33% DAO treasury |
@@ -69,6 +69,7 @@ Priority order for analysis. Project Lead works top-to-bottom.
 | Hyperliquid | 2026-02-19 | output/hyperliquid-report.md | 2 Bullish, 2 Neutral, 1 Bearish |
 | Jupiter | 2026-02-19 | output/jupiter-report.md | 0 Bullish, 0 Neutral, 5 Bearish (unanimous) |
 | Ethena | 2026-02-19 | output/ethena-report.md | 0 Bullish, 1 Neutral, 4 Bearish |
+| Jito | 2026-02-19 | output/jito-report.md | 0 Bullish, 3 Neutral, 2 Bearish |
 
 ## Methodology Notes
 
@@ -85,6 +86,7 @@ Priority order for analysis. Project Lead works top-to-bottom.
 - Snapshot spaces not configured for all protocols — some use custom governance
 - On-chain collector is minimal — expand per-protocol as needed
 - Python collectors require outbound internet — if running offline, data must be collected via web search subagents
+- DefiLlama API DNS resolution failed during Jito iteration (fees.llama.fi) — web research subagents used as fallback. Consider adding cached responses or alternative API endpoints.
 
 ## Research Questions (Accumulated)
 
@@ -111,3 +113,8 @@ Priority order for analysis. Project Lead works top-to-bottom.
 - (From ENA analysis) Conditional/adaptive buybacks (Lido NEST, Aave adaptive weekly) vs flat-rate buybacks: do triggers and conditions improve outcomes?
 - (From Discovery) Supply compression leaders — Gains Network (25.7%) and GMX (12.9%) are dramatically ahead. Is there an inflection point where supply compression becomes reflexively positive?
 - (From Discovery) MakerDAO/Sky buyback scaling ($370K → $97M in one year, 262x increase) — what drove this and is it replicable?
+- (From JTO analysis) Infrastructure-layer moat vs token value accrual: can a protocol have a dominant infrastructure position (95%+ penetration) while the governance token still fails to capture value? What additional mechanisms (veToken, fee distribution, burns) are necessary?
+- (From JTO analysis) The CSD "treasury as insider bid" dynamic: when buybacks run against live vesting schedules, does the DAO systematically subsidize insider exit? Is there a minimum vesting-completion threshold before buybacks become value-accretive?
+- (From JTO analysis) Forkability at the infrastructure layer: Paladin forked Jito-Solana and eroded MEV share from 75% to 60% in 6 months. Does the JitoSOL flywheel (DeFi composability, TVL gravity) create a sufficient second moat, or will MEV infrastructure commoditize?
+- (From JTO analysis) Revenue denomination matters: Jito earns in SOL (hard asset) but converts to JTO (governance token) via buyback. Is this trade-down from hard asset to soft asset always value-destructive, or can it compound if the governance token appreciates?
+- (From JTO analysis) The "buyback and barter" model (inter-DAO token swaps): does distributing purchased tokens to partner DAOs create more durable demand than burning? Soft lock-up through relationships vs hard lock-up through code.
