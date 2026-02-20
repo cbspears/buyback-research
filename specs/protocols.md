@@ -73,3 +73,4 @@ Flagged for investigation — need verification of active buyback programs:
 | Aster | 2026-02-20 | 2026-02-20 | 2026-02-20 |
 | Chainlink | 2026-02-20 | 2026-02-20 | 2026-02-20 |
 | dYdX | 2026-02-20 | 2026-02-20 | 2026-02-20 |
+| Maple Finance | 2026-02-20 | 2026-02-20 | 2026-02-20 |

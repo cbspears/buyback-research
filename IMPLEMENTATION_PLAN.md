@@ -9,8 +9,8 @@ created: 2026-02-19
 
 ## Status
 
-- **Current iteration**: 10
-- **Reports completed**: 10
+- **Current iteration**: 11
+- **Reports completed**: 11
 - **Last updated**: 2026-02-20
 - **Last discovery scan**: Iteration 9 (2026-02-20)
 
@@ -32,7 +32,7 @@ Priority order for analysis. Project Lead works top-to-bottom.
 | 8 | Aster | ASTER | Done | 2026-02-20 | Up to 80% fees, $214M+ bought back. Unanimous Bearish. Wash-trading allegations unresolved, -71% drawdown despite massive buybacks. |
 | 9 | Chainlink | LINK | Done | 2026-02-20 | Reserve mechanism (hold, not burn). 0.31% buyback yield, 80x P/E on-chain. $19M reserve vs $2.2B team holdings (no lockup). Team releases 20x more LINK than reserve accumulates. Enterprise revenue (SWIFT/DTCC/UBS) undisclosed — the thesis pivot. 3 Neutral, 2 Bearish. Best business, weakest token value accrual in the series. |
 | 10 | dYdX | DYDX | Done | 2026-02-20 | 75% net fees to buyback-and-STAKE. Unanimous Bearish. Stake-not-burn design flaw, 84% YoY revenue decline, 85% underwater on buyback cost basis. $9M/yr buyback on declining revenue in a market Hyperliquid dominates 40:1. |
-| 11 | Maple Finance | SYRUP | Queued | | Staking → buyback transition |
+| 11 | Maple Finance | SYRUP | Done | 2026-02-20 | First zero-Bearish protocol in series. 4 Bullish, 1 Neutral. Real stablecoin revenue ($25M+), fully unlocked insiders (1.05x FDV/MCap), progressive governance (MIP-013→019). SSF buyback at 25% of revenue. $100M ARR target is the catalyst. |
 | 12 | Clanker | CLANKER | Queued | | Auto buyback-burn |
 | 13 | Raydium | RAY | Queued | | 12% fee buyback & burn |
 
@@ -102,6 +102,7 @@ Priority order for analysis. Project Lead works top-to-bottom.
 | Aster | 2026-02-20 | output/aster-report.md | 0 Bullish, 0 Neutral, 5 Bearish (unanimous) |
 | Chainlink | 2026-02-20 | output/chainlink-report.md | 0 Bullish, 3 Neutral, 2 Bearish |
 | dYdX | 2026-02-20 | output/dydx-report.md | 0 Bullish, 0 Neutral, 5 Bearish (unanimous) |
+| Maple Finance | 2026-02-20 | output/maple-report.md | 4 Bullish, 1 Neutral, 0 Bearish |
 
 ## Methodology Notes
 
@@ -183,3 +184,8 @@ Priority order for analysis. Project Lead works top-to-bottom.
 - (From DYDX analysis) Narrow governance approval as signal: Proposal #313 passed with 59.38% — barely above threshold. Across protocols, is there a correlation between buyback governance approval margins and subsequent buyback effectiveness? Does narrow approval indicate insider-driven pressure?
 - (From DYDX analysis) Zero-fee competition and the buyback contradiction: when the protocol competes by eliminating the very fees that fund the buyback (zero-fee BTC/SOL markets), is this a structural contradiction or temporary tactic? Can a buyback survive fee-to-zero dynamics?
 - (From DYDX analysis) Buyback cost basis as cross-study diagnostic: dYdX's buyback is 85% underwater ($0.655 avg vs $0.098 current). Across all protocols studied (JUP at -78%, ENA at -83%, DYDX at -85%, PUMP at -50-65%), is "underwater on cost basis" universal? What does this imply about pro-cyclical buyback timing?
+- (From SYRUP analysis) Staking → buyback transition: Maple's MIP-019 killed staking entirely and replaced it with revenue-funded buyback. Is "sunset staking, activate buyback" a generalizable playbook for mature protocols? What conditions must be met (revenue level, supply unlock status, governance support) for this transition to succeed?
+- (From SYRUP analysis) Fully unlocked supply as buyback prerequisite: Maple is the first protocol with FDV/MCap ~1.0x. Does the absence of unlock overhang fundamentally change buyback effectiveness? Across the series, is there a minimum "percent circulating" threshold below which buybacks are structurally futile?
+- (From SYRUP analysis) Institutional credit data as non-forkable moat: Monegro argues Maple's 5+ years of borrower credit data creates an application-layer data moat that resists the Thin Applications thesis. Is "proprietary state at the application layer" a generalizable moat category for DeFi lending protocols? How does it compare to L1 network effects?
+- (From SYRUP analysis) Revenue growth rate vs buyback scale: at 2.4% current yield but 533% YoY growth, is the market pricing the buyback or the growth trajectory? Should analysts evaluate buybacks on current yield or forward yield? Is there a framework for "buyback yield at target revenue" as a valuation metric?
+- (From SYRUP analysis) SSF as strategic treasury vs burn: the Syrup Strategic Fund holds SYRUP + BTC + stablecoins rather than burning. Charbonneau and Hasu view this as a real treasury; Cobie flags optionality for future selling. Is a diversified DAO treasury (multiple assets, not just native token) structurally superior to single-asset burn? Compare against Chainlink reserve, Ethena SPAC hold, Jupiter Litterbox Trust.
