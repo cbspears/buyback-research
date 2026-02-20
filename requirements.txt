@@ -1,0 +1,5 @@
+defillama2
+requests
+web3
+pandas
+jinja2

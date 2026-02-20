@@ -1,0 +1,8 @@
+data/
+!data/.gitkeep
+venv/
+.env
+__pycache__/
+logs/
+*.pyc
+.DS_Store
