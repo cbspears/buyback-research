@@ -9,8 +9,8 @@ created: 2026-02-19
 
 ## Status
 
-- **Current iteration**: 6
-- **Reports completed**: 6
+- **Current iteration**: 7
+- **Reports completed**: 7
 - **Last updated**: 2026-02-19
 - **Last discovery scan**: Iteration 6 (2026-02-19)
 
@@ -28,7 +28,7 @@ Priority order for analysis. Project Lead works top-to-bottom.
 | 4 | Jito | JTO | Done | 2026-02-19 | 100% DAO rev to buyback via CSD. $2.5M deployed at $1.91 avg (now $0.29). 0.49x buyback-to-unlock ratio. 3 Neutral, 2 Bearish. Infrastructure strong, token value accrual nascent. |
 | 5 | Ether.fi | ETHFI | Done | 2026-02-19 | 3-layer buyback (withdrawal weekly, revenue monthly, $50M treasury conditional). $13.18M deployed at $0.46 (-94.6% ATH). Revenue $65-96M real. Unlock pressure 8.5x buyback capacity. 3 Neutral, 1 Neutral/Bearish, 1 Bearish. Cash Card is thesis-changing variable. |
 | 6 | Pump.fun | PUMP | Done | 2026-02-19 | 100% revenue to buyback, $255M deployed at avg $0.004-0.006 (now $0.0021). Unanimous Bearish. Buyback functioning as insider exit liquidity — $86.4M dumped after buyback wave. Revenue -78% from peak. $5.5B RICO lawsuit. |
-| 7 | Pyth Network | PYTH | Queued | | 33% DAO treasury |
+| 7 | Pyth Network | PYTH | Done | 2026-02-19 | 33% DAO treasury buyback ($130K/mo). 553x P/E, $260K deployed at $0.059 avg (underwater). May 2026 unlock 2.1B PYTH dwarfs buyback 700x. Hold-not-burn. Token has no economic rights. 4 Bearish, 1 Neutral. |
 | 8 | Aster | ASTER | Queued | | Up to 80% fees |
 | 9 | Chainlink | LINK | Queued | | Reserve mechanism |
 | 10 | dYdX | DYDX | Queued | | 25-75% net fees |
@@ -83,6 +83,7 @@ Priority order for analysis. Project Lead works top-to-bottom.
 | Jito | 2026-02-19 | output/jito-report.md | 0 Bullish, 3 Neutral, 2 Bearish |
 | Ether.fi | 2026-02-19 | output/etherfi-report.md | 0 Bullish, 3 Neutral, 1 Neutral/Bearish, 1 Bearish |
 | Pump.fun | 2026-02-19 | output/pumpfun-report.md | 0 Bullish, 0 Neutral, 5 Bearish (unanimous) |
+| Pyth Network | 2026-02-19 | output/pyth-report.md | 0 Bullish, 1 Neutral, 4 Bearish |
 
 ## Methodology Notes
 
@@ -145,3 +146,9 @@ Priority order for analysis. Project Lead works top-to-bottom.
 - (From PUMP analysis) Average buyback price as a diagnostic: PUMP's avg buyback at $0.004-0.006 vs current $0.0021 means 50-65% value destruction. Across all protocols studied, is "buyback underwater on cost basis" a reliable indicator of mechanism failure?
 - (From PUMP analysis) The reflexivity trap: Pump.fun's bull-market feedback loop (meme mania → revenue → buybacks → price → attention → more memes) reverses with equal ferocity in bear markets. Can any mechanism design break the reflexivity, or is it inherent to pro-cyclical revenue + buyback?
 - (From Discovery) Investor-funded vs revenue-funded buybacks: MANTRA's $25M investor buyback tranche is fundamentally different from revenue-funded buybacks. Should these be analyzed separately? Do investor buybacks create moral hazard?
+- (From PYTH analysis) Business moat vs token moat: Pyth's publisher network (90+ exchanges) protects the oracle business but PYTH token has no enforceable economic claim on that value. When does a protocol's competitive moat fail to translate into token value capture? Is this a generalizable pattern for governance-only tokens?
+- (From PYTH analysis) Hold-not-burn buybacks: Pyth returns purchased tokens to DAO treasury rather than burning. Is "buyback and hold" always inferior to "buyback and burn"? Does optionality (ability to redeploy tokens) ever outweigh permanent supply reduction? Compare against Jupiter's Litterbox Trust lock and Ethena's SPAC hold.
+- (From PYTH analysis) Pre-revenue buybacks as premature capital return: at 553x P/E, should early-stage protocols allocate capital to buybacks or to growth? Is there a P/E threshold below which buybacks become value-accretive vs. above which they are always value-destructive?
+- (From PYTH analysis) Oracle middleware vs infrastructure: where do oracles sit on the fat-to-thin protocol spectrum? Pyth's publisher network is not forkable but switching costs for integrators are moderate. Do cross-chain data networks have infrastructure-like defensibility or middleware-like vulnerability?
+- (From PYTH analysis) TVS vs TTV as oracle valuation metrics: Pyth leads on transaction throughput (32.5%) but trails on total value secured (7%). Which metric better predicts oracle revenue capture? Does the pull vs push model create structurally different revenue dynamics?
+- (From PYTH analysis) Operator revenue extraction: Douro Labs takes 40% of Pyth Pro revenue before it reaches the DAO. How common is operator-level revenue extraction in DAO-governed protocols? Does this create a systematic reduction in buyback capacity across the industry?

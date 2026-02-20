@@ -59,3 +59,4 @@ Flagged for investigation — need verification of active buyback programs:
 | Jito | 2026-02-19 | 2026-02-19 | 2026-02-19 |
 | Ether.fi | 2026-02-19 | 2026-02-19 | 2026-02-19 |
 | Pump.fun | 2026-02-19 | 2026-02-19 | 2026-02-19 |
+| Pyth Network | 2026-02-19 | 2026-02-19 | 2026-02-19 |
