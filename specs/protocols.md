@@ -72,3 +72,4 @@ Flagged for investigation — need verification of active buyback programs:
 | Pyth Network | 2026-02-19 | 2026-02-19 | 2026-02-19 |
 | Aster | 2026-02-20 | 2026-02-20 | 2026-02-20 |
 | Chainlink | 2026-02-20 | 2026-02-20 | 2026-02-20 |
+| dYdX | 2026-02-20 | 2026-02-20 | 2026-02-20 |

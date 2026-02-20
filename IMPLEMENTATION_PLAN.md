@@ -9,8 +9,8 @@ created: 2026-02-19
 
 ## Status
 
-- **Current iteration**: 9
-- **Reports completed**: 9
+- **Current iteration**: 10
+- **Reports completed**: 10
 - **Last updated**: 2026-02-20
 - **Last discovery scan**: Iteration 9 (2026-02-20)
 
@@ -31,7 +31,7 @@ Priority order for analysis. Project Lead works top-to-bottom.
 | 7 | Pyth Network | PYTH | Done | 2026-02-19 | 33% DAO treasury buyback ($130K/mo). 553x P/E, $260K deployed at $0.059 avg (underwater). May 2026 unlock 2.1B PYTH dwarfs buyback 700x. Hold-not-burn. Token has no economic rights. 4 Bearish, 1 Neutral. |
 | 8 | Aster | ASTER | Done | 2026-02-20 | Up to 80% fees, $214M+ bought back. Unanimous Bearish. Wash-trading allegations unresolved, -71% drawdown despite massive buybacks. |
 | 9 | Chainlink | LINK | Done | 2026-02-20 | Reserve mechanism (hold, not burn). 0.31% buyback yield, 80x P/E on-chain. $19M reserve vs $2.2B team holdings (no lockup). Team releases 20x more LINK than reserve accumulates. Enterprise revenue (SWIFT/DTCC/UBS) undisclosed — the thesis pivot. 3 Neutral, 2 Bearish. Best business, weakest token value accrual in the series. |
-| 10 | dYdX | DYDX | Queued | | 25-75% net fees |
+| 10 | dYdX | DYDX | Done | 2026-02-20 | 75% net fees to buyback-and-STAKE. Unanimous Bearish. Stake-not-burn design flaw, 84% YoY revenue decline, 85% underwater on buyback cost basis. $9M/yr buyback on declining revenue in a market Hyperliquid dominates 40:1. |
 | 11 | Maple Finance | SYRUP | Queued | | Staking → buyback transition |
 | 12 | Clanker | CLANKER | Queued | | Auto buyback-burn |
 | 13 | Raydium | RAY | Queued | | 12% fee buyback & burn |
@@ -101,6 +101,7 @@ Priority order for analysis. Project Lead works top-to-bottom.
 | Pyth Network | 2026-02-19 | output/pyth-report.md | 0 Bullish, 1 Neutral, 4 Bearish |
 | Aster | 2026-02-20 | output/aster-report.md | 0 Bullish, 0 Neutral, 5 Bearish (unanimous) |
 | Chainlink | 2026-02-20 | output/chainlink-report.md | 0 Bullish, 3 Neutral, 2 Bearish |
+| dYdX | 2026-02-20 | output/dydx-report.md | 0 Bullish, 0 Neutral, 5 Bearish (unanimous) |
 
 ## Methodology Notes
 
@@ -176,3 +177,9 @@ Priority order for analysis. Project Lead works top-to-bottom.
 - (From LINK analysis) The 20:1 sell-to-buy ratio: team treasury releases dwarf reserve accumulation by 20x. Is there a minimum buy-to-sell ratio below which any buyback/reserve mechanism is structurally futile? Across all protocols, quantify this ratio and correlate with price performance.
 - (From LINK analysis) Treasury-funded staking as disguised inflation: when staking APY is paid from treasury emissions (not organic fees), are stakers receiving yield or receiving their own dilution? At what fee-revenue-to-staking-reward ratio does the transition from inflationary to organic occur?
 - (From LINK analysis) Enterprise adoption as counter-cyclical revenue: if Chainlink's SWIFT/DTCC/institutional revenue is not crypto-cyclical, this is genuinely differentiating. Which protocols have or could have non-cyclical revenue streams? Is enterprise adoption a unique moat category for buyback sustainability?
+- (From DYDX analysis) Buyback-and-stake vs buyback-and-burn: does staking purchased tokens create governance capture risks? The protocol accumulates voting power over itself. Is stake ever preferable to burn, or is it always a governance consolidation mechanism disguised as value return?
+- (From DYDX analysis) Appchain architecture and value capture: does building an application-specific Cosmos chain create fat protocol properties, or is it a "thin application wearing fat protocol clothing"? dYdX Chain hosts one app with no ecosystem — compare against Hyperliquid's appchain model.
+- (From DYDX analysis) Buyback on declining revenue: at what rate of revenue decline does a buyback become value-destructive? dYdX's fees fell 84% YoY while allocating 75% to buyback. Is there a threshold where protocols should halt buybacks and redirect to reinvestment?
+- (From DYDX analysis) Narrow governance approval as signal: Proposal #313 passed with 59.38% — barely above threshold. Across protocols, is there a correlation between buyback governance approval margins and subsequent buyback effectiveness? Does narrow approval indicate insider-driven pressure?
+- (From DYDX analysis) Zero-fee competition and the buyback contradiction: when the protocol competes by eliminating the very fees that fund the buyback (zero-fee BTC/SOL markets), is this a structural contradiction or temporary tactic? Can a buyback survive fee-to-zero dynamics?
+- (From DYDX analysis) Buyback cost basis as cross-study diagnostic: dYdX's buyback is 85% underwater ($0.655 avg vs $0.098 current). Across all protocols studied (JUP at -78%, ENA at -83%, DYDX at -85%, PUMP at -50-65%), is "underwater on cost basis" universal? What does this imply about pro-cyclical buyback timing?
