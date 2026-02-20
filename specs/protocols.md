@@ -30,6 +30,10 @@ Maintained by the Discovery agent. Updated each loop iteration.
 | Aerodrome Finance | AERO | DEX (Base) | PGF buyback + 4yr lock, revenue > emissions | 150M+ AERO locked. Leading Base chain DEX. |
 | Arbitrum | ARB | L2 | Offchain Labs strategic ARB purchases (entity-driven) | Active since March 2025. Not protocol-revenue funded. |
 | Berachain | BERA | L1 | PoL V2 buyback mechanism confirmed | BERA buybacks from PoL incentives active. Major unlock Feb 2026. |
+| Injective | INJ | L1 / DeFi Infra | Community BuyBack: 60% dApp fees to buyback-burn, Supply Squeeze 2x deflation | ~$100M+ annualized. 6.9M INJ burned. Unique community participation model. |
+| BNB Chain | BNB | L1 / Exchange | Auto-Burn quarterly (formula-driven) + BEP-95 real-time gas burns | Largest in crypto: $1.27B Q1 2026. 34 quarterly burns. Supply: 136.36M BNB. |
+| Lighter | LIT | Perps DEX (zk-L2) | Trading fee buybacks + Circle USDC interest revenue sharing | Active Jan 2026. Circle deal ~$30-40M/yr potential. Hyperliquid competitor. |
+| Bonk | BONK | Memecoin / Launchpad | BonkFun launchpad fees → buyback-burn, 65% supply already burned | $27.3M in 2025. $17M/mo burns from BonkFun. Digital Asset Trust structure. |
 
 ## Discovery Candidates
 
@@ -48,6 +52,12 @@ Flagged for investigation — need verification of active buyback programs:
 | World Liberty Financial | WLFI | DeFi | 100% protocol fees to buyback-burn, $10M+ executed. Trump-affiliated. |
 | MANTRA | OM | L1 (RWA) | $25M investor-funded buyback tranche (~10% circ supply). Not revenue-funded. |
 | Treehouse | TREE | DeFi (Yield) | 50% tETH fees to buyback, $294M deposits, DAO-held reserves |
+| Kaito | KAITO | InfoFi / AI Data | $14M annualized buyback from B2B data analytics revenue (~$33M rev) |
+| Defi App | HOME | DeFi Aggregator | DIP-004: 80% net fees to buyback. $330K in 4 weeks. $16B annualized vol. |
+| Core DAO | CORE | L1 / BTCfi | 2026 roadmap: income-driven buyback from BTC staking/AMP/SatPay. Not yet executing. |
+| Monad | MON | L1 (EVM) | Category Labs potential $30M discretionary buyback H1 2026. Entity-funded. |
+| Ronin | RON | Gaming L1→L2 | Treasury-funded TWAP buyback ($4.6M initial) + ongoing Katana DEX/marketplace fees. |
+| Sonic | S | L1 (EVM) | Revenue-funded buybacks from vertical integration. $6M initial. FeeM 5% burn. |
 
 ## Status Tracking
 
@@ -60,3 +70,5 @@ Flagged for investigation — need verification of active buyback programs:
 | Ether.fi | 2026-02-19 | 2026-02-19 | 2026-02-19 |
 | Pump.fun | 2026-02-19 | 2026-02-19 | 2026-02-19 |
 | Pyth Network | 2026-02-19 | 2026-02-19 | 2026-02-19 |
+| Aster | 2026-02-20 | 2026-02-20 | 2026-02-20 |
+| Chainlink | 2026-02-20 | 2026-02-20 | 2026-02-20 |

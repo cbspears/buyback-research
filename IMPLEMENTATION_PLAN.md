@@ -9,10 +9,10 @@ created: 2026-02-19
 
 ## Status
 
-- **Current iteration**: 8
-- **Reports completed**: 8
+- **Current iteration**: 9
+- **Reports completed**: 9
 - **Last updated**: 2026-02-20
-- **Last discovery scan**: Iteration 6 (2026-02-19)
+- **Last discovery scan**: Iteration 9 (2026-02-20)
 
 ## Research Queue
 
@@ -30,7 +30,7 @@ Priority order for analysis. Project Lead works top-to-bottom.
 | 6 | Pump.fun | PUMP | Done | 2026-02-19 | 100% revenue to buyback, $255M deployed at avg $0.004-0.006 (now $0.0021). Unanimous Bearish. Buyback functioning as insider exit liquidity — $86.4M dumped after buyback wave. Revenue -78% from peak. $5.5B RICO lawsuit. |
 | 7 | Pyth Network | PYTH | Done | 2026-02-19 | 33% DAO treasury buyback ($130K/mo). 553x P/E, $260K deployed at $0.059 avg (underwater). May 2026 unlock 2.1B PYTH dwarfs buyback 700x. Hold-not-burn. Token has no economic rights. 4 Bearish, 1 Neutral. |
 | 8 | Aster | ASTER | Done | 2026-02-20 | Up to 80% fees, $214M+ bought back. Unanimous Bearish. Wash-trading allegations unresolved, -71% drawdown despite massive buybacks. |
-| 9 | Chainlink | LINK | Queued | | Reserve mechanism |
+| 9 | Chainlink | LINK | Done | 2026-02-20 | Reserve mechanism (hold, not burn). 0.31% buyback yield, 80x P/E on-chain. $19M reserve vs $2.2B team holdings (no lockup). Team releases 20x more LINK than reserve accumulates. Enterprise revenue (SWIFT/DTCC/UBS) undisclosed — the thesis pivot. 3 Neutral, 2 Bearish. Best business, weakest token value accrual in the series. |
 | 10 | dYdX | DYDX | Queued | | 25-75% net fees |
 | 11 | Maple Finance | SYRUP | Queued | | Staking → buyback transition |
 | 12 | Clanker | CLANKER | Queued | | Auto buyback-burn |
@@ -57,6 +57,15 @@ Priority order for analysis. Project Lead works top-to-bottom.
 | 23 | Arbitrum | ARB | Queued | | Offchain Labs strategic ARB purchase plan (March 2025). Entity-driven, not protocol-revenue funded. Needs investigation. |
 | 24 | Berachain | BERA | Queued | | PoL V2 buyback mechanism confirmed. BERA buybacks from PoL incentives active. Major unlock Feb 2026. |
 
+### Discovered in Iteration 9 — Promote to Primary Targets
+
+| # | Protocol | Token | Status | Date | Notes |
+|---|----------|-------|--------|------|-------|
+| 25 | Injective | INJ | Queued | | Community BuyBack program (Jan 2026). 60% dApp fees to buyback, ~$100M+ annualized. 6.9M INJ burned. Supply Squeeze doubles deflation. |
+| 26 | BNB Chain | BNB | Queued | | Largest buyback-burn in crypto. Auto-Burn quarterly (~$1.27B Q1 2026) + BEP-95 real-time gas burns. Formula-driven, fully automated. |
+| 27 | Lighter | LIT | Queued | | Perps DEX (zk-rollup). Active buybacks from trading fees + Circle USDC interest ($30-40M/yr potential). Direct Hyperliquid competitor. |
+| 28 | Bonk | BONK | Queued | | Memecoin/launchpad. BonkFun fees → buyback-burn. $27.3M in 2025. 65% total supply burned. Unique ecosystem flywheel. |
+
 ### Discovery Candidates (Need Verification)
 
 | Protocol | Token | Signal | Status |
@@ -72,6 +81,12 @@ Priority order for analysis. Project Lead works top-to-bottom.
 | World Liberty Financial | WLFI | 100% protocol fees to buyback-burn, $10M+ executed. Politically controversial (Trump-affiliated). | Watch |
 | MANTRA | OM | $25M investor-funded buyback tranche (~10% circ supply). Not revenue-funded. | Watch |
 | Treehouse | TREE | 50% tETH fees to buyback, $294M deposits, DAO-held reserves | Watch |
+| Kaito | KAITO | $14M annualized buyback from B2B data analytics revenue (~$33M rev). Real enterprise cash flow. | Watch |
+| Defi App | HOME | DIP-004: 80% net protocol fees to buyback. $330K in first 4 weeks. $16B annualized vol. | Watch |
+| Core DAO | CORE | 2026 roadmap: income-driven CORE buyback from BTC staking/AMP/SatPay. Not yet executing. | Watch |
+| Monad | MON | Category Labs announced potential $30M discretionary buyback H1 2026. Entity-funded, not revenue. | Watch |
+| Ronin | RON | Treasury-funded TWAP buyback ($4.6M initial). Katana DEX/marketplace fees ongoing. Gaming L1→L2. | Watch |
+| Sonic | S | Revenue-funded buybacks from vertical integration. $6M initial purchase. FeeM 5% burn. Ramping 2026. | Watch |
 
 ## Completed Reports
 
@@ -84,6 +99,8 @@ Priority order for analysis. Project Lead works top-to-bottom.
 | Ether.fi | 2026-02-19 | output/etherfi-report.md | 0 Bullish, 3 Neutral, 1 Neutral/Bearish, 1 Bearish |
 | Pump.fun | 2026-02-19 | output/pumpfun-report.md | 0 Bullish, 0 Neutral, 5 Bearish (unanimous) |
 | Pyth Network | 2026-02-19 | output/pyth-report.md | 0 Bullish, 1 Neutral, 4 Bearish |
+| Aster | 2026-02-20 | output/aster-report.md | 0 Bullish, 0 Neutral, 5 Bearish (unanimous) |
+| Chainlink | 2026-02-20 | output/chainlink-report.md | 0 Bullish, 3 Neutral, 2 Bearish |
 
 ## Methodology Notes
 
@@ -152,3 +169,10 @@ Priority order for analysis. Project Lead works top-to-bottom.
 - (From PYTH analysis) Oracle middleware vs infrastructure: where do oracles sit on the fat-to-thin protocol spectrum? Pyth's publisher network is not forkable but switching costs for integrators are moderate. Do cross-chain data networks have infrastructure-like defensibility or middleware-like vulnerability?
 - (From PYTH analysis) TVS vs TTV as oracle valuation metrics: Pyth leads on transaction throughput (32.5%) but trails on total value secured (7%). Which metric better predicts oracle revenue capture? Does the pull vs push model create structurally different revenue dynamics?
 - (From PYTH analysis) Operator revenue extraction: Douro Labs takes 40% of Pyth Pro revenue before it reaches the DAO. How common is operator-level revenue extraction in DAO-governed protocols? Does this create a systematic reduction in buyback capacity across the industry?
+- (From LINK analysis) Business moat vs token value accrual: Chainlink has 67-70% oracle market share but 0.31% buyback yield. Is the divergence between business dominance and token economics a generalizable pattern for middleware protocols? Compare LINK, PYTH, and future oracle/middleware analyses.
+- (From LINK analysis) Reserve (hold) vs burn: Chainlink holds purchased LINK for "redeployment" — staking, grants, node incentives. Is buy-and-hold always inferior to buy-and-burn when the entity controlling the reserve also controls 25% of supply with no lockup? The reserve is functionally indistinguishable from team treasury.
+- (From LINK analysis) Undisclosed enterprise revenue: when the bull case depends entirely on revenue that is not publicly disclosed, can the mechanism be evaluated at all? Should analysts apply a "disclosure discount" to opaque revenue streams?
+- (From LINK analysis) Payment Abstraction as buy-pressure-by-design: converting all fees (regardless of denomination) to LINK via DEX routes creates programmatic demand. Is forced revenue-to-native-token conversion a generalizable mechanism for creating buy pressure? Or is it always a "trade-down from hard assets to soft assets" as Hasu argues?
+- (From LINK analysis) The 20:1 sell-to-buy ratio: team treasury releases dwarf reserve accumulation by 20x. Is there a minimum buy-to-sell ratio below which any buyback/reserve mechanism is structurally futile? Across all protocols, quantify this ratio and correlate with price performance.
+- (From LINK analysis) Treasury-funded staking as disguised inflation: when staking APY is paid from treasury emissions (not organic fees), are stakers receiving yield or receiving their own dilution? At what fee-revenue-to-staking-reward ratio does the transition from inflationary to organic occur?
+- (From LINK analysis) Enterprise adoption as counter-cyclical revenue: if Chainlink's SWIFT/DTCC/institutional revenue is not crypto-cyclical, this is genuinely differentiating. Which protocols have or could have non-cyclical revenue streams? Is enterprise adoption a unique moat category for buyback sustainability?
