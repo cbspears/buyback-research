@@ -313,6 +313,58 @@
     .chart-row { grid-template-columns: 1fr; }
   }
 
+  /* TLDR */
+  .tldr {
+    max-width: 800px; margin: 32px auto 0;
+    text-align: left;
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: 12px; padding: 28px 32px;
+  }
+  .tldr h3 {
+    font-size: 14px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; color: var(--accent); margin-bottom: 12px;
+  }
+  .tldr p { font-size: 15px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 12px; }
+  .tldr p:last-child { margin-bottom: 0; }
+  .tldr strong { color: var(--text-primary); }
+
+  /* Analyst cards */
+  .analyst-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 20px;
+  }
+  .analyst-card {
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: 12px; padding: 28px;
+    transition: border-color 0.2s;
+  }
+  .analyst-card:hover { border-color: var(--accent); }
+  .analyst-card-header { display: flex; align-items: center; gap: 14px; margin-bottom: 16px; }
+  .analyst-card-avatar {
+    width: 48px; height: 48px; border-radius: 50%;
+    background: var(--accent-glow); border: 2px solid var(--accent);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px; font-weight: 800; color: var(--accent);
+    flex-shrink: 0;
+  }
+  .analyst-card-name { font-size: 1.1rem; font-weight: 700; }
+  .analyst-card-lens { font-size: 12px; color: var(--accent); font-weight: 600; margin-top: 2px; }
+  .analyst-card-bio { font-size: 13.5px; color: var(--text-secondary); line-height: 1.65; margin-bottom: 14px; }
+  .analyst-card-priorities { font-size: 13px; color: var(--text-secondary); line-height: 1.6; }
+  .analyst-card-priorities strong { color: var(--text-primary); font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; }
+  .analyst-card-priorities ul { padding-left: 18px; margin-top: 6px; }
+  .analyst-card-priorities li { margin-bottom: 4px; }
+  .analyst-card-stance {
+    margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--border);
+    font-size: 13px; color: var(--text-muted); font-style: italic;
+  }
+
+  /* Section description */
+  .section-desc {
+    font-size: 14.5px; color: var(--text-secondary); line-height: 1.7;
+    max-width: 800px; margin-bottom: 28px;
+  }
+
   /* Number formatting */
   .num-green { color: var(--green); }
   .num-yellow { color: var(--yellow); }
@@ -335,6 +387,7 @@
     <a href="#heatmap">Analyst Sentiment</a>
     <a href="#dilution">Supply Dilution</a>
     <a href="#mechanisms">Mechanisms</a>
+    <a href="#analysts">Analysts</a>
     <a href="#portfolios">Portfolios</a>
     <a href="#synthesis">Synthesis</a>
     <a href="#methodology">Methodology</a>
@@ -373,6 +426,13 @@
         <div class="stat-label">Total Market Cap Analyzed</div>
       </div>
     </div>
+    <div class="tldr">
+      <h3>TL;DR</h3>
+      <p><strong>Most crypto token buybacks don't work.</strong> We analyzed 13 protocols running active buyback programs — from DeFi giants like Hyperliquid and Jupiter to newer experiments like pump.fun and Clanker — and ran each through five independent analytical frameworks. The result: <strong>58% of all analyst verdicts were Bearish.</strong> The median composite score was just 51 out of 100.</p>
+      <p>The core finding: buybacks cannot manufacture value that doesn't already exist. Protocols with real revenue, clean supply schedules (low FDV/MCap), and structural moats — like <strong>Maple Finance</strong> and <strong>Raydium</strong> — can make buybacks work. But the majority treat buybacks as marketing tools rather than capital allocation decisions, spending real revenue to perform the theater of value return while insider unlocks overwhelm the mechanism by orders of magnitude.</p>
+      <p>The most damning data points: pump.fun spent $255M on buybacks and its token fell 83%. Jupiter's own co-founder halted their $70M program, calling it "a waste of resources." Meanwhile, Maple Finance — with a modest 2.4% buyback yield from boring institutional lending — earned zero Bearish verdicts and unanimous conviction from all five analysts.</p>
+      <p><strong>The single most important metric?</strong> FDV/MCap ratio. Protocols below 1.5x received majority positive verdicts. Protocols above 3x received unanimous Bearish. Check the supply schedule before you check anything else.</p>
+    </div>
   </div>
 </section>
 
@@ -381,6 +441,7 @@
   <div class="container">
     <p class="section-label">Protocol Rankings</p>
     <h2>Composite Scoring Leaderboard</h2>
+    <p class="section-desc">Every protocol is scored across five equally-weighted dimensions (buyback yield, revenue quality, supply cleanliness, analyst consensus, and mechanism design) to produce a composite score out of 100. Click any column header to re-sort. Click the arrow on any row to expand a one-line summary of the protocol's buyback program. The "Consensus" column shows how many of the five analysts rated the protocol Bullish (B), Neutral (N), or Bearish (Be).</p>
     <div class="table-wrap">
       <table id="rankingsTable">
         <thead>
@@ -408,6 +469,7 @@
   <div class="container">
     <p class="section-label">Score Dimensions</p>
     <h2>Composite Score Breakdown</h2>
+    <p class="section-desc">Each protocol's composite score is built from five dimensions, shown here as stacked horizontal bars. This lets you see <em>why</em> a protocol ranks where it does — a high overall score driven by mechanism design alone (purple) tells a different story than one driven by analyst consensus (amber) or supply cleanliness (blue). Protocols are sorted from lowest to highest composite score.</p>
     <div class="chart-container" style="padding: 8px;">
       <div id="breakdownChart" class="plotly-chart"></div>
     </div>
@@ -419,6 +481,7 @@
   <div class="container">
     <p class="section-label">Valuation Landscape</p>
     <h2>Buyback Yield vs P/E Ratio</h2>
+    <p class="section-desc">This bubble chart maps each protocol by its buyback yield (y-axis) against its price-to-earnings ratio (x-axis, log scale). Bubble size reflects market cap, and color represents composite score (red = low, green = high). The dashed lines mark medians. The "sweet spot" is bottom-right: reasonable yield on a reasonably-valued protocol. Beware the top-left quadrant — extremely high yields on low P/E protocols (like pump.fun and Clanker) are distress signals, not buying opportunities.</p>
     <div class="chart-container" style="padding: 8px;">
       <div id="scatterChart" class="plotly-chart"></div>
     </div>
@@ -430,6 +493,7 @@
   <div class="container">
     <p class="section-label">Analyst Consensus</p>
     <h2>Verdict Heatmap: 5 Analysts x 13 Protocols</h2>
+    <p class="section-desc">A 13x5 grid showing how each analyst rated each protocol. Green = Bullish, Yellow = Neutral, Red = Bearish. Each cell is annotated with the verdict letter and confidence level (H = High, MH = Medium-High, M = Medium). Protocols are sorted by composite score (highest at top). Look for convergence — when all five cells in a row are the same color, the signal is strong. Maple Finance is the only protocol with zero red cells.</p>
     <div class="chart-container" style="padding: 8px;">
       <div id="heatmapChart" class="plotly-chart"></div>
     </div>
@@ -441,6 +505,7 @@
   <div class="container">
     <p class="section-label">Supply Dynamics</p>
     <h2>FDV / Market Cap Ratio (Dilution Pressure)</h2>
+    <p class="section-desc">The FDV/MCap ratio reveals how much token supply is still locked and waiting to hit the market. A ratio of 1.0x means all tokens are circulating — no dilution risk. The higher the ratio, the more future sell pressure exists from team unlocks, investor vesting, and emissions. The green dashed line marks 1.0x (fully diluted). This metric emerged as the single strongest predictor of buyback effectiveness across all five analysts.</p>
     <div class="chart-container" style="padding: 8px;">
       <div id="dilutionChart" class="plotly-chart"></div>
     </div>
@@ -452,8 +517,121 @@
   <div class="container">
     <p class="section-label">Mechanism Design</p>
     <h2>Mechanism Type vs Execution Classification</h2>
+    <p class="section-desc">This scatter plot classifies each protocol by what it does with bought-back tokens (y-axis: burn, lock, stake, distribute, or hold) and how the buyback is executed (x-axis: automated via smart contract, periodic batches, or manual/discretionary). Bubble size and color reflect composite score. Automated burns (top-left) are generally preferred — but five protocols scored a perfect 100 on mechanism design yet span the full range of composite scores, proving that good plumbing alone doesn't guarantee results.</p>
     <div class="chart-container" style="padding: 8px;">
       <div id="mechanismChart" class="plotly-chart"></div>
+    </div>
+  </div>
+</section>
+
+<!-- Analysts -->
+<section id="analysts">
+  <div class="container">
+    <p class="section-label">The Panel</p>
+    <h2>Meet the Five Analysts</h2>
+    <p class="section-desc">Each protocol was independently evaluated by five AI analyst personas, each modeled after a real crypto thought leader with a distinct analytical framework. They don't coordinate — they analyze the same data through different lenses and often disagree. When they converge, the signal is in the mechanism, not the methodology.</p>
+    <div class="analyst-grid">
+
+      <div class="analyst-card">
+        <div class="analyst-card-header">
+          <div class="analyst-card-avatar">JC</div>
+          <div>
+            <div class="analyst-card-name">Charbonneau</div>
+            <div class="analyst-card-lens">Mechanism Design & Infrastructure</div>
+          </div>
+        </div>
+        <p class="analyst-card-bio">Modeled after Jon Charbonneau, co-founder of DBA and former structured credit analyst. Applies a purpose-built TEV/REV/Net Income framework for crypto networks, rejecting the notion that protocols are companies. Evaluates L1 tokens as "triple-point assets" — simultaneously capital assets, consumable assets, and stores of value.</p>
+        <div class="analyst-card-priorities">
+          <strong>Prioritizes</strong>
+          <ul>
+            <li>Mechanism architecture quality (burn vs. distribute vs. reinvest)</li>
+            <li>Infrastructure-layer positioning (DBA thesis)</li>
+            <li>Precise distinction between revenue source and revenue use</li>
+          </ul>
+        </div>
+        <div class="analyst-card-stance">"Is this well-designed?" — Systems thinker, not a trader. Leans toward the monetary camp for L1 tokens, cash-flow camp for application tokens.</div>
+      </div>
+
+      <div class="analyst-card">
+        <div class="analyst-card-header">
+          <div class="analyst-card-avatar">Ha</div>
+          <div>
+            <div class="analyst-card-name">Hasu</div>
+            <div class="analyst-card-lens">Game Theory & Capital Allocation</div>
+          </div>
+        </div>
+        <p class="analyst-card-bio">Modeled after @hasufl, co-founder of DBA, former professional poker player, and Strategy Lead at Flashbots. Treats blockchains as social contracts and applies game-theoretic reasoning inherited from poker. Insists that native tokens in a treasury are "authorized but unissued shares," not assets.</p>
+        <div class="analyst-card-priorities">
+          <strong>Prioritizes</strong>
+          <ul>
+            <li>Incentive alignment at equilibrium</li>
+            <li>Revenue sustainability and dilution quantification</li>
+            <li>Whether buybacks create value or are premature capital destruction</li>
+          </ul>
+        </div>
+        <div class="analyst-card-stance">"Do the incentives align at equilibrium?" — Disciplined capital allocator. Believes 90% of projects should not issue tokens.</div>
+      </div>
+
+      <div class="analyst-card">
+        <div class="analyst-card-header">
+          <div class="analyst-card-avatar">Co</div>
+          <div>
+            <div class="analyst-card-name">Cobie</div>
+            <div class="analyst-card-lens">Market Structure & Exit Liquidity</div>
+          </div>
+        </div>
+        <p class="analyst-card-bio">Modeled after Jordan Fish (Cobie), crypto trader, early-stage investor, and co-host of the UpOnly podcast. His north star question is "Who is exit liquidity?" He traces money flows end-to-end, examines unlock schedules against buyback timing, and performs "incentive archaeology" on who proposed each buyback.</p>
+        <div class="analyst-card-priorities">
+          <strong>Prioritizes</strong>
+          <ul>
+            <li>Identifying insider subsidies and VC exit patterns</li>
+            <li>Token unlock schedules vs. buyback magnitude</li>
+            <li>Simple, direct fee-sharing over buyback complexity</li>
+          </ul>
+        </div>
+        <div class="analyst-card-stance">"Who actually profits from this?" — Default skeptic. Assumes every buyback is VC exit liquidity until proven otherwise.</div>
+      </div>
+
+      <div class="analyst-card">
+        <div class="analyst-card-header">
+          <div class="analyst-card-avatar">AH</div>
+          <div>
+            <div class="analyst-card-name">Hayes</div>
+            <div class="analyst-card-lens">Macro Regime & Fiat Liquidity Cycles</div>
+          </div>
+        </div>
+        <p class="analyst-card-bio">Modeled after Arthur Hayes, co-founder of BitMEX and former commodities trader at Deutsche Bank. Fiat liquidity is THE master variable — central bank balance sheets determine crypto prices, and everything else is downstream. Distinguishes real yield (hard assets) from nominal yield (inflating governance tokens).</p>
+        <div class="analyst-card-priorities">
+          <strong>Prioritizes</strong>
+          <ul>
+            <li>Revenue durability across monetary regimes (loose vs. tight)</li>
+            <li>Pro-cyclicality trap: buybacks shrink when tokens need support most</li>
+            <li>Treasury reserves over buybacks as survival strategy</li>
+          </ul>
+        </div>
+        <div class="analyst-card-stance">"Does this survive a bear market?" — Macro-first. Would rather hold cash and wait for the regime to shift than buy yield that evaporates when the Fed tightens.</div>
+      </div>
+
+      <div class="analyst-card">
+        <div class="analyst-card-header">
+          <div class="analyst-card-avatar">JM</div>
+          <div>
+            <div class="analyst-card-name">Monegro</div>
+            <div class="analyst-card-lens">Fat Protocols & Structural Value Capture</div>
+          </div>
+        </div>
+        <p class="analyst-card-bio">Modeled after Joel Monegro, author of the Fat Protocols thesis and venture capital partner. Evaluates whether tokens have legitimate structural claims on protocol value. Draws a sharp distinction between value creation and value capture — enormous usage does not automatically translate to token value.</p>
+        <div class="analyst-card-priorities">
+          <strong>Prioritizes</strong>
+          <ul>
+            <li>Structural moats: switching costs, network effects, data moats</li>
+            <li>Forkability — if the app can be forked, no buyback is sustainable</li>
+            <li>Infrastructure-layer positioning (fat protocols thesis)</li>
+          </ul>
+        </div>
+        <div class="analyst-card-stance">"Does this token have a legitimate value claim?" — If no, nothing else matters. Forkable apps cannot sustain buybacks regardless of mechanism design.</div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -463,6 +641,7 @@
   <div class="container">
     <p class="section-label">Analyst Portfolios</p>
     <h2>Persona Portfolio Allocations</h2>
+    <p class="section-desc">Each analyst was given a hypothetical $1M to allocate across the 13 protocols (plus cash). The donut charts show their individual allocations, and the comparison table below reveals where they agree and disagree. Cash allocation ranges from 10% (Charbonneau) to 66.5% (Hayes) — reflecting fundamentally different views on whether protocol-level alpha can overcome macro risk. Maple Finance is the only protocol where all five analysts allocated meaningful capital.</p>
     <div class="tab-bar" id="personaTabBar"></div>
     <div id="personaTabContent"></div>
     <h3 style="margin-top: 48px;">Cross-Persona Comparison (Top Protocols)</h3>
