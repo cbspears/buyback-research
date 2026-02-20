@@ -39,4 +39,5 @@ Flagged for investigation — need verification of active buyback programs:
 
 | Protocol | Data Collected | Report Written | Last Updated |
 |----------|---------------|----------------|--------------|
-| (populated by loop iterations) | | | |
+| Hyperliquid | 2026-02-19 | 2026-02-19 | 2026-02-19 |
+| Jupiter | 2026-02-19 | 2026-02-19 | 2026-02-19 |

@@ -9,8 +9,8 @@ created: 2026-02-19
 
 ## Status
 
-- **Current iteration**: 1
-- **Reports completed**: 1
+- **Current iteration**: 2
+- **Reports completed**: 2
 - **Last updated**: 2026-02-19
 
 ## Research Queue
@@ -22,7 +22,7 @@ Priority order for analysis. Project Lead works top-to-bottom.
 | # | Protocol | Token | Status | Date | Notes |
 |---|----------|-------|--------|------|-------|
 | 1 | Hyperliquid | HYPE | Done | 2026-02-19 | Benchmark protocol, 54% fee buyback-burn. Consensus: mechanism best-in-class, unlock overhang dominant risk. |
-| 2 | Jupiter | JUP | Queued | | 50% fees, 3yr lock mechanism |
+| 2 | Jupiter | JUP | Done | 2026-02-19 | 50% fee buyback HALTED. Litterbox Trust spent $70M at avg $0.74, token at $0.16. Unanimous Bearish from all 5 analysts. Pivoting to Net-Zero Emissions. |
 | 3 | Ethena | ENA | Queued | | $890M committed, fee switch |
 | 4 | Jito | JTO | Queued | | Auction-based buyback |
 | 5 | Ether.fi | ETHFI | Queued | | $50M approved, auto-trigger |
@@ -53,6 +53,7 @@ Priority order for analysis. Project Lead works top-to-bottom.
 | Protocol | Date | Report Path | Analyst Consensus |
 |----------|------|-------------|-------------------|
 | Hyperliquid | 2026-02-19 | output/hyperliquid-report.md | 2 Bullish, 2 Neutral, 1 Bearish |
+| Jupiter | 2026-02-19 | output/jupiter-report.md | 0 Bullish, 0 Neutral, 5 Bearish (unanimous) |
 
 ## Methodology Notes
 
@@ -81,3 +82,9 @@ Priority order for analysis. Project Lead works top-to-bottom.
 - (From HYPE analysis) Should protocols retain treasury reserves before initiating buybacks? What is the optimal reserve-to-buyback allocation?
 - (From HYPE analysis) How does "vertically integrated app with own L1" differ from "true fat protocol" for buyback sustainability?
 - (From HYPE analysis) Can team wallet behavior be monitored systematically as a signal for buyback quality?
+- (From JUP analysis) How should buyback programs handle concurrent insider unlock schedules? Is there a minimum buyback/unlock coverage ratio below which buybacks are counterproductive?
+- (From JUP analysis) Lock vs burn: are there any scenarios where locking purchased tokens is preferable to burning? Or is this always a design error?
+- (From JUP analysis) The Mercurial offset pattern — how common are near-perfect buyback/vesting offsets across protocols? Is this a systematic feature of buyback programs with concurrent vesting?
+- (From JUP analysis) Application-layer vs infrastructure-layer buybacks: does Monegro's forkability thesis hold empirically? Need to compare Jupiter (app) vs Hyperliquid (L1) outcomes.
+- (From JUP analysis) Pro-cyclical buyback failure: can countercyclical buyback designs (accumulate treasury in bull, deploy in bear) be implemented programmatically?
+- (From JUP analysis) Does the pivot from buyback to emission control (Net-Zero) represent a generalizable pattern for protocols that discover buybacks are insufficient?
