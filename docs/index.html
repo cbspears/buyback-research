@@ -1,0 +1,1239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unified Cross-Protocol Buyback Comparison</title>
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg-primary: #0a0a1a;
+    --bg-card: #1a1a2e;
+    --bg-card-hover: #22223a;
+    --bg-nav: rgba(10, 10, 26, 0.92);
+    --border: #2a2a44;
+    --text-primary: #e8e8f0;
+    --text-secondary: #9898b0;
+    --text-muted: #686888;
+    --accent: #6c63ff;
+    --accent-glow: rgba(108, 99, 255, 0.15);
+    --green: #22c55e;
+    --green-bg: rgba(34, 197, 94, 0.12);
+    --yellow: #eab308;
+    --yellow-bg: rgba(234, 179, 8, 0.12);
+    --red: #ef4444;
+    --red-bg: rgba(239, 68, 68, 0.12);
+    --orange: #f97316;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Nav */
+  .nav {
+    position: sticky; top: 0; z-index: 100;
+    background: var(--bg-nav);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 24px;
+  }
+  .nav-inner {
+    max-width: 1400px; margin: 0 auto;
+    display: flex; align-items: center; gap: 8px;
+    overflow-x: auto; scrollbar-width: none;
+    padding: 12px 0;
+  }
+  .nav-inner::-webkit-scrollbar { display: none; }
+  .nav a {
+    color: var(--text-secondary); text-decoration: none;
+    font-size: 13px; font-weight: 500;
+    white-space: nowrap; padding: 6px 12px;
+    border-radius: 6px; transition: all 0.2s;
+  }
+  .nav a:hover, .nav a.active {
+    color: var(--text-primary);
+    background: var(--accent-glow);
+  }
+  .nav-brand {
+    font-weight: 700; font-size: 14px;
+    color: var(--accent) !important;
+    margin-right: 12px;
+    letter-spacing: -0.02em;
+  }
+
+  /* Scroll to top */
+  .scroll-top {
+    position: fixed; bottom: 32px; right: 32px; z-index: 99;
+    width: 44px; height: 44px;
+    background: var(--accent); border: none; border-radius: 50%;
+    color: white; font-size: 20px; cursor: pointer;
+    display: none; align-items: center; justify-content: center;
+    box-shadow: 0 4px 20px rgba(108, 99, 255, 0.4);
+    transition: opacity 0.3s, transform 0.3s;
+  }
+  .scroll-top:hover { transform: translateY(-2px); }
+  .scroll-top.visible { display: flex; }
+
+  /* Layout */
+  .container { max-width: 1400px; margin: 0 auto; padding: 0 24px; }
+  section { padding: 80px 0; }
+  section + section { border-top: 1px solid var(--border); }
+
+  /* Typography */
+  h1 { font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 800; letter-spacing: -0.03em; line-height: 1.1; }
+  h2 { font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 700; letter-spacing: -0.02em; margin-bottom: 32px; }
+  h3 { font-size: 1.25rem; font-weight: 600; margin-bottom: 16px; }
+  .subtitle { font-size: clamp(1rem, 2vw, 1.25rem); color: var(--text-secondary); font-weight: 400; margin-top: 16px; }
+  .section-label {
+    font-size: 12px; font-weight: 600; text-transform: uppercase;
+    letter-spacing: 0.1em; color: var(--accent); margin-bottom: 8px;
+  }
+
+  /* Hero */
+  .hero {
+    min-height: 60vh;
+    display: flex; flex-direction: column; justify-content: center;
+    padding-top: 100px; padding-bottom: 60px;
+    text-align: center;
+  }
+  .hero h1 { margin-bottom: 8px; }
+  .hero .subtitle { max-width: 600px; margin: 16px auto 0; }
+  .hero-meta {
+    display: flex; align-items: center; justify-content: center;
+    gap: 24px; margin-top: 24px;
+    font-size: 13px; color: var(--text-muted);
+  }
+  .hero-meta span { display: flex; align-items: center; gap: 6px; }
+
+  /* Stat callouts */
+  .stat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px; margin-top: 48px;
+  }
+  .stat-card {
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: 12px; padding: 24px;
+    text-align: center;
+  }
+  .stat-value {
+    font-size: 2rem; font-weight: 800;
+    letter-spacing: -0.03em;
+    background: linear-gradient(135deg, var(--accent), #a78bfa);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .stat-label { font-size: 13px; color: var(--text-secondary); margin-top: 4px; }
+
+  /* Cards */
+  .card {
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: 12px; padding: 24px;
+  }
+
+  /* Table */
+  .table-wrap { overflow-x: auto; border-radius: 12px; border: 1px solid var(--border); }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  thead { background: var(--bg-card); position: sticky; top: 0; }
+  th {
+    padding: 14px 16px; text-align: left;
+    font-weight: 600; font-size: 12px;
+    text-transform: uppercase; letter-spacing: 0.06em;
+    color: var(--text-secondary); border-bottom: 1px solid var(--border);
+    cursor: pointer; user-select: none; white-space: nowrap;
+  }
+  th:hover { color: var(--text-primary); }
+  th .sort-arrow { margin-left: 4px; opacity: 0.4; font-size: 10px; }
+  th.sorted .sort-arrow { opacity: 1; color: var(--accent); }
+  td { padding: 12px 16px; border-bottom: 1px solid var(--border); vertical-align: middle; }
+  tr { transition: background 0.15s; }
+  tbody tr:hover { background: var(--bg-card-hover); }
+  .rank-cell { font-weight: 700; color: var(--accent); text-align: center; width: 50px; }
+  .protocol-name { font-weight: 600; }
+  .token-badge {
+    display: inline-block; font-size: 11px; font-weight: 600;
+    background: var(--accent-glow); color: var(--accent);
+    padding: 2px 8px; border-radius: 4px;
+  }
+  .category-text { font-size: 12px; color: var(--text-secondary); }
+
+  /* Score bar */
+  .score-bar-container { display: flex; align-items: center; gap: 8px; min-width: 140px; }
+  .score-bar { flex: 1; height: 8px; background: #2a2a44; border-radius: 4px; overflow: hidden; }
+  .score-bar-fill { height: 100%; border-radius: 4px; transition: width 0.6s ease; }
+  .score-value { font-weight: 700; font-size: 14px; min-width: 36px; text-align: right; }
+
+  /* Pills */
+  .verdict-pills { display: flex; gap: 4px; flex-wrap: nowrap; }
+  .pill {
+    font-size: 11px; font-weight: 700; padding: 2px 7px;
+    border-radius: 4px; white-space: nowrap;
+  }
+  .pill-green { background: var(--green-bg); color: var(--green); }
+  .pill-yellow { background: var(--yellow-bg); color: var(--yellow); }
+  .pill-red { background: var(--red-bg); color: var(--red); }
+
+  /* Tooltip row */
+  .one-liner-row { display: none; }
+  .one-liner-row td {
+    padding: 8px 16px 16px;
+    font-size: 13px; color: var(--text-secondary);
+    line-height: 1.5; font-style: italic;
+    border-bottom: 1px solid var(--border);
+  }
+  .one-liner-row.open { display: table-row; }
+  .expand-btn {
+    background: none; border: none; color: var(--text-secondary);
+    cursor: pointer; font-size: 16px; padding: 0 4px;
+    transition: transform 0.2s;
+  }
+  .expand-btn.open { transform: rotate(180deg); }
+
+  /* Charts */
+  .chart-container { border-radius: 12px; overflow: hidden; background: var(--bg-card); border: 1px solid var(--border); }
+  .plotly-chart { width: 100%; }
+  .chart-row { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  @media (max-width: 960px) { .chart-row { grid-template-columns: 1fr; } }
+
+  /* Tabs */
+  .tab-bar {
+    display: flex; gap: 4px; overflow-x: auto;
+    margin-bottom: 24px; padding-bottom: 4px;
+    scrollbar-width: none;
+  }
+  .tab-bar::-webkit-scrollbar { display: none; }
+  .tab-btn {
+    padding: 10px 20px; border: 1px solid var(--border);
+    background: var(--bg-card); color: var(--text-secondary);
+    border-radius: 8px; font-size: 14px; font-weight: 500;
+    cursor: pointer; white-space: nowrap; transition: all 0.2s;
+    font-family: inherit;
+  }
+  .tab-btn:hover { background: var(--bg-card-hover); color: var(--text-primary); }
+  .tab-btn.active {
+    background: var(--accent); color: white; border-color: var(--accent);
+  }
+  .tab-content { display: none; }
+  .tab-content.active { display: block; }
+
+  /* Persona card */
+  .persona-header { display: flex; align-items: center; gap: 16px; margin-bottom: 24px; }
+  .persona-avatar {
+    width: 56px; height: 56px; border-radius: 50%;
+    background: var(--accent-glow); border: 2px solid var(--accent);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 24px; font-weight: 800; color: var(--accent);
+  }
+  .persona-name { font-size: 1.25rem; font-weight: 700; }
+  .persona-lens { font-size: 13px; color: var(--text-secondary); }
+  .persona-stats {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 12px; margin-bottom: 24px;
+  }
+  .persona-stat {
+    background: var(--bg-primary); border-radius: 8px; padding: 12px;
+    text-align: center;
+  }
+  .persona-stat-val { font-size: 1.25rem; font-weight: 700; }
+  .persona-stat-label { font-size: 11px; color: var(--text-secondary); }
+  .persona-landscape {
+    font-size: 14px; color: var(--text-secondary); line-height: 1.7;
+    margin-top: 24px; padding-top: 24px; border-top: 1px solid var(--border);
+  }
+
+  /* Portfolio comparison */
+  .comparison-table-wrap { overflow-x: auto; margin-top: 32px; }
+  .comparison-table { width: 100%; font-size: 13px; }
+  .comparison-table th { font-size: 11px; padding: 10px 12px; }
+  .comparison-table td { padding: 8px 12px; text-align: center; }
+  .comparison-table td:first-child { text-align: left; font-weight: 600; }
+
+  /* Synthesis */
+  .synthesis-text {
+    font-size: 15px; line-height: 1.8; color: var(--text-secondary);
+    max-width: 900px;
+  }
+  .synthesis-text h2, .synthesis-text h3 {
+    color: var(--text-primary); margin-top: 40px; margin-bottom: 16px;
+  }
+  .synthesis-text h2 { font-size: 1.5rem; }
+  .synthesis-text h3 { font-size: 1.15rem; }
+  .synthesis-text strong { color: var(--text-primary); font-weight: 600; }
+  .synthesis-text p { margin-bottom: 16px; }
+  .synthesis-text ul, .synthesis-text ol { padding-left: 24px; margin-bottom: 16px; }
+  .synthesis-text li { margin-bottom: 8px; }
+  .pull-quote {
+    border-left: 3px solid var(--accent);
+    padding: 20px 24px; margin: 32px 0;
+    background: var(--accent-glow); border-radius: 0 8px 8px 0;
+    font-size: 16px; font-weight: 500; color: var(--text-primary);
+    line-height: 1.6;
+  }
+
+  /* Methodology */
+  .method-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+  }
+  .method-card {
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: 12px; padding: 24px;
+  }
+  .method-card h4 {
+    font-size: 14px; font-weight: 700; margin-bottom: 8px;
+    color: var(--accent);
+  }
+  .method-card p { font-size: 13px; color: var(--text-secondary); line-height: 1.6; }
+
+  /* Footer */
+  .footer {
+    text-align: center; padding: 48px 0;
+    font-size: 13px; color: var(--text-muted);
+    border-top: 1px solid var(--border);
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    section { padding: 48px 0; }
+    .container { padding: 0 16px; }
+    .hero { min-height: 50vh; padding-top: 60px; }
+    .stat-grid { grid-template-columns: 1fr 1fr; }
+    .hero-meta { flex-wrap: wrap; justify-content: center; }
+    .chart-row { grid-template-columns: 1fr; }
+  }
+
+  /* Number formatting */
+  .num-green { color: var(--green); }
+  .num-yellow { color: var(--yellow); }
+  .num-red { color: var(--red); }
+  .num-orange { color: var(--orange); }
+  .text-right { text-align: right; }
+  .text-center { text-align: center; }
+  .nowrap { white-space: nowrap; }
+</style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#hero" class="nav-brand">BUYBACK RESEARCH</a>
+    <a href="#rankings">Rankings</a>
+    <a href="#breakdown">Score Breakdown</a>
+    <a href="#scatter">Yield vs P/E</a>
+    <a href="#heatmap">Analyst Sentiment</a>
+    <a href="#dilution">Supply Dilution</a>
+    <a href="#mechanisms">Mechanisms</a>
+    <a href="#portfolios">Portfolios</a>
+    <a href="#synthesis">Synthesis</a>
+    <a href="#methodology">Methodology</a>
+  </div>
+</nav>
+
+<!-- Scroll to top -->
+<button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8593;</button>
+
+<!-- Hero -->
+<section id="hero" class="hero">
+  <div class="container">
+    <p class="section-label">Cross-Protocol Research</p>
+    <h1>Unified Cross-Protocol<br>Buyback Comparison</h1>
+    <p class="subtitle">13 protocols &middot; 5 analyst personas &middot; 65 verdicts</p>
+    <div class="hero-meta">
+      <span>Generated February 20, 2026</span>
+      <span>&middot;</span>
+      <span>Ralph Buyback Research System</span>
+    </div>
+    <div class="stat-grid">
+      <div class="stat-card">
+        <div class="stat-value">Raydium</div>
+        <div class="stat-label">Top Ranked Protocol (67.6)</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value">51.0</div>
+        <div class="stat-label">Median Composite Score</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value" style="background: linear-gradient(135deg, var(--green), var(--yellow), var(--red)); -webkit-background-clip: text; background-clip: text;">7 Bull / 20 Neutral / 38 Bear</div>
+        <div class="stat-label">Bullish / Neutral / Bearish Verdicts</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value">$18.9B</div>
+        <div class="stat-label">Total Market Cap Analyzed</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Rankings Table -->
+<section id="rankings">
+  <div class="container">
+    <p class="section-label">Protocol Rankings</p>
+    <h2>Composite Scoring Leaderboard</h2>
+    <div class="table-wrap">
+      <table id="rankingsTable">
+        <thead>
+          <tr>
+            <th data-col="rank" data-type="num" class="sorted">Rank <span class="sort-arrow">&#9650;</span></th>
+            <th data-col="protocol" data-type="str">Protocol <span class="sort-arrow">&#9650;</span></th>
+            <th data-col="token" data-type="str">Token <span class="sort-arrow">&#9650;</span></th>
+            <th data-col="category" data-type="str">Category <span class="sort-arrow">&#9650;</span></th>
+            <th data-col="composite" data-type="num">Composite Score <span class="sort-arrow">&#9650;</span></th>
+            <th data-col="yield" data-type="num">Buyback Yield <span class="sort-arrow">&#9650;</span></th>
+            <th data-col="pe" data-type="num">P/E <span class="sort-arrow">&#9650;</span></th>
+            <th data-col="fdv" data-type="num">FDV/MCap <span class="sort-arrow">&#9650;</span></th>
+            <th data-col="consensus" data-type="consensus">Consensus <span class="sort-arrow">&#9650;</span></th>
+            <th style="cursor:default;width:36px;"></th>
+          </tr>
+        </thead>
+        <tbody id="rankingsBody"></tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- Composite Score Breakdown -->
+<section id="breakdown">
+  <div class="container">
+    <p class="section-label">Score Dimensions</p>
+    <h2>Composite Score Breakdown</h2>
+    <div class="chart-container" style="padding: 8px;">
+      <div id="breakdownChart" class="plotly-chart"></div>
+    </div>
+  </div>
+</section>
+
+<!-- Yield vs P/E Scatter -->
+<section id="scatter">
+  <div class="container">
+    <p class="section-label">Valuation Landscape</p>
+    <h2>Buyback Yield vs P/E Ratio</h2>
+    <div class="chart-container" style="padding: 8px;">
+      <div id="scatterChart" class="plotly-chart"></div>
+    </div>
+  </div>
+</section>
+
+<!-- Analyst Sentiment Heatmap -->
+<section id="heatmap">
+  <div class="container">
+    <p class="section-label">Analyst Consensus</p>
+    <h2>Verdict Heatmap: 5 Analysts x 13 Protocols</h2>
+    <div class="chart-container" style="padding: 8px;">
+      <div id="heatmapChart" class="plotly-chart"></div>
+    </div>
+  </div>
+</section>
+
+<!-- Supply Dilution -->
+<section id="dilution">
+  <div class="container">
+    <p class="section-label">Supply Dynamics</p>
+    <h2>FDV / Market Cap Ratio (Dilution Pressure)</h2>
+    <div class="chart-container" style="padding: 8px;">
+      <div id="dilutionChart" class="plotly-chart"></div>
+    </div>
+  </div>
+</section>
+
+<!-- Mechanism Classification -->
+<section id="mechanisms">
+  <div class="container">
+    <p class="section-label">Mechanism Design</p>
+    <h2>Mechanism Type vs Execution Classification</h2>
+    <div class="chart-container" style="padding: 8px;">
+      <div id="mechanismChart" class="plotly-chart"></div>
+    </div>
+  </div>
+</section>
+
+<!-- Persona Portfolios -->
+<section id="portfolios">
+  <div class="container">
+    <p class="section-label">Analyst Portfolios</p>
+    <h2>Persona Portfolio Allocations</h2>
+    <div class="tab-bar" id="personaTabBar"></div>
+    <div id="personaTabContent"></div>
+    <h3 style="margin-top: 48px;">Cross-Persona Comparison (Top Protocols)</h3>
+    <div class="comparison-table-wrap">
+      <table class="comparison-table" id="comparisonTable">
+        <thead id="comparisonHead"></thead>
+        <tbody id="comparisonBody"></tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- Synthesis -->
+<section id="synthesis">
+  <div class="container">
+    <p class="section-label">Senior Research Lead</p>
+    <h2>Landscape Synthesis</h2>
+    <div id="synthesisContent" class="synthesis-text"></div>
+  </div>
+</section>
+
+<!-- Methodology -->
+<section id="methodology">
+  <div class="container">
+    <p class="section-label">About This Research</p>
+    <h2>Methodology</h2>
+    <div class="method-grid">
+      <div class="method-card">
+        <h4>Buyback Yield Score (Weight: 20%)</h4>
+        <p>Measures the annualized buyback yield relative to market cap. Higher yields scored higher, but contextually adjusted for sustainability and revenue durability. Percentile-ranked across the 13-protocol dataset.</p>
+      </div>
+      <div class="method-card">
+        <h4>Revenue Quality Score (Weight: 20%)</h4>
+        <p>Evaluates revenue denomination (stablecoin vs native), cyclicality, diversification, and growth trajectory. Stablecoin-denominated institutional revenue scores highest; memecoin casino fees score lowest.</p>
+      </div>
+      <div class="method-card">
+        <h4>Supply Cleanliness Score (Weight: 20%)</h4>
+        <p>Assesses FDV/MCap ratio, unlock schedules, emission rates, and net token flow (buyback minus unlocks minus inflation). Lower FDV/MCap and fully-unlocked supply score highest.</p>
+      </div>
+      <div class="method-card">
+        <h4>Analyst Consensus Score (Weight: 20%)</h4>
+        <p>Aggregates 5 independent analyst verdicts weighted by confidence level. Bullish verdicts contribute positively, Bearish negatively. Unanimous Bullish = 100, unanimous Bearish = 0.</p>
+      </div>
+      <div class="method-card">
+        <h4>Mechanism Design Score (Weight: 20%)</h4>
+        <p>Expert assessment of mechanism architecture: burn vs stake vs hold, automated vs manual execution, on-chain transparency, and structural alignment with tokenholder interests. Scored 0-100 by the mechanism design analyst.</p>
+      </div>
+      <div class="method-card">
+        <h4>Data Sources & Generation</h4>
+        <p>On-chain data, protocol documentation, governance forums, DeFiLlama, Token Terminal, and public disclosures. Generated February 20, 2026 by the Ralph Buyback Research multi-agent system using 5 AI analyst personas with distinct analytical frameworks.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <p>Ralph Buyback Research &middot; Generated February 20, 2026 &middot; 13 Protocols &middot; 5 Analyst Personas &middot; 65 Verdicts</p>
+    <p style="margin-top: 8px; opacity: 0.6;">This research is for informational purposes only and does not constitute financial advice.</p>
+  </div>
+</footer>
+
+<script>
+// ============================================================
+// DATA
+// ============================================================
+const protocols = [
+  {"rank":1,"protocol":"Raydium","token":"RAY","category":"DEX / AMM","composite_score":67.6,"buyback_yield":9.9,"pe_ratio":8.4,"fdv_mcap_ratio":2.02,"market_cap":175000000,"mechanism_types":["burn","lock"],"revenue_denomination":"mixed","execution_type":"automated","buyback_yield_score":69.2,"revenue_quality_score":38.6,"supply_cleanliness_score":70.4,"analyst_consensus_score":60.0,"mechanism_design_score":100,"verdicts":[{"analyst":"Charbonneau","verdict":"Neutral","confidence":"Medium-High"},{"analyst":"Hasu","verdict":"Bullish","confidence":"Medium-High"},{"analyst":"Cobie","verdict":"Neutral","confidence":"Medium-High"},{"analyst":"Hayes","verdict":"Neutral","confidence":"Medium-High"},{"analyst":"Monegro","verdict":"Neutral","confidence":"Medium-High"}],"one_liner":"Best-in-class automated buyback-and-burn execution on genuinely massive cumulative volume ($250M+), but a net-inflationary emission schedule and memecoin-casino revenue concentration mean the protocol is burning real revenue to fight its own dilution \u2014 \"well-designed plumbing carrying volatile water.\""},
+  {"rank":2,"protocol":"Maple Finance","token":"SYRUP","category":"RWA Lending","composite_score":64.0,"buyback_yield":2.4,"pe_ratio":10.6,"fdv_mcap_ratio":1.05,"market_cap":264000000,"mechanism_types":["stake","distribute","hold"],"revenue_denomination":"stablecoin","execution_type":"periodic","buyback_yield_score":23.1,"revenue_quality_score":59.4,"supply_cleanliness_score":99.2,"analyst_consensus_score":90.4,"mechanism_design_score":48,"verdicts":[{"analyst":"Charbonneau","verdict":"Bullish","confidence":"Medium-High"},{"analyst":"Hasu","verdict":"Bullish","confidence":"High"},{"analyst":"Cobie","verdict":"Neutral","confidence":"Medium-High"},{"analyst":"Hayes","verdict":"Bullish","confidence":"Medium"},{"analyst":"Monegro","verdict":"Bullish","confidence":"High"}],"one_liner":"The strongest buyback design in the series \u2014 real stablecoin revenue from institutional lending, progressive governance evolution from staking to buyback, and the first protocol with zero Bearish verdicts (4 Bullish, 1 Neutral)."},
+  {"rank":3,"protocol":"etherfi","token":"ETHFI","category":"Liquid Restaking","composite_score":58.4,"buyback_yield":5.8,"pe_ratio":4.3,"fdv_mcap_ratio":1.37,"market_cap":342000000,"mechanism_types":["burn","lock","stake","distribute","hold"],"revenue_denomination":"stablecoin","execution_type":"periodic","buyback_yield_score":53.8,"revenue_quality_score":64.8,"supply_cleanliness_score":51.3,"analyst_consensus_score":37.0,"mechanism_design_score":85,"verdicts":[{"analyst":"Charbonneau","verdict":"Neutral","confidence":"Medium"},{"analyst":"Hasu","verdict":"Bearish","confidence":"High"},{"analyst":"Cobie","verdict":"Neutral","confidence":"Medium-High"},{"analyst":"Hayes","verdict":"Neutral","confidence":"Medium"},{"analyst":"Monegro","verdict":"Neutral","confidence":"Medium"}],"one_liner":"Real revenue, well-designed mechanism architecture, but buyback magnitude is structurally overwhelmed by insider unlock pressure \u2014 the best-designed band-aid in DeFi."},
+  {"rank":4,"protocol":"Clanker","token":"CLANKER","category":"Token Launchpad","composite_score":57.2,"buyback_yield":26.4,"pe_ratio":2.5,"fdv_mcap_ratio":1.0,"market_cap":31760000,"mechanism_types":["burn","lock","hold"],"revenue_denomination":"stablecoin","execution_type":"manual","buyback_yield_score":73.8,"revenue_quality_score":63.6,"supply_cleanliness_score":94.6,"analyst_consensus_score":8.9,"mechanism_design_score":45,"verdicts":[{"analyst":"Charbonneau","verdict":"Neutral","confidence":"Medium-High"},{"analyst":"Hasu","verdict":"Bearish","confidence":"Medium-High"},{"analyst":"Cobie","verdict":"Bearish","confidence":"High"},{"analyst":"Hayes","verdict":"Bearish","confidence":"High"},{"analyst":"Monegro","verdict":"Bearish","confidence":"High"}],"one_liner":"Aggressive 66.7% buyback allocation on WETH-denominated revenue, but built entirely on memecoin casino fees with no structural moat, manual execution, and a co-founder theft scandal."},
+  {"rank":5,"protocol":"Jupiter","token":"JUP","category":"DEX Aggregator","composite_score":55.3,"buyback_yield":13.46,"pe_ratio":3.47,"fdv_mcap_ratio":1.96,"market_cap":520000000,"mechanism_types":["burn","lock"],"revenue_denomination":"stablecoin","execution_type":"automated","buyback_yield_score":84.6,"revenue_quality_score":66.7,"supply_cleanliness_score":35.4,"analyst_consensus_score":0.0,"mechanism_design_score":90,"verdicts":[{"analyst":"Charbonneau","verdict":"Bearish","confidence":"High"},{"analyst":"Hasu","verdict":"Bearish","confidence":"High"},{"analyst":"Cobie","verdict":"Bearish","confidence":"High"},{"analyst":"Hayes","verdict":"Bearish","confidence":"High"},{"analyst":"Monegro","verdict":"Bearish","confidence":"High"}],"one_liner":"A $70M buyback program that covered 6% of unlock pressure, bought tokens at 4.6x current price, was halted by its own co-founder as \"a waste of resources.\""},
+  {"rank":6,"protocol":"pump.fun","token":"PUMP","category":"Token Launchpad","composite_score":52.3,"buyback_yield":31.7,"pe_ratio":3.2,"fdv_mcap_ratio":1.7,"market_cap":1200000000,"mechanism_types":["burn","stake","distribute"],"revenue_denomination":"unknown","execution_type":"automated","buyback_yield_score":80.0,"revenue_quality_score":43.7,"supply_cleanliness_score":38.0,"analyst_consensus_score":0.0,"mechanism_design_score":100,"verdicts":[{"analyst":"Charbonneau","verdict":"Bearish","confidence":"Medium-High"},{"analyst":"Hasu","verdict":"Bearish","confidence":"High"},{"analyst":"Cobie","verdict":"Bearish","confidence":"High"},{"analyst":"Hayes","verdict":"Bearish","confidence":"High"},{"analyst":"Monegro","verdict":"Bearish","confidence":"High"}],"one_liner":"100% of revenue ($255M cumulative) to buybacks, yet token down 83% from ATH \u2014 a case study in how buybacks become insider exit liquidity."},
+  {"rank":7,"protocol":"Hyperliquid","token":"HYPE","category":"Perps L1","composite_score":51.0,"buyback_yield":5.1,"pe_ratio":7.7,"fdv_mcap_ratio":4.04,"market_cap":7210000000,"mechanism_types":["burn","distribute"],"revenue_denomination":"stablecoin","execution_type":"automated","buyback_yield_score":46.2,"revenue_quality_score":72.1,"supply_cleanliness_score":5.0,"analyst_consensus_score":56.5,"mechanism_design_score":75,"verdicts":[{"analyst":"Charbonneau","verdict":"Bullish","confidence":"Medium-High"},{"analyst":"Hasu","verdict":"Neutral","confidence":"Medium"},{"analyst":"Cobie","verdict":"Neutral","confidence":"Medium"},{"analyst":"Hayes","verdict":"Bearish","confidence":"High"},{"analyst":"Monegro","verdict":"Bullish","confidence":"Medium"}],"one_liner":"Best-in-class buyback mechanism design attached to dominant perps infrastructure, undermined by a 17:1 unlock-to-buyback ratio until mid-2028."},
+  {"rank":8,"protocol":"dYdX","token":"DYDX","category":"Perps DEX","composite_score":47.9,"buyback_yield":11.1,"pe_ratio":4.3,"fdv_mcap_ratio":1.21,"market_cap":81000000,"mechanism_types":["burn","stake","distribute","hold"],"revenue_denomination":"stablecoin","execution_type":"unknown","buyback_yield_score":76.9,"revenue_quality_score":69.8,"supply_cleanliness_score":52.9,"analyst_consensus_score":0.0,"mechanism_design_score":40,"verdicts":[{"analyst":"Charbonneau","verdict":"Bearish","confidence":"Medium-High"},{"analyst":"Hasu","verdict":"Bearish","confidence":"High"},{"analyst":"Cobie","verdict":"Bearish","confidence":"High"},{"analyst":"Hayes","verdict":"Bearish","confidence":"High"},{"analyst":"Monegro","verdict":"Bearish","confidence":"High"}],"one_liner":"An 11.1% buyback yield on declining revenue in a protocol that has lost 95%+ volume to Hyperliquid \u2014 the market does not believe the revenue is durable."},
+  {"rank":9,"protocol":"Jito","token":"JTO","category":"MEV / Staking Infra","composite_score":47.1,"buyback_yield":3.9,"pe_ratio":4.84,"fdv_mcap_ratio":2.28,"market_cap":128200000,"mechanism_types":["burn","distribute","hold"],"revenue_denomination":"unknown","execution_type":"automated","buyback_yield_score":38.5,"revenue_quality_score":36.0,"supply_cleanliness_score":36.2,"analyst_consensus_score":25.0,"mechanism_design_score":100,"verdicts":[{"analyst":"Charbonneau","verdict":"Neutral","confidence":"Medium"},{"analyst":"Hasu","verdict":"Neutral","confidence":"Medium"},{"analyst":"Cobie","verdict":"Bearish","confidence":"High"},{"analyst":"Hayes","verdict":"Bearish","confidence":"High"},{"analyst":"Monegro","verdict":"Neutral","confidence":"Medium"}],"one_liner":"Solana's dominant MEV infrastructure with real revenue, but current buyback execution is dwarfed by unlock pressure and extreme revenue cyclicality."},
+  {"rank":10,"protocol":"Ethena","token":"ENA","category":"Synthetic Dollar","composite_score":44.8,"buyback_yield":9.75,"pe_ratio":3.13,"fdv_mcap_ratio":1.83,"market_cap":990000000,"mechanism_types":["burn","stake","hold"],"revenue_denomination":"stablecoin","execution_type":"unknown","buyback_yield_score":61.5,"revenue_quality_score":70.6,"supply_cleanliness_score":44.7,"analyst_consensus_score":7.4,"mechanism_design_score":40,"verdicts":[{"analyst":"Charbonneau","verdict":"Bearish","confidence":"Medium-High"},{"analyst":"Hasu","verdict":"Neutral","confidence":"Medium"},{"analyst":"Cobie","verdict":"Bearish","confidence":"High"},{"analyst":"Hayes","verdict":"Bearish","confidence":"High"},{"analyst":"Monegro","verdict":"Bearish","confidence":"High"}],"one_liner":"Real revenue, wrong mechanism \u2014 an $890M SPAC buyback that failed to prevent a 92% drawdown."},
+  {"rank":11,"protocol":"Chainlink","token":"LINK","category":"Oracle / Middleware","composite_score":44.0,"buyback_yield":0.31,"pe_ratio":80.0,"fdv_mcap_ratio":1.41,"market_cap":6100000000,"mechanism_types":["burn","stake","hold"],"revenue_denomination":"unknown","execution_type":"automated","buyback_yield_score":7.7,"revenue_quality_score":34.3,"supply_cleanliness_score":50.9,"analyst_consensus_score":27.3,"mechanism_design_score":100,"verdicts":[{"analyst":"Charbonneau","verdict":"Neutral","confidence":"Medium"},{"analyst":"Hasu","verdict":"Bearish","confidence":"Medium"},{"analyst":"Cobie","verdict":"Bearish","confidence":"High"},{"analyst":"Hayes","verdict":"Neutral","confidence":"Medium"},{"analyst":"Monegro","verdict":"Neutral","confidence":"Medium"}],"one_liner":"The best business in crypto with the weakest token value accrual mechanism \u2014 0.31% buyback yield against a $6B market cap."},
+  {"rank":12,"protocol":"Pyth Network","token":"PYTH","category":"Oracle","composite_score":42.9,"buyback_yield":0.51,"pe_ratio":553.0,"fdv_mcap_ratio":1.74,"market_cap":304000000,"mechanism_types":["burn","lock","distribute","hold"],"revenue_denomination":"stablecoin","execution_type":"periodic","buyback_yield_score":15.4,"revenue_quality_score":55.5,"supply_cleanliness_score":51.6,"analyst_consensus_score":7.1,"mechanism_design_score":85,"verdicts":[{"analyst":"Charbonneau","verdict":"Neutral","confidence":"Medium"},{"analyst":"Hasu","verdict":"Bearish","confidence":"High"},{"analyst":"Cobie","verdict":"Bearish","confidence":"High"},{"analyst":"Hayes","verdict":"Bearish","confidence":"High"},{"analyst":"Monegro","verdict":"Bearish","confidence":"High"}],"one_liner":"Well-designed but economically trivial buyback ($130K/month) on a pre-revenue oracle at 553x P/E with a catastrophic May 2026 unlock."},
+  {"rank":13,"protocol":"Aster","token":"ASTER","category":"Perps DEX","composite_score":41.5,"buyback_yield":3.8,"pe_ratio":5.7,"fdv_mcap_ratio":3.22,"market_cap":1720000000,"mechanism_types":["burn","lock","hold"],"revenue_denomination":"stablecoin","execution_type":"automated","buyback_yield_score":30.8,"revenue_quality_score":64.0,"supply_cleanliness_score":12.8,"analyst_consensus_score":0.0,"mechanism_design_score":100,"verdicts":[{"analyst":"Charbonneau","verdict":"Bearish","confidence":"Medium"},{"analyst":"Hasu","verdict":"Bearish","confidence":"High"},{"analyst":"Cobie","verdict":"Bearish","confidence":"High"},{"analyst":"Hayes","verdict":"Bearish","confidence":"High"},{"analyst":"Monegro","verdict":"Bearish","confidence":"High"}],"one_liner":"$214M+ in cumulative buybacks with -71% drawdown and wash-trading allegations, with CZ-adjacent team unlocks starting September 2026."}
+];
+
+const personas = {
+  "Charbonneau": {
+    "lens": "Mechanism Design & Infrastructure (DBA Thesis)",
+    "landscape_excerpt": "The headline finding is uncomfortable: the median composite score is 51.0 out of 100, and 38 of 65 individual analyst verdicts were Bearish. This is not a landscape of protocols returning value to holders. This is a landscape of protocols performing the theater of value return while the underlying revenue sources, supply dynamics, and governance structures work against tokenholders.",
+    "cash": 10.0,
+    "allocations": [
+      {"protocol":"Hyperliquid","token":"HYPE","pct":17.0},
+      {"protocol":"Maple Finance","token":"SYRUP","pct":15.5},
+      {"protocol":"Raydium","token":"RAY","pct":12.0},
+      {"protocol":"etherfi","token":"ETHFI","pct":8.0},
+      {"protocol":"Chainlink","token":"LINK","pct":7.5},
+      {"protocol":"Aster","token":"ASTER","pct":7.5},
+      {"protocol":"Jito","token":"JTO","pct":7.0},
+      {"protocol":"Jupiter","token":"JUP","pct":4.0},
+      {"protocol":"Ethena","token":"ENA","pct":3.5},
+      {"protocol":"dYdX","token":"DYDX","pct":2.5},
+      {"protocol":"pump.fun","token":"PUMP","pct":2.0},
+      {"protocol":"Clanker","token":"CLANKER","pct":2.0},
+      {"protocol":"Pyth Network","token":"PYTH","pct":1.5}
+    ]
+  },
+  "Hasu": {
+    "lens": "Game Theory & Capital Allocation Equilibrium",
+    "landscape_excerpt": "The most striking finding from analyzing 13 buyback programs is not that most are poorly designed \u2014 that was expected \u2014 but that the correlation between buyback yield and token performance is essentially zero or negative. pump.fun allocates 100% of revenue to buybacks, delivers a 31.7% yield, and the token is down 83% from its all-time high.",
+    "cash": 30.0,
+    "allocations": [
+      {"protocol":"Maple Finance","token":"SYRUP","pct":20.0},
+      {"protocol":"Raydium","token":"RAY","pct":15.0},
+      {"protocol":"etherfi","token":"ETHFI","pct":8.0},
+      {"protocol":"Chainlink","token":"LINK","pct":7.0},
+      {"protocol":"Hyperliquid","token":"HYPE","pct":5.0},
+      {"protocol":"Jito","token":"JTO","pct":5.0},
+      {"protocol":"Jupiter","token":"JUP","pct":4.0},
+      {"protocol":"dYdX","token":"DYDX","pct":3.0},
+      {"protocol":"Ethena","token":"ENA","pct":3.0}
+    ]
+  },
+  "Cobie": {
+    "lens": "Market Structure & Exit Liquidity Analysis",
+    "landscape_excerpt": "Here\u2019s what 13 buybacks reveal in aggregate: most token buybacks exist to create a narrative event, not an economic one. The announcement moves price more than the buyback ever will. The governance proposal generates more alpha for its authors than the mechanism generates for holders.",
+    "cash": 58.0,
+    "allocations": [
+      {"protocol":"Maple Finance","token":"SYRUP","pct":13.0},
+      {"protocol":"Raydium","token":"RAY","pct":10.0},
+      {"protocol":"Chainlink","token":"LINK","pct":8.0},
+      {"protocol":"Hyperliquid","token":"HYPE","pct":5.0},
+      {"protocol":"etherfi","token":"ETHFI","pct":4.0},
+      {"protocol":"Jito","token":"JTO","pct":2.0}
+    ]
+  },
+  "Hayes": {
+    "lens": "Macro Regime & Fiat Liquidity Cycles",
+    "landscape_excerpt": "Crypto buybacks, as a category, are the DeFi equivalent of selling volatility. They look brilliant in a bull market. They are catastrophic in a bear. Looking at these thirteen protocols together, the pattern is unmistakable and damning.",
+    "cash": 66.5,
+    "allocations": [
+      {"protocol":"Maple Finance","token":"SYRUP","pct":12.0},
+      {"protocol":"etherfi","token":"ETHFI","pct":5.5},
+      {"protocol":"Raydium","token":"RAY","pct":4.0},
+      {"protocol":"Chainlink","token":"LINK","pct":4.0},
+      {"protocol":"Hyperliquid","token":"HYPE","pct":3.0},
+      {"protocol":"Jito","token":"JTO","pct":2.5},
+      {"protocol":"Jupiter","token":"JUP","pct":1.0},
+      {"protocol":"Ethena","token":"ENA","pct":1.0},
+      {"protocol":"dYdX","token":"DYDX","pct":0.5}
+    ]
+  },
+  "Monegro": {
+    "lens": "Fat Protocols & Structural Value Capture",
+    "landscape_excerpt": "The vast majority of crypto tokens do not have a legitimate value claim, and buybacks cannot manufacture one. This is the structural reality that every other observation flows from. Buyback aggression is inversely correlated with structural quality.",
+    "cash": 28.0,
+    "allocations": [
+      {"protocol":"Maple Finance","token":"SYRUP","pct":16.0},
+      {"protocol":"Hyperliquid","token":"HYPE","pct":13.0},
+      {"protocol":"Raydium","token":"RAY","pct":9.0},
+      {"protocol":"etherfi","token":"ETHFI","pct":7.5},
+      {"protocol":"Chainlink","token":"LINK","pct":7.0},
+      {"protocol":"Jito","token":"JTO","pct":6.5},
+      {"protocol":"Ethena","token":"ENA","pct":4.0},
+      {"protocol":"Jupiter","token":"JUP","pct":3.0},
+      {"protocol":"dYdX","token":"DYDX","pct":2.0},
+      {"protocol":"Clanker","token":"CLANKER","pct":1.0},
+      {"protocol":"pump.fun","token":"PUMP","pct":1.0},
+      {"protocol":"Pyth Network","token":"PYTH","pct":1.0},
+      {"protocol":"Aster","token":"ASTER","pct":1.0}
+    ]
+  }
+};
+
+const synthesisMarkdown = `## Senior Research Lead \u2014 Landscape Synthesis
+
+### The Landscape Verdict
+
+Thirteen buyback programs, sixty-five analyst verdicts, and one uncomfortable conclusion: **crypto buybacks, as currently practiced, are net negative for tokenholders in the majority of implementations.** The aggregate verdict distribution \u2014 38 Bearish, 20 Neutral, 7 Bullish \u2014 is not the result of a bearish panel. It is the output of five distinct analytical frameworks independently arriving at the same conclusion.
+
+Buybacks are not inherently broken. But the median implementation in this dataset treats the buyback as a product \u2014 a narrative device to signal financial maturity \u2014 rather than as one component of a capital allocation framework.
+
+### The Quality Distribution
+
+The quality spectrum is remarkably clean. Three tiers emerge, defined not by mechanism sophistication but by whether the preconditions for a functional buyback exist:
+
+**Tier 1 \u2014 Structurally Sound (Maple Finance, Raydium):** These two share the critical preconditions: real revenue, clean supply (FDV/MCap below 2.1x), and mechanism execution that is at least architecturally honest. Maple is the standout \u2014 stablecoin revenue from institutional lending, 1.05x FDV/MCap, zero Bearish verdicts.
+
+**Tier 2 \u2014 One Fatal Flaw (Hyperliquid, etherfi, Jito, Chainlink):** Each has something genuinely valuable but is compromised by a single dimension: Hyperliquid\u2019s 4.04x FDV/MCap, Chainlink\u2019s 0.31% buyback yield, Jito\u2019s 0.49x buyback-to-unlock ratio.
+
+**Tier 3 \u2014 Mechanism Theater (Jupiter, pump.fun, dYdX, Clanker, Ethena, Pyth, Aster):** Seven of thirteen protocols. pump.fun allocated 100% of revenue ($255M cumulative) and the token fell 83%. Jupiter spent $70M and its own co-founder halted the program.
+
+### Cross-Persona Convergence
+
+Five high-conviction signals emerged from all five frameworks:
+
+1. **Maple Finance is the consensus conviction position.** Every persona allocated 12-20%. Stablecoin revenue, clean cap table, and zero Bearish verdicts created unanimous conviction.
+
+2. **FDV/MCap ratio is the single most predictive metric.** Protocols below 1.5x received majority positive verdicts; protocols above 3x received unanimous Bearish.
+
+3. **High buyback yield is a distress signal, not a value signal.** The three highest-yielding protocols all received majority Bearish verdicts.
+
+4. **Revenue denomination separates durable from fragile.** Stablecoin-denominated revenue provides non-reflexive buyback flows.
+
+5. **Mechanism design is necessary but not sufficient.** Five protocols scored 100/100 on mechanism design yet span the full range of composite scores.
+
+### Portfolio Implications
+
+A consensus portfolio would look approximately like: Maple Finance (15%), Raydium (10%), Hyperliquid (9%), Chainlink (7%), etherfi (6%), Jito (4%), cash (38%), and de minimis allocation to the remaining seven protocols.
+
+### The One Thing
+
+**A buyback is a capital allocation decision, not a value proposition.** The protocols that succeed treat the buyback as one tool in a broader capital allocation strategy. The protocols that fail treat the buyback as the strategy itself.`;
+
+// ============================================================
+// HELPERS
+// ============================================================
+const analysts = ["Charbonneau", "Hasu", "Cobie", "Hayes", "Monegro"];
+const dimColors = ['#6c63ff', '#22c55e', '#3b82f6', '#f59e0b', '#ef4444'];
+const dimNames = ['Buyback Yield', 'Revenue Quality', 'Supply Cleanliness', 'Analyst Consensus', 'Mechanism Design'];
+const dimKeys = ['buyback_yield_score', 'revenue_quality_score', 'supply_cleanliness_score', 'analyst_consensus_score', 'mechanism_design_score'];
+
+function fmtMcap(v) {
+  if (v >= 1e9) return '$' + (v/1e9).toFixed(1) + 'B';
+  if (v >= 1e6) return '$' + (v/1e6).toFixed(0) + 'M';
+  return '$' + v.toLocaleString();
+}
+
+function verdictCounts(verdicts) {
+  let b = 0, n = 0, bear = 0;
+  verdicts.forEach(v => {
+    if (v.verdict === 'Bullish') b++;
+    else if (v.verdict === 'Neutral') n++;
+    else bear++;
+  });
+  return { bullish: b, neutral: n, bearish: bear };
+}
+
+function scoreColor(score) {
+  if (score >= 60) return 'var(--green)';
+  if (score >= 50) return 'var(--yellow)';
+  if (score >= 45) return 'var(--orange)';
+  return 'var(--red)';
+}
+
+const plotlyLayout = {
+  paper_bgcolor: 'rgba(0,0,0,0)',
+  plot_bgcolor: 'rgba(0,0,0,0)',
+  font: { family: 'Inter, sans-serif', color: '#e8e8f0', size: 13 },
+  margin: { l: 140, r: 40, t: 40, b: 60 },
+  xaxis: { gridcolor: '#2a2a44', zerolinecolor: '#2a2a44' },
+  yaxis: { gridcolor: '#2a2a44', zerolinecolor: '#2a2a44' },
+};
+const plotlyConfig = { displayModeBar: false, responsive: true };
+
+// ============================================================
+// 1. RANKINGS TABLE
+// ============================================================
+function renderTable() {
+  const tbody = document.getElementById('rankingsBody');
+  let html = '';
+  protocols.forEach(p => {
+    const vc = verdictCounts(p.verdicts);
+    html += `<tr data-rank="${p.rank}" data-protocol="${p.protocol}" data-token="${p.token}" data-category="${p.category}" data-composite="${p.composite_score}" data-yield="${p.buyback_yield}" data-pe="${p.pe_ratio}" data-fdv="${p.fdv_mcap_ratio}" data-consensus="${vc.bullish*100 + vc.neutral*10}">
+      <td class="rank-cell">${p.rank}</td>
+      <td class="protocol-name">${p.protocol}</td>
+      <td><span class="token-badge">${p.token}</span></td>
+      <td class="category-text">${p.category}</td>
+      <td>
+        <div class="score-bar-container">
+          <div class="score-bar"><div class="score-bar-fill" style="width:${p.composite_score}%;background:${scoreColor(p.composite_score)}"></div></div>
+          <span class="score-value" style="color:${scoreColor(p.composite_score)}">${p.composite_score}</span>
+        </div>
+      </td>
+      <td class="text-right nowrap">${p.buyback_yield}%</td>
+      <td class="text-right nowrap">${p.pe_ratio}x</td>
+      <td class="text-right nowrap">${p.fdv_mcap_ratio}x</td>
+      <td>
+        <div class="verdict-pills">
+          ${vc.bullish ? `<span class="pill pill-green">${vc.bullish}B</span>` : ''}
+          ${vc.neutral ? `<span class="pill pill-yellow">${vc.neutral}N</span>` : ''}
+          ${vc.bearish ? `<span class="pill pill-red">${vc.bearish}Be</span>` : ''}
+        </div>
+      </td>
+      <td><button class="expand-btn" onclick="toggleOneLiner(this)" aria-label="Show details">&#9662;</button></td>
+    </tr>
+    <tr class="one-liner-row"><td colspan="10">${p.one_liner}</td></tr>`;
+  });
+  tbody.innerHTML = html;
+}
+
+function toggleOneLiner(btn) {
+  const row = btn.closest('tr').nextElementSibling;
+  row.classList.toggle('open');
+  btn.classList.toggle('open');
+}
+
+// Sortable table
+function sortTable(th) {
+  const table = document.getElementById('rankingsTable');
+  const tbody = table.querySelector('tbody');
+  const col = th.dataset.col;
+  const type = th.dataset.type;
+  const rows = Array.from(tbody.querySelectorAll('tr:not(.one-liner-row)'));
+  const asc = !th.classList.contains('sorted-asc');
+
+  table.querySelectorAll('th').forEach(t => {
+    t.classList.remove('sorted', 'sorted-asc', 'sorted-desc');
+  });
+  th.classList.add('sorted', asc ? 'sorted-asc' : 'sorted-desc');
+  th.querySelector('.sort-arrow').innerHTML = asc ? '&#9650;' : '&#9660;';
+
+  rows.sort((a, b) => {
+    let va, vb;
+    if (type === 'num' || type === 'consensus') {
+      va = parseFloat(a.dataset[col]) || 0;
+      vb = parseFloat(b.dataset[col]) || 0;
+    } else {
+      va = a.dataset[col] || '';
+      vb = b.dataset[col] || '';
+    }
+    if (va < vb) return asc ? -1 : 1;
+    if (va > vb) return asc ? 1 : -1;
+    return 0;
+  });
+
+  rows.forEach(r => {
+    const oneLiner = r.nextElementSibling;
+    tbody.appendChild(r);
+    if (oneLiner) tbody.appendChild(oneLiner);
+  });
+}
+
+document.querySelectorAll('#rankingsTable th[data-col]').forEach(th => {
+  th.addEventListener('click', () => sortTable(th));
+});
+
+// ============================================================
+// 2. COMPOSITE SCORE BREAKDOWN (Horizontal Stacked Bar)
+// ============================================================
+function renderBreakdown() {
+  const sorted = [...protocols].sort((a, b) => a.composite_score - b.composite_score);
+  const yLabels = sorted.map(p => p.token);
+
+  const traces = dimKeys.map((key, i) => ({
+    y: yLabels,
+    x: sorted.map(p => p[key] / 5),
+    name: dimNames[i],
+    type: 'bar',
+    orientation: 'h',
+    marker: { color: dimColors[i] },
+    hovertemplate: `<b>%{y}</b><br>${dimNames[i]}: %{customdata:.1f}/100<extra></extra>`,
+    customdata: sorted.map(p => p[key]),
+  }));
+
+  Plotly.newPlot('breakdownChart', traces, {
+    ...plotlyLayout,
+    barmode: 'stack',
+    height: 520,
+    margin: { ...plotlyLayout.margin, l: 80 },
+    xaxis: { ...plotlyLayout.xaxis, title: 'Weighted Score Contribution', range: [0, 105] },
+    yaxis: { ...plotlyLayout.yaxis, autorange: true, dtick: 1 },
+    legend: { orientation: 'h', y: 1.12, x: 0.5, xanchor: 'center', font: { size: 12 } },
+  }, plotlyConfig);
+}
+
+// ============================================================
+// 3. YIELD vs P/E SCATTER
+// ============================================================
+function renderScatter() {
+  const maxBubble = 60;
+  const mcaps = protocols.map(p => p.market_cap);
+  const maxMcap = Math.max(...mcaps);
+
+  Plotly.newPlot('scatterChart', [{
+    x: protocols.map(p => p.pe_ratio),
+    y: protocols.map(p => p.buyback_yield),
+    text: protocols.map(p => p.token),
+    mode: 'markers+text',
+    textposition: 'top center',
+    textfont: { size: 11, color: '#e8e8f0' },
+    marker: {
+      size: protocols.map(p => Math.max(12, Math.sqrt(p.market_cap / maxMcap) * maxBubble)),
+      color: protocols.map(p => p.composite_score),
+      colorscale: 'RdYlGn',
+      cmin: 40, cmax: 70,
+      colorbar: { title: 'Score', titleside: 'right', thickness: 14, len: 0.6, tickfont: { size: 11 } },
+      line: { width: 1, color: '#2a2a44' },
+      opacity: 0.85,
+    },
+    hovertemplate: '<b>%{text}</b><br>P/E: %{x:.1f}x<br>Yield: %{y:.1f}%<br><extra></extra>',
+    type: 'scatter',
+  }], {
+    ...plotlyLayout,
+    height: 520,
+    xaxis: {
+      ...plotlyLayout.xaxis,
+      type: 'log', title: 'P/E Ratio (log scale)',
+      dtick: 1,
+    },
+    yaxis: { ...plotlyLayout.yaxis, title: 'Buyback Yield %' },
+    shapes: [
+      { type: 'line', x0: 4.6, x1: 4.6, y0: 0, y1: 35, line: { color: '#555', width: 1, dash: 'dash' } },
+      { type: 'line', x0: 1, x1: 600, y0: 5.8, y1: 5.8, line: { color: '#555', width: 1, dash: 'dash' } },
+    ],
+    annotations: [
+      { x: Math.log10(4.6), y: 34, text: 'Median P/E', showarrow: false, font: { size: 11, color: '#888' } },
+      { x: Math.log10(500), y: 6.6, text: 'Median Yield', showarrow: false, font: { size: 11, color: '#888' } },
+    ],
+    showlegend: false,
+  }, plotlyConfig);
+}
+
+// ============================================================
+// 4. ANALYST SENTIMENT HEATMAP
+// ============================================================
+function renderHeatmap() {
+  const sorted = [...protocols].sort((a, b) => b.composite_score - a.composite_score);
+  const yLabels = sorted.map(p => `${p.token} (${p.composite_score})`);
+
+  const verdictMap = { 'Bullish': 2, 'Neutral': 1, 'Bearish': 0 };
+  const confAbbr = { 'High': 'H', 'Medium-High': 'MH', 'Medium': 'M', 'Low': 'L' };
+
+  const z = sorted.map(p =>
+    analysts.map(a => {
+      const v = p.verdicts.find(vv => vv.analyst === a);
+      return v ? verdictMap[v.verdict] : 1;
+    })
+  );
+
+  const annotations = [];
+  sorted.forEach((p, i) => {
+    analysts.forEach((a, j) => {
+      const v = p.verdicts.find(vv => vv.analyst === a);
+      if (v) {
+        const letter = v.verdict[0];
+        const conf = confAbbr[v.confidence] || '';
+        annotations.push({
+          x: a, y: yLabels[i],
+          text: `${letter}/${conf}`,
+          showarrow: false,
+          font: { size: 11, color: v.verdict === 'Neutral' ? '#1a1a2e' : '#fff', family: 'Inter' },
+        });
+      }
+    });
+  });
+
+  Plotly.newPlot('heatmapChart', [{
+    z: z,
+    x: analysts,
+    y: yLabels,
+    type: 'heatmap',
+    colorscale: [[0, '#dc2626'], [0.5, '#eab308'], [1, '#16a34a']],
+    showscale: false,
+    hovertemplate: '%{y}<br>%{x}<extra></extra>',
+    xgap: 3, ygap: 3,
+  }], {
+    ...plotlyLayout,
+    height: 560,
+    margin: { l: 140, r: 20, t: 20, b: 60 },
+    annotations: annotations,
+    xaxis: { ...plotlyLayout.xaxis, side: 'bottom' },
+    yaxis: { ...plotlyLayout.yaxis, autorange: true, dtick: 1 },
+  }, plotlyConfig);
+}
+
+// ============================================================
+// 5. SUPPLY DILUTION (FDV/MCap)
+// ============================================================
+function renderDilution() {
+  const sorted = [...protocols].sort((a, b) => a.fdv_mcap_ratio - b.fdv_mcap_ratio);
+  const colors = sorted.map(p => {
+    if (p.fdv_mcap_ratio < 1.2) return '#16a34a';
+    if (p.fdv_mcap_ratio < 2) return '#eab308';
+    if (p.fdv_mcap_ratio < 3) return '#f97316';
+    return '#dc2626';
+  });
+
+  Plotly.newPlot('dilutionChart', [{
+    y: sorted.map(p => p.token),
+    x: sorted.map(p => p.fdv_mcap_ratio),
+    type: 'bar',
+    orientation: 'h',
+    marker: { color: colors, line: { width: 0 } },
+    text: sorted.map(p => p.fdv_mcap_ratio + 'x'),
+    textposition: 'outside',
+    textfont: { size: 12 },
+    hovertemplate: '<b>%{y}</b><br>FDV/MCap: %{x:.2f}x<extra></extra>',
+  }], {
+    ...plotlyLayout,
+    height: 520,
+    margin: { ...plotlyLayout.margin, l: 80, r: 60 },
+    xaxis: { ...plotlyLayout.xaxis, title: 'FDV / Market Cap Ratio', range: [0, 5] },
+    yaxis: { ...plotlyLayout.yaxis, autorange: true, dtick: 1 },
+    shapes: [
+      { type: 'line', x0: 1, x1: 1, y0: -0.5, y1: 12.5, line: { color: '#22c55e', width: 2, dash: 'dash' } },
+    ],
+    annotations: [
+      { x: 1, y: 13.2, text: '1.0x (no dilution)', showarrow: false, font: { size: 11, color: '#22c55e' } },
+    ],
+    showlegend: false,
+  }, plotlyConfig);
+}
+
+// ============================================================
+// 6. MECHANISM CLASSIFICATION
+// ============================================================
+function renderMechanisms() {
+  const mechMap = {};
+  const allMechs = new Set();
+  const allExec = new Set();
+  protocols.forEach(p => {
+    p.mechanism_types.forEach(m => allMechs.add(m));
+    allExec.add(p.execution_type);
+  });
+
+  const mechList = ['burn','lock','stake','distribute','hold'];
+  const execList = ['automated','periodic','manual','unknown'];
+  const execLabels = { automated: 'Automated', periodic: 'Periodic', manual: 'Manual', unknown: 'Unknown' };
+  const mechLabels = { burn: 'Burn', lock: 'Lock', stake: 'Stake', distribute: 'Distribute', hold: 'Hold' };
+
+  const xs = [], ys = [], sizes = [], texts = [], colors = [];
+  protocols.forEach(p => {
+    const primaryMech = p.mechanism_types[0];
+    const jitterX = (Math.random() - 0.5) * 0.3;
+    const jitterY = (Math.random() - 0.5) * 0.3;
+    xs.push(execList.indexOf(p.execution_type) + jitterX);
+    ys.push(mechList.indexOf(primaryMech) + jitterY);
+    sizes.push(Math.max(20, p.composite_score * 0.7));
+    texts.push(p.token);
+    colors.push(p.composite_score);
+  });
+
+  Plotly.newPlot('mechanismChart', [{
+    x: xs, y: ys,
+    text: texts,
+    mode: 'markers+text',
+    textposition: 'top center',
+    textfont: { size: 11, color: '#e8e8f0' },
+    marker: {
+      size: sizes,
+      color: colors,
+      colorscale: 'RdYlGn', cmin: 40, cmax: 70,
+      colorbar: { title: 'Score', thickness: 14, len: 0.6, tickfont: { size: 11 } },
+      line: { width: 1, color: '#2a2a44' },
+      opacity: 0.8,
+    },
+    hovertemplate: '<b>%{text}</b><br><extra></extra>',
+    type: 'scatter',
+  }], {
+    ...plotlyLayout,
+    height: 480,
+    margin: { l: 100, r: 60, t: 40, b: 80 },
+    xaxis: {
+      ...plotlyLayout.xaxis,
+      tickvals: [0, 1, 2, 3],
+      ticktext: execList.map(e => execLabels[e]),
+      title: 'Execution Type',
+      range: [-0.6, 3.6],
+    },
+    yaxis: {
+      ...plotlyLayout.yaxis,
+      tickvals: [0, 1, 2, 3, 4],
+      ticktext: mechList.map(m => mechLabels[m]),
+      title: 'Primary Mechanism',
+      range: [-0.6, 4.6],
+    },
+    showlegend: false,
+  }, plotlyConfig);
+}
+
+// ============================================================
+// 7. PERSONA PORTFOLIOS
+// ============================================================
+function renderPersonas() {
+  const tabBar = document.getElementById('personaTabBar');
+  const tabContent = document.getElementById('personaTabContent');
+  const personaNames = Object.keys(personas);
+  const initials = { 'Charbonneau': 'JC', 'Hasu': 'Ha', 'Cobie': 'Co', 'Hayes': 'AH', 'Monegro': 'JM' };
+
+  let tabBarHtml = '';
+  let contentHtml = '';
+
+  personaNames.forEach((name, i) => {
+    const p = personas[name];
+    tabBarHtml += `<button class="tab-btn ${i === 0 ? 'active' : ''}" onclick="switchPersonaTab(${i})">${name}</button>`;
+
+    const allocs = p.allocations.filter(a => a.pct > 0);
+    const topAllocs = allocs.slice(0, 8);
+    const deployed = 100 - p.cash;
+
+    contentHtml += `<div class="tab-content ${i === 0 ? 'active' : ''}" id="personaTab${i}">
+      <div class="card">
+        <div class="persona-header">
+          <div class="persona-avatar">${initials[name]}</div>
+          <div>
+            <div class="persona-name">${name}</div>
+            <div class="persona-lens">${p.lens}</div>
+          </div>
+        </div>
+        <div class="persona-stats">
+          <div class="persona-stat">
+            <div class="persona-stat-val" style="color:var(--green)">${deployed.toFixed(1)}%</div>
+            <div class="persona-stat-label">Deployed</div>
+          </div>
+          <div class="persona-stat">
+            <div class="persona-stat-val" style="color:var(--text-secondary)">${p.cash}%</div>
+            <div class="persona-stat-label">Cash</div>
+          </div>
+          <div class="persona-stat">
+            <div class="persona-stat-val" style="color:var(--accent)">${allocs.length}</div>
+            <div class="persona-stat-label">Positions</div>
+          </div>
+          <div class="persona-stat">
+            <div class="persona-stat-val">${topAllocs.length > 0 ? topAllocs[0].pct + '%' : '0%'}</div>
+            <div class="persona-stat-label">Top Position</div>
+          </div>
+        </div>
+        <div id="donut${i}" style="height: 340px;"></div>
+        <div class="persona-landscape">
+          <h4 style="color: var(--text-primary); margin-bottom: 8px;">Landscape View</h4>
+          <p>${p.landscape_excerpt}</p>
+        </div>
+      </div>
+    </div>`;
+  });
+
+  tabBar.innerHTML = tabBarHtml;
+  tabContent.innerHTML = contentHtml;
+
+  // Render donuts
+  personaNames.forEach((name, i) => {
+    const p = personas[name];
+    const labels = [...p.allocations.filter(a => a.pct > 0).map(a => a.token), 'Cash'];
+    const values = [...p.allocations.filter(a => a.pct > 0).map(a => a.pct), p.cash];
+    const colors = labels.map((l, idx) => {
+      if (l === 'Cash') return '#3a3a5a';
+      const hue = (idx * 37 + 200) % 360;
+      return `hsl(${hue}, 55%, 55%)`;
+    });
+
+    Plotly.newPlot(`donut${i}`, [{
+      labels: labels,
+      values: values,
+      type: 'pie',
+      hole: 0.55,
+      textinfo: 'label+percent',
+      textfont: { size: 11, color: '#e8e8f0' },
+      marker: { colors: colors, line: { width: 2, color: '#1a1a2e' } },
+      hovertemplate: '<b>%{label}</b><br>%{value}% allocation<extra></extra>',
+      sort: false,
+    }], {
+      ...plotlyLayout,
+      height: 340,
+      margin: { l: 20, r: 20, t: 20, b: 20 },
+      showlegend: false,
+      annotations: [{
+        text: `${(100 - p.cash).toFixed(0)}%<br><span style="font-size:11px;color:#9898b0">deployed</span>`,
+        showarrow: false, font: { size: 22, color: '#e8e8f0', family: 'Inter' },
+      }],
+    }, plotlyConfig);
+  });
+
+  // Comparison table
+  renderComparison();
+}
+
+window.switchPersonaTab = function(idx) {
+  document.querySelectorAll('.tab-btn').forEach((b, i) => b.classList.toggle('active', i === idx));
+  document.querySelectorAll('.tab-content').forEach((c, i) => c.classList.toggle('active', i === idx));
+};
+
+function renderComparison() {
+  const personaNames = Object.keys(personas);
+  const topProtocols = ['Maple Finance', 'Raydium', 'Hyperliquid', 'etherfi', 'Chainlink', 'Jito', 'Ethena', 'Jupiter'];
+
+  let headHtml = '<tr><th>Protocol</th>';
+  personaNames.forEach(n => headHtml += `<th>${n}</th>`);
+  headHtml += '</tr>';
+  document.getElementById('comparisonHead').innerHTML = headHtml;
+
+  let bodyHtml = '';
+  topProtocols.forEach(proto => {
+    bodyHtml += `<tr><td>${proto}</td>`;
+    personaNames.forEach(name => {
+      const p = personas[name];
+      const alloc = p.allocations.find(a => a.protocol === proto);
+      const pct = alloc ? alloc.pct : 0;
+      const style = pct >= 10 ? 'color:var(--green);font-weight:700' : pct >= 5 ? 'color:var(--yellow)' : pct > 0 ? 'color:var(--text-secondary)' : 'color:#444';
+      bodyHtml += `<td style="${style}">${pct > 0 ? pct + '%' : '-'}</td>`;
+    });
+    bodyHtml += '</tr>';
+  });
+
+  bodyHtml += `<tr style="border-top:2px solid var(--border);font-weight:700"><td>Cash</td>`;
+  personaNames.forEach(name => {
+    bodyHtml += `<td style="color:var(--text-secondary)">${personas[name].cash}%</td>`;
+  });
+  bodyHtml += '</tr>';
+
+  document.getElementById('comparisonBody').innerHTML = bodyHtml;
+}
+
+// ============================================================
+// 8. SYNTHESIS
+// ============================================================
+function renderSynthesis() {
+  const container = document.getElementById('synthesisContent');
+
+  // Simple markdown to HTML
+  let html = synthesisMarkdown
+    .replace(/^### (.+)$/gm, '<h3>$1</h3>')
+    .replace(/^## (.+)$/gm, '<h2>$1</h2>')
+    .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+    .replace(/\n\n/g, '</p><p>')
+    .replace(/^\d+\. (.+)$/gm, '<li>$1</li>');
+
+  html = '<p>' + html + '</p>';
+  html = html.replace(/<p>(<h[23]>)/g, '$1').replace(/(<\/h[23]>)<\/p>/g, '$1');
+  html = html.replace(/<p>(<li>)/g, '<ol><li>').replace(/(<\/li>)<\/p>/g, '</li></ol>');
+
+  // Insert pull quotes
+  const pullQuotes = [
+    "A buyback is a capital allocation decision, not a value proposition.",
+    "FDV/MCap ratio is the single most predictive metric.",
+    "High buyback yield is a distress signal, not a value signal.",
+  ];
+
+  let pqIdx = 0;
+  html = html.replace(/<h3>/g, () => {
+    if (pqIdx < pullQuotes.length && pqIdx > 0) {
+      return `<div class="pull-quote">${pullQuotes[pqIdx++]}</div><h3>`;
+    }
+    pqIdx++;
+    return '<h3>';
+  });
+
+  // Add final pull quote
+  html += `<div class="pull-quote">${pullQuotes[0]}</div>`;
+
+  container.innerHTML = html;
+}
+
+// ============================================================
+// SCROLL OBSERVER
+// ============================================================
+window.addEventListener('scroll', () => {
+  const btn = document.getElementById('scrollTop');
+  btn.classList.toggle('visible', window.scrollY > 600);
+});
+
+// Active nav highlighting
+const navLinks = document.querySelectorAll('.nav a:not(.nav-brand)');
+const sections = document.querySelectorAll('section[id]');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(s => {
+    if (window.scrollY >= s.offsetTop - 200) current = s.id;
+  });
+  navLinks.forEach(link => {
+    link.classList.toggle('active', link.getAttribute('href') === '#' + current);
+  });
+});
+
+// ============================================================
+// INIT
+// ============================================================
+renderTable();
+renderBreakdown();
+renderScatter();
+renderHeatmap();
+renderDilution();
+renderMechanisms();
+renderPersonas();
+renderSynthesis();
+</script>
+</body>
+</html>
