@@ -116,6 +116,21 @@ Priority order for analysis. Project Lead works top-to-bottom.
 | Clanker | 2026-02-20 | output/clanker-report.md | 0 Bullish, 1 Neutral, 4 Bearish |
 | Raydium | 2026-02-20 | output/raydium-report.md | 1 Bullish, 4 Neutral, 0 Bearish |
 
+## Unified Cross-Protocol Comparison
+
+- **Date**: 2026-02-20
+- **Protocols included**: 13
+- **Top 3 by composite score**:
+  1. Raydium (67.6) — Best mechanism design + fully unlocked supply
+  2. Maple Finance (64.0) — Strongest consensus (4 Bullish, 0 Bearish) + cleanest cap table (1.05x FDV/MCap)
+  3. etherfi (58.4) — Real revenue + multi-mechanism architecture
+- **Aggregate verdict distribution**: 7 Bullish / 20 Neutral / 38 Bearish (across 65 analyst-protocol assessments)
+- **Composite score range**: 41.5 (Aster) to 67.6 (Raydium), median 51.0
+- **5 persona landscape analyses + $1M portfolio allocations completed**
+- **Key finding**: Buyback yield is inversely correlated with quality — highest yields received majority Bearish verdicts
+- **Data gaps**: Some supply dynamics fields (pct_circulating, unlock_status) missing for protocols where frontmatter/tables did not contain explicit values (Hyperliquid, Jupiter, pump.fun). Revenue denomination classified as "unknown" for Jito, Chainlink, pump.fun due to mixed/ambiguous signals.
+- **Outputs**: `output/unified-cross-protocol-comparison.ipynb` (27 cells), `output/unified-comparison-summary.md`
+
 ## Methodology Notes
 
 - Discovery scan runs every 3rd iteration

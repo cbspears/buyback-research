@@ -1,0 +1,1151 @@
+{
+  "protocols": [
+    {
+      "protocol": "Raydium",
+      "token": "RAY",
+      "category": "DEX / AMM",
+      "created": "2026-02-20",
+      "source_file": "raydium-report.md",
+      "market_cap": 175000000.0,
+      "fdv": 354000000.0,
+      "fdv_mcap_ratio": 2.02,
+      "annual_revenue": 20800000.0,
+      "buyback_allocation_pct": null,
+      "annual_buyback": null,
+      "buyback_yield": 9.9,
+      "pe_ratio": 8.4,
+      "price_vs_ath_pct": -96.2,
+      "pct_circulating": 48.4,
+      "unlock_status": "**Fully unlocked** since 2024",
+      "annual_inflation": null,
+      "net_inflation": "**Slightly net inflationary** (49M emitted vs ~40M burned/yr)",
+      "mechanism_types": [
+        "burn",
+        "lock"
+      ],
+      "revenue_denomination": "mixed",
+      "execution_type": "automated",
+      "transparency": "on-chain verifiable",
+      "verdicts": [
+        {
+          "analyst": "Charbonneau",
+          "verdict": "Neutral",
+          "verdict_raw": "Neutral",
+          "confidence": "Medium-High"
+        },
+        {
+          "analyst": "Hasu",
+          "verdict": "Bullish",
+          "verdict_raw": "Bullish",
+          "confidence": "Medium-High"
+        },
+        {
+          "analyst": "Cobie",
+          "verdict": "Neutral",
+          "verdict_raw": "Neutral",
+          "confidence": "Medium-High"
+        },
+        {
+          "analyst": "Hayes",
+          "verdict": "Neutral",
+          "verdict_raw": "Neutral",
+          "confidence": "Medium-High"
+        },
+        {
+          "analyst": "Monegro",
+          "verdict": "Neutral",
+          "verdict_raw": "Neutral",
+          "confidence": "Medium-High"
+        }
+      ],
+      "one_liner": "Best-in-class automated buyback-and-burn execution on genuinely massive cumulative volume ($250M+), but a net-inflationary emission schedule and memecoin-casino revenue concentration mean the protocol is burning real revenue to fight its own dilution \u2014 \"well-designed plumbing carrying volatile water.\"",
+      "raw_metrics": {
+        "Market Cap": "$175M",
+        "FDV": "$354M",
+        "FDV/MCap": "2.02x",
+        "Annualized Revenue": "~$20.8M (current); $97.2M (Q3 2025 run rate)",
+        "Buyback Allocation": "12% of all trading fees + 25% of LaunchLab fees",
+        "Cumulative Buyback": "~$250M+ (80M+ RAY burned)",
+        "Buyback Yield": "~9.9% (annualized at current revenue)",
+        "P/E Ratio": "~8.4x (current); ~1.8x (Q3 run rate)",
+        "Category": "DEX / AMM (Solana)",
+        "Cumulative DEX Volume": "$681B all-time",
+        "Supply Burned": "14.4% of total (80M+ RAY)",
+        "Price vs ATH": "-96.2% ($0.65 vs $16.90 ATH)"
+      },
+      "buyback_yield_score": 69.2,
+      "revenue_quality_score": 38.6,
+      "supply_cleanliness_score": 70.4,
+      "analyst_consensus_score": 60.0,
+      "mechanism_design_score": 100,
+      "composite_score": 67.6,
+      "rank": 1
+    },
+    {
+      "protocol": "Maple Finance",
+      "token": "SYRUP",
+      "category": "RWA Lending / On-Chain Asset Management",
+      "created": "2026-02-20",
+      "source_file": "maple-report.md",
+      "market_cap": 264000000.0,
+      "fdv": 276000000.0,
+      "fdv_mcap_ratio": 1.05,
+      "annual_revenue": null,
+      "buyback_allocation_pct": 25.0,
+      "annual_buyback": 6250000.0,
+      "buyback_yield": 2.4,
+      "pe_ratio": 10.6,
+      "price_vs_ath_pct": -65.5,
+      "pct_circulating": 99.2,
+      "unlock_status": "**Fully unlocked since 2023**",
+      "annual_inflation": "5% (Drips rewards)",
+      "net_inflation": "~3%",
+      "mechanism_types": [
+        "stake",
+        "distribute",
+        "hold"
+      ],
+      "revenue_denomination": "stablecoin",
+      "execution_type": "periodic",
+      "transparency": "opaque",
+      "verdicts": [
+        {
+          "analyst": "Charbonneau",
+          "verdict": "Bullish",
+          "verdict_raw": "Bullish",
+          "confidence": "Medium-High"
+        },
+        {
+          "analyst": "Hasu",
+          "verdict": "Bullish",
+          "verdict_raw": "Bullish",
+          "confidence": "High"
+        },
+        {
+          "analyst": "Cobie",
+          "verdict": "Neutral",
+          "verdict_raw": "Neutral",
+          "confidence": "Medium-High"
+        },
+        {
+          "analyst": "Hayes",
+          "verdict": "Bullish",
+          "verdict_raw": "Bullish",
+          "confidence": "Medium"
+        },
+        {
+          "analyst": "Monegro",
+          "verdict": "Bullish",
+          "verdict_raw": "Bullish",
+          "confidence": "High"
+        }
+      ],
+      "one_liner": "The strongest buyback design in the series \u2014 real stablecoin revenue from institutional lending, progressive governance evolution from staking to buyback, and the first protocol with zero Bearish verdicts (4 Bullish, 1 Neutral). Current scale is modest but the growth trajectory is exceptional.",
+      "raw_metrics": {
+        "Market Cap": "$264M",
+        "FDV": "$276M",
+        "FDV/MCap": "1.05x",
+        "Annual Revenue": "$25M+ (Q4 ARR: $30M)",
+        "Buyback Allocation": "25%",
+        "Annual Buyback": "~$6.25M (at $25M rev)",
+        "Buyback Yield": "2.4%",
+        "P/E Ratio": "10.6x",
+        "Category": "RWA Lending / On-Chain Asset Management",
+        "AUM": "$4.59B (767% YoY growth)",
+        "Price vs ATH": "-65.5% ($0.228 vs $0.66 ATH)"
+      },
+      "buyback_yield_score": 23.1,
+      "revenue_quality_score": 59.4,
+      "supply_cleanliness_score": 99.2,
+      "analyst_consensus_score": 90.4,
+      "mechanism_design_score": 48,
+      "composite_score": 64.0,
+      "rank": 2
+    },
+    {
+      "protocol": "etherfi",
+      "token": "ETHFI",
+      "category": "Liquid Restaking / Neobank",
+      "created": "2026-02-19",
+      "source_file": "etherfi-report.md",
+      "market_cap": 342000000.0,
+      "fdv": 460000000.0,
+      "fdv_mcap_ratio": 1.37,
+      "annual_revenue": null,
+      "buyback_allocation_pct": null,
+      "annual_buyback": null,
+      "buyback_yield": 5.8,
+      "pe_ratio": 4.3,
+      "price_vs_ath_pct": null,
+      "pct_circulating": null,
+      "unlock_status": null,
+      "annual_inflation": null,
+      "net_inflation": null,
+      "mechanism_types": [
+        "burn",
+        "lock",
+        "stake",
+        "distribute",
+        "hold"
+      ],
+      "revenue_denomination": "stablecoin",
+      "execution_type": "periodic",
+      "transparency": "on-chain verifiable",
+      "verdicts": [
+        {
+          "analyst": "Charbonneau",
+          "verdict": "Neutral",
+          "verdict_raw": "Neutral",
+          "confidence": "Medium"
+        },
+        {
+          "analyst": "Hasu",
+          "verdict": "Bearish",
+          "verdict_raw": "Bearish",
+          "confidence": "High"
+        },
+        {
+          "analyst": "Cobie",
+          "verdict": "Neutral",
+          "verdict_raw": "Neutral/Bearish",
+          "confidence": "Medium-High"
+        },
+        {
+          "analyst": "Hayes",
+          "verdict": "Neutral",
+          "verdict_raw": "Neutral",
+          "confidence": "Medium"
+        },
+        {
+          "analyst": "Monegro",
+          "verdict": "Neutral",
+          "verdict_raw": "Neutral",
+          "confidence": "Medium"
+        }
+      ],
+      "one_liner": "Real revenue, well-designed mechanism architecture, but buyback magnitude is structurally overwhelmed by insider unlock pressure \u2014 the best-designed band-aid in DeFi.",
+      "raw_metrics": {
+        "Market Cap": "$342M",
+        "FDV": "$460M",
+        "FDV/MCap": "1.37x",
+        "Price": "$0.46",
+        "All-Time High": "$8.53 (March 2024)",
+        "% From ATH": "-94.6%",
+        "Annual Revenue": "$65-96M (FY2025 run-rate)",
+        "Buyback Allocation": "~25% of revenue (target)",
+        "Annual Buyback": "~$20-24M (est.) + $50M treasury backstop",
+        "Cumulative Deployed": "$13.18M (as of Dec 2025)",
+        "Buyback Yield": "~5.8%",
+        "P/E Ratio": "4.3x",
+        "TVL": "~$5.8B (2.58M ETH)",
+        "Category": "Liquid Restaking / Neobank"
+      },
+      "buyback_yield_score": 53.8,
+      "revenue_quality_score": 64.8,
+      "supply_cleanliness_score": 51.3,
+      "analyst_consensus_score": 37.0,
+      "mechanism_design_score": 85,
+      "composite_score": 58.4,
+      "rank": 3
+    },
+    {
+      "protocol": "Clanker",
+      "token": "CLANKER",
+      "category": "Token Deployer / Launchpad",
+      "created": "2026-02-20",
+      "source_file": "clanker-report.md",
+      "market_cap": 31760000.0,
+      "fdv": 31760000.0,
+      "fdv_mcap_ratio": 1.0,
+      "annual_revenue": 24520000.0,
+      "buyback_allocation_pct": 66.7,
+      "annual_buyback": null,
+      "buyback_yield": 26.4,
+      "pe_ratio": 2.5,
+      "price_vs_ath_pct": -77.5,
+      "pct_circulating": 99.0,
+      "unlock_status": null,
+      "annual_inflation": null,
+      "net_inflation": "Deflationary (fixed cap + buyback-burn)",
+      "mechanism_types": [
+        "burn",
+        "lock",
+        "hold"
+      ],
+      "revenue_denomination": "stablecoin",
+      "execution_type": "manual",
+      "transparency": "opaque",
+      "verdicts": [
+        {
+          "analyst": "Charbonneau",
+          "verdict": "Neutral",
+          "verdict_raw": "Neutral",
+          "confidence": "Medium-High"
+        },
+        {
+          "analyst": "Hasu",
+          "verdict": "Bearish",
+          "verdict_raw": "Bearish",
+          "confidence": "Medium-High"
+        },
+        {
+          "analyst": "Cobie",
+          "verdict": "Bearish",
+          "verdict_raw": "Bearish",
+          "confidence": "High"
+        },
+        {
+          "analyst": "Hayes",
+          "verdict": "Bearish",
+          "verdict_raw": "Bearish",
+          "confidence": "High"
+        },
+        {
+          "analyst": "Monegro",
+          "verdict": "Bearish",
+          "verdict_raw": "Bearish",
+          "confidence": "High"
+        }
+      ],
+      "one_liner": "Aggressive 66.7% buyback allocation on WETH-denominated revenue, but built entirely on memecoin casino fees with no structural moat, manual execution, a co-founder theft scandal, and 30% team allocation without vesting \u2014 the thinnest application in the series.",
+      "raw_metrics": {
+        "Market Cap": "$31.76M",
+        "FDV": "$31.76M",
+        "FDV/MCap": "1.0x",
+        "Cumulative Fees": "$34.64M",
+        "Cumulative Revenue": "$24.52M",
+        "Buyback Allocation": "66.7%",
+        "Buyback Yield": "~26.4% (at current rates)",
+        "P/E Ratio": "~2.5x (at current rates)",
+        "Category": "Token Deployer / Launchpad",
+        "Tokens Deployed": "505,000+",
+        "Price vs ATH": "-77.5% ($32.21 vs $142.84 ATH)"
+      },
+      "buyback_yield_score": 73.8,
+      "revenue_quality_score": 63.6,
+      "supply_cleanliness_score": 94.6,
+      "analyst_consensus_score": 8.9,
+      "mechanism_design_score": 45,
+      "composite_score": 57.2,
+      "rank": 4
+    },
+    {
+      "protocol": "Jupiter",
+      "token": "JUP",
+      "category": "DEX Aggregator",
+      "created": "2026-02-19",
+      "source_file": "jupiter-report.md",
+      "market_cap": 520000000.0,
+      "fdv": 1050000000.0,
+      "fdv_mcap_ratio": 1.96,
+      "annual_revenue": null,
+      "buyback_allocation_pct": 50.0,
+      "annual_buyback": null,
+      "buyback_yield": 13.46,
+      "pe_ratio": 3.47,
+      "price_vs_ath_pct": null,
+      "pct_circulating": null,
+      "unlock_status": null,
+      "annual_inflation": null,
+      "net_inflation": null,
+      "mechanism_types": [
+        "burn",
+        "lock"
+      ],
+      "revenue_denomination": "stablecoin",
+      "execution_type": "automated",
+      "transparency": "dashboard",
+      "verdicts": [
+        {
+          "analyst": "Charbonneau",
+          "verdict": "Bearish",
+          "verdict_raw": "Bearish",
+          "confidence": "High"
+        },
+        {
+          "analyst": "Hasu",
+          "verdict": "Bearish",
+          "verdict_raw": "Bearish (mechanism) / Neutral (protocol)",
+          "confidence": "High"
+        },
+        {
+          "analyst": "Cobie",
+          "verdict": "Bearish",
+          "verdict_raw": "Bearish",
+          "confidence": "High"
+        },
+        {
+          "analyst": "Hayes",
+          "verdict": "Bearish",
+          "verdict_raw": "Bearish",
+          "confidence": "High"
+        },
+        {
+          "analyst": "Monegro",
+          "verdict": "Bearish",
+          "verdict_raw": "Bearish",
+          "confidence": "High"
+        }
+      ],
+      "one_liner": "A $70M buyback program that covered 6% of unlock pressure, bought tokens at 4.6x current price, was halted by its own co-founder as \"a waste of resources,\" and whose remnants the DAO voted to burn \u2014 a near-unanimous case study in how not to design a buyback at the application layer.",
+      "raw_metrics": {
+        "Market Cap": "$520M",
+        "FDV": "$1.05B",
+        "FDV/MCap": "1.96x",
+        "Annual Revenue (run rate)": "$150M",
+        "Annual Revenue (conservative)": "$60-80M",
+        "Buyback Allocation": "50% (halted Jan 2026)",
+        "Annual Buyback (2025)": "~$70M",
+        "Buyback Yield (historical)": "13.5%",
+        "P/E Ratio (run rate)": "3.5x",
+        "P/E Ratio (conservative)": "6.5-8.7x",
+        "Category": "DEX Aggregator (Solana)"
+      },
+      "buyback_yield_score": 84.6,
+      "revenue_quality_score": 66.7,
+      "supply_cleanliness_score": 35.4,
+      "analyst_consensus_score": 0.0,
+      "mechanism_design_score": 90,
+      "composite_score": 55.3,
+      "rank": 5
+    },
+    {
+      "protocol": "pump-fun",
+      "token": "PUMP",
+      "category": "Token Launchpad",
+      "created": "2026-02-19",
+      "source_file": "pumpfun-report.md",
+      "market_cap": 1200000000.0,
+      "fdv": 2040000000.0,
+      "fdv_mcap_ratio": 1.7,
+      "annual_revenue": null,
+      "buyback_allocation_pct": 100.0,
+      "annual_buyback": null,
+      "buyback_yield": 31.7,
+      "pe_ratio": 3.2,
+      "price_vs_ath_pct": null,
+      "pct_circulating": null,
+      "unlock_status": null,
+      "annual_inflation": null,
+      "net_inflation": null,
+      "mechanism_types": [
+        "burn",
+        "stake",
+        "distribute"
+      ],
+      "revenue_denomination": "unknown",
+      "execution_type": "automated",
+      "transparency": "on-chain verifiable",
+      "verdicts": [
+        {
+          "analyst": "Charbonneau",
+          "verdict": "Bearish",
+          "verdict_raw": "Bearish",
+          "confidence": "Medium-High"
+        },
+        {
+          "analyst": "Hasu",
+          "verdict": "Bearish",
+          "verdict_raw": "Bearish",
+          "confidence": "High"
+        },
+        {
+          "analyst": "Cobie",
+          "verdict": "Bearish",
+          "verdict_raw": "Bearish",
+          "confidence": "High"
+        },
+        {
+          "analyst": "Hayes",
+          "verdict": "Bearish",
+          "verdict_raw": "Bearish",
+          "confidence": "High"
+        },
+        {
+          "analyst": "Monegro",
+          "verdict": "Bearish",
+          "verdict_raw": "Bearish",
+          "confidence": "High"
+        }
+      ],
+      "one_liner": "The protocol with the most aggressive buyback allocation in crypto (100% of revenue) has delivered $255M in buybacks, yet the token is down 83% from ATH \u2014 a case study in how buybacks become insider exit liquidity when mechanism design, governance, and revenue cyclicality all fail simultaneously.",
+      "raw_metrics": {
+        "Market Cap": "$1.2B",
+        "FDV": "$2.04B",
+        "FDV/MCap": "1.70x",
+        "Annual Revenue (current run rate)": "~$380M",
+        "Buyback Allocation": "100%",
+        "Annual Buyback (current)": "~$380M",
+        "Buyback Yield": "31.7%",
+        "P/E Ratio": "3.2x",
+        "Cumulative Buyback Deployed": "$255M",
+        "Avg Buyback Price": "$0.004-0.006",
+        "Current Price": "$0.0021",
+        "Category": "Token Launchpad / Memecoin Platform"
+      },
+      "buyback_yield_score": 80.0,
+      "revenue_quality_score": 43.7,
+      "supply_cleanliness_score": 38.0,
+      "analyst_consensus_score": 0.0,
+      "mechanism_design_score": 100,
+      "composite_score": 52.3,
+      "rank": 6
+    },
+    {
+      "protocol": "Hyperliquid",
+      "token": "HYPE",
+      "category": "Perps L1",
+      "created": "2026-02-19",
+      "source_file": "hyperliquid-report.md",
+      "market_cap": 7210000000.0,
+      "fdv": 29120000000.0,
+      "fdv_mcap_ratio": 4.04,
+      "annual_revenue": 939000000.0,
+      "buyback_allocation_pct": 54.0,
+      "annual_buyback": 365000000.0,
+      "buyback_yield": 5.1,
+      "pe_ratio": 7.7,
+      "price_vs_ath_pct": null,
+      "pct_circulating": null,
+      "unlock_status": null,
+      "annual_inflation": null,
+      "net_inflation": null,
+      "mechanism_types": [
+        "burn",
+        "distribute"
+      ],
+      "revenue_denomination": "stablecoin",
+      "execution_type": "automated",
+      "transparency": "opaque",
+      "verdicts": [
+        {
+          "analyst": "Charbonneau",
+          "verdict": "Bullish",
+          "verdict_raw": "Bullish (mechanism) / Neutral (token)",
+          "confidence": "Medium-High"
+        },
+        {
+          "analyst": "Hasu",
+          "verdict": "Neutral",
+          "verdict_raw": "Neutral",
+          "confidence": "Medium"
+        },
+        {
+          "analyst": "Cobie",
+          "verdict": "Neutral",
+          "verdict_raw": "Neutral",
+          "confidence": "Medium"
+        },
+        {
+          "analyst": "Hayes",
+          "verdict": "Bearish",
+          "verdict_raw": "Bearish",
+          "confidence": "High"
+        },
+        {
+          "analyst": "Monegro",
+          "verdict": "Bullish",
+          "verdict_raw": "Bullish",
+          "confidence": "Medium"
+        }
+      ],
+      "one_liner": "Best-in-class buyback mechanism design attached to dominant perps infrastructure, undermined by a 17:1 unlock-to-buyback ratio that turns the value return narrative into a team compensation pipeline until mid-2028.",
+      "raw_metrics": {
+        "Market Cap": "$7.21B",
+        "FDV": "$29.12B",
+        "FDV/MCap": "4.04x",
+        "Annual Revenue": "~$939M",
+        "Buyback Allocation": "54%",
+        "Annual Buyback (est)": "~$365M",
+        "Buyback Yield": "5.1%",
+        "P/E Ratio": "7.7x",
+        "FDV P/E": "31.0x",
+        "Circulating Supply": "238.4M (23.8%)",
+        "Total Supply": "1B",
+        "Category": "Perps L1"
+      },
+      "buyback_yield_score": 46.2,
+      "revenue_quality_score": 72.1,
+      "supply_cleanliness_score": 5,
+      "analyst_consensus_score": 56.5,
+      "mechanism_design_score": 75,
+      "composite_score": 51.0,
+      "rank": 7
+    },
+    {
+      "protocol": "dYdX",
+      "token": "DYDX",
+      "category": "Perps DEX (Cosmos appchain)",
+      "created": "2026-02-20",
+      "source_file": "dydx-report.md",
+      "market_cap": 81000000.0,
+      "fdv": 98000000.0,
+      "fdv_mcap_ratio": 1.21,
+      "annual_revenue": 18750000.0,
+      "buyback_allocation_pct": 75.0,
+      "annual_buyback": 9000000.0,
+      "buyback_yield": 11.1,
+      "pe_ratio": 4.3,
+      "price_vs_ath_pct": null,
+      "pct_circulating": null,
+      "unlock_status": null,
+      "annual_inflation": null,
+      "net_inflation": null,
+      "mechanism_types": [
+        "burn",
+        "stake",
+        "distribute",
+        "hold"
+      ],
+      "revenue_denomination": "stablecoin",
+      "execution_type": "unknown",
+      "transparency": "opaque",
+      "verdicts": [
+        {
+          "analyst": "Charbonneau",
+          "verdict": "Bearish",
+          "verdict_raw": "Bearish",
+          "confidence": "Medium-High"
+        },
+        {
+          "analyst": "Hasu",
+          "verdict": "Bearish",
+          "verdict_raw": "Bearish",
+          "confidence": "High"
+        },
+        {
+          "analyst": "Cobie",
+          "verdict": "Bearish",
+          "verdict_raw": "Bearish",
+          "confidence": "High"
+        },
+        {
+          "analyst": "Hayes",
+          "verdict": "Bearish",
+          "verdict_raw": "Bearish",
+          "confidence": "High"
+        },
+        {
+          "analyst": "Monegro",
+          "verdict": "Bearish",
+          "verdict_raw": "Bearish",
+          "confidence": "High"
+        }
+      ],
+      "one_liner": "An 11.1% buyback yield on an $81M market cap is not a signal of value accrual -- it is a signal that the market does not believe the revenue funding it is durable, and the choice to stake rather than burn purchased tokens preserves insider optionality at the expense of permanent supply reduction in a protocol that has lost 95%+ of its category's volume to Hyperliquid.",
+      "raw_metrics": {
+        "Market Cap": "~$81M",
+        "FDV": "~$98M",
+        "FDV/MCap": "1.21x",
+        "Annual Revenue (est)": "~$17.5-20M",
+        "Buyback Allocation": "75% (experimentally 100%)",
+        "Annual Buyback (est)": "~$9M",
+        "Buyback Yield": "~11.1% (on MCap)",
+        "P/E Ratio": "~4.3x (MCap/Rev)",
+        "FDV P/E": "~5.2x",
+        "Circulating Supply": "824M / 1B total (82.4%)",
+        "Total Supply": "1B",
+        "Category": "Perps DEX (Cosmos appchain)"
+      },
+      "buyback_yield_score": 76.9,
+      "revenue_quality_score": 69.8,
+      "supply_cleanliness_score": 52.9,
+      "analyst_consensus_score": 0.0,
+      "mechanism_design_score": 40,
+      "composite_score": 47.9,
+      "rank": 8
+    },
+    {
+      "protocol": "jito",
+      "token": "JTO",
+      "category": "MEV/Staking Infrastructure",
+      "created": "2026-02-19",
+      "source_file": "jito-report.md",
+      "market_cap": 128199999.99999999,
+      "fdv": 292300000.0,
+      "fdv_mcap_ratio": 2.28,
+      "annual_revenue": null,
+      "buyback_allocation_pct": null,
+      "annual_buyback": null,
+      "buyback_yield": 3.9,
+      "pe_ratio": 4.84,
+      "price_vs_ath_pct": null,
+      "pct_circulating": 43.88,
+      "unlock_status": "~$54M at current prices",
+      "annual_inflation": null,
+      "net_inflation": null,
+      "mechanism_types": [
+        "burn",
+        "distribute",
+        "hold"
+      ],
+      "revenue_denomination": "unknown",
+      "execution_type": "automated",
+      "transparency": "on-chain verifiable",
+      "verdicts": [
+        {
+          "analyst": "Charbonneau",
+          "verdict": "Neutral",
+          "verdict_raw": "Neutral",
+          "confidence": "Medium"
+        },
+        {
+          "analyst": "Hasu",
+          "verdict": "Neutral",
+          "verdict_raw": "Neutral-Bearish",
+          "confidence": "Medium"
+        },
+        {
+          "analyst": "Cobie",
+          "verdict": "Bearish",
+          "verdict_raw": "Bearish",
+          "confidence": "High"
+        },
+        {
+          "analyst": "Hayes",
+          "verdict": "Bearish",
+          "verdict_raw": "Bearish",
+          "confidence": "High"
+        },
+        {
+          "analyst": "Monegro",
+          "verdict": "Neutral",
+          "verdict_raw": "Neutral",
+          "confidence": "Medium"
+        }
+      ],
+      "one_liner": "Solana's dominant MEV infrastructure with real revenue and a well-architected buyback commitment, but current execution is dwarfed by unlock pressure and undermined by extreme revenue cyclicality.",
+      "raw_metrics": {
+        "Market Cap": "$128.2M",
+        "FDV": "$292.3M",
+        "FDV/MCap": "2.28x",
+        "Price": "$0.2924",
+        "ATH": "$6.01 (down 95.15%)",
+        "Annual Revenue (DAO)": "$26.5-30M",
+        "Gross Annualized Fees": "~$188M",
+        "Buyback Allocation": "100% of DAO revenue",
+        "Annual Buyback (actual)": "~$5M (annualized from $2.5M in 6mo)",
+        "Buyback Yield (actual)": "3.9%",
+        "Buyback Yield (potential)": "20.7%",
+        "P/E Ratio (DAO rev)": "4.84x",
+        "FDV P/E": "11.03x",
+        "Circulating Supply": "438.75M (43.88%)",
+        "Total Supply": "1B",
+        "Monthly Unlocks": "~15.38M JTO ($4.5M/mo)",
+        "Buyback-to-Unlock Ratio": "0.49x",
+        "JitoSOL TVL": "~$2.92B (14.5M SOL)",
+        "Validator Client Penetration": "95%+",
+        "Solana LST Market Share": "~50%",
+        "Category": "MEV/Staking Infrastructure"
+      },
+      "buyback_yield_score": 38.5,
+      "revenue_quality_score": 36.0,
+      "supply_cleanliness_score": 36.2,
+      "analyst_consensus_score": 25.0,
+      "mechanism_design_score": 100,
+      "composite_score": 47.1,
+      "rank": 9
+    },
+    {
+      "protocol": "Ethena",
+      "token": "ENA",
+      "category": "Synthetic Dollar",
+      "created": "2026-02-19",
+      "source_file": "ethena-report.md",
+      "market_cap": 990000000.0,
+      "fdv": 1810000000.0,
+      "fdv_mcap_ratio": 1.83,
+      "annual_revenue": 316000000.0,
+      "buyback_allocation_pct": null,
+      "annual_buyback": null,
+      "buyback_yield": 9.75,
+      "pe_ratio": 3.13,
+      "price_vs_ath_pct": null,
+      "pct_circulating": 54.7,
+      "unlock_status": "April 2027",
+      "annual_inflation": null,
+      "net_inflation": null,
+      "mechanism_types": [
+        "burn",
+        "stake",
+        "hold"
+      ],
+      "revenue_denomination": "stablecoin",
+      "execution_type": "unknown",
+      "transparency": "opaque",
+      "verdicts": [
+        {
+          "analyst": "Charbonneau",
+          "verdict": "Bearish",
+          "verdict_raw": "Bearish (mechanism) / Neutral (protocol)",
+          "confidence": "Medium-High"
+        },
+        {
+          "analyst": "Hasu",
+          "verdict": "Neutral",
+          "verdict_raw": "Neutral",
+          "confidence": "Medium"
+        },
+        {
+          "analyst": "Cobie",
+          "verdict": "Bearish",
+          "verdict_raw": "Bearish",
+          "confidence": "High"
+        },
+        {
+          "analyst": "Hayes",
+          "verdict": "Bearish",
+          "verdict_raw": "Bearish",
+          "confidence": "High"
+        },
+        {
+          "analyst": "Monegro",
+          "verdict": "Bearish",
+          "verdict_raw": "Bearish",
+          "confidence": "High"
+        }
+      ],
+      "one_liner": "Real revenue, wrong mechanism \u2014 a $890M SPAC buyback that failed to prevent a 92% drawdown, overshadowed by the fee switch that should have been the design from the start.",
+      "raw_metrics": {
+        "Market Cap": "$990M",
+        "FDV": "$1.81B",
+        "FDV/MCap": "1.83x",
+        "Price": "$0.12",
+        "All-Time High": "$1.52 (Dec 2024)",
+        "% From ATH": "-92.1%",
+        "Annual Revenue (est)": "~$316M (annualizing current 90-day rate)",
+        "Peak Run Rate": "~$665M (based on earlier periods)",
+        "Cumulative Revenue": "$500M+ (as of Sep 2025)",
+        "Buyback Committed": "$890M (via StablecoinX SPAC)",
+        "Fee Switch Yield (sENA)": "4.5-15% est.",
+        "P/E Ratio (current rate)": "3.13x",
+        "P/E Ratio (peak rate)": "1.49x",
+        "TVL": "$5.07B (down from $14.98B peak)",
+        "USDe Supply": "$6.3-6.6B",
+        "Category": "Synthetic Dollar"
+      },
+      "buyback_yield_score": 61.5,
+      "revenue_quality_score": 70.6,
+      "supply_cleanliness_score": 44.7,
+      "analyst_consensus_score": 7.4,
+      "mechanism_design_score": 40,
+      "composite_score": 44.8,
+      "rank": 10
+    },
+    {
+      "protocol": "Chainlink",
+      "token": "LINK",
+      "category": "Oracle / Middleware Infrastructure",
+      "created": "2026-02-20",
+      "source_file": "chainlink-report.md",
+      "market_cap": 6100000000.0,
+      "fdv": 8750000000.0,
+      "fdv_mcap_ratio": 1.41,
+      "annual_revenue": 66900000.00000001,
+      "buyback_allocation_pct": null,
+      "annual_buyback": null,
+      "buyback_yield": 0.31,
+      "pe_ratio": 80.0,
+      "price_vs_ath_pct": null,
+      "pct_circulating": null,
+      "unlock_status": null,
+      "annual_inflation": null,
+      "net_inflation": null,
+      "mechanism_types": [
+        "burn",
+        "stake",
+        "hold"
+      ],
+      "revenue_denomination": "unknown",
+      "execution_type": "automated",
+      "transparency": "on-chain verifiable",
+      "verdicts": [
+        {
+          "analyst": "Charbonneau",
+          "verdict": "Neutral",
+          "verdict_raw": "Neutral",
+          "confidence": "Medium"
+        },
+        {
+          "analyst": "Hasu",
+          "verdict": "Bearish",
+          "verdict_raw": "Bearish",
+          "confidence": "Medium"
+        },
+        {
+          "analyst": "Cobie",
+          "verdict": "Bearish",
+          "verdict_raw": "Bearish",
+          "confidence": "High"
+        },
+        {
+          "analyst": "Hayes",
+          "verdict": "Neutral",
+          "verdict_raw": "Neutral",
+          "confidence": "Medium"
+        },
+        {
+          "analyst": "Monegro",
+          "verdict": "Neutral",
+          "verdict_raw": "Neutral",
+          "confidence": "Medium"
+        }
+      ],
+      "one_liner": "The dominant oracle network with an unmatched enterprise moat has launched a \"Chainlink Reserve\" that accumulates \u2014 not burns \u2014 LINK, funded by genuine but modest on-chain revenue (~$67M/yr) against a $6B market cap, producing a 0.31% buyback yield while ~70M LINK/year in team treasury releases make the net token flow deeply inflationary. The best business in crypto with the weakest token value accrual mechanism.",
+      "raw_metrics": {
+        "Market Cap": "~$6.1B",
+        "FDV": "~$8.75B",
+        "FDV/MCap": "1.41x",
+        "Annual Revenue (on-chain)": "~$66.9M",
+        "Buyback Allocation": "100% of on-chain fees (via Payment Abstraction)",
+        "Annual Reserve Accumulation (est)": "~$38M annualized (from $19M in ~6 months)",
+        "Buyback Yield": "~0.31%",
+        "P/E Ratio": "~80x (on-chain only; enterprise revenue undisclosed)",
+        "Circulating Supply": "~710M LINK (71%)",
+        "Total Supply": "1B LINK (fixed cap)",
+        "Category": "Oracle / Middleware Infrastructure"
+      },
+      "buyback_yield_score": 7.7,
+      "revenue_quality_score": 34.3,
+      "supply_cleanliness_score": 50.9,
+      "analyst_consensus_score": 27.3,
+      "mechanism_design_score": 100,
+      "composite_score": 44.0,
+      "rank": 11
+    },
+    {
+      "protocol": "pyth-network",
+      "token": "PYTH",
+      "category": "Oracle",
+      "created": "2026-02-19",
+      "source_file": "pyth-report.md",
+      "market_cap": 304000000.0,
+      "fdv": 529000000.0,
+      "fdv_mcap_ratio": 1.74,
+      "annual_revenue": null,
+      "buyback_allocation_pct": null,
+      "annual_buyback": 1560000.0,
+      "buyback_yield": 0.51,
+      "pe_ratio": 553.0,
+      "price_vs_ath_pct": null,
+      "pct_circulating": 57.4,
+      "unlock_status": null,
+      "annual_inflation": null,
+      "net_inflation": null,
+      "mechanism_types": [
+        "burn",
+        "lock",
+        "distribute",
+        "hold"
+      ],
+      "revenue_denomination": "stablecoin",
+      "execution_type": "periodic",
+      "transparency": "on-chain verifiable",
+      "verdicts": [
+        {
+          "analyst": "Charbonneau",
+          "verdict": "Neutral",
+          "verdict_raw": "Neutral",
+          "confidence": "Medium"
+        },
+        {
+          "analyst": "Hasu",
+          "verdict": "Bearish",
+          "verdict_raw": "Bearish",
+          "confidence": "High"
+        },
+        {
+          "analyst": "Cobie",
+          "verdict": "Bearish",
+          "verdict_raw": "Bearish",
+          "confidence": "High"
+        },
+        {
+          "analyst": "Hayes",
+          "verdict": "Bearish",
+          "verdict_raw": "Bearish",
+          "confidence": "High"
+        },
+        {
+          "analyst": "Monegro",
+          "verdict": "Bearish",
+          "verdict_raw": "Bearish",
+          "confidence": "High"
+        }
+      ],
+      "one_liner": "A well-designed but economically trivial buyback mechanism ($130K/month) on a pre-revenue oracle protocol trading at 553x P/E, with a catastrophic May 2026 unlock (2.1B PYTH, 37% of circulating) that dwarfs all buyback capacity by orders of magnitude.",
+      "raw_metrics": {
+        "Market Cap": "$304M",
+        "FDV": "$529M",
+        "FDV/MCap": "1.74x",
+        "Price": "~$0.053-0.056",
+        "ATH": "$1.15-1.19 (March 2024)",
+        "Drawdown from ATH": "-95.3%",
+        "ATL": "$0.037 (Feb 6, 2026)",
+        "Annual Revenue (DAO)": "~$550K (est. $400-700K)",
+        "Buyback Allocation": "33% of DAO treasury monthly",
+        "Annual Buyback (run-rate)": "~$1.56M",
+        "Buyback Yield": "0.51%",
+        "P/E Ratio": "553x",
+        "FDV/Revenue": "962x",
+        "Total Deployed": "~$260K (2 months)",
+        "Avg Cost Basis": "~$0.059 (underwater at $0.053)",
+        "Category": "Oracle"
+      },
+      "buyback_yield_score": 15.4,
+      "revenue_quality_score": 55.5,
+      "supply_cleanliness_score": 51.6,
+      "analyst_consensus_score": 7.1,
+      "mechanism_design_score": 85,
+      "composite_score": 42.9,
+      "rank": 12
+    },
+    {
+      "protocol": "Aster",
+      "token": "ASTER",
+      "category": "Perps DEX",
+      "created": "2026-02-20",
+      "source_file": "aster-report.md",
+      "market_cap": 1720000000.0,
+      "fdv": 5540000000.0,
+      "fdv_mcap_ratio": 3.22,
+      "annual_revenue": 300000000.0,
+      "buyback_allocation_pct": null,
+      "annual_buyback": 240000000.0,
+      "buyback_yield": 3.8,
+      "pe_ratio": 5.7,
+      "price_vs_ath_pct": null,
+      "pct_circulating": null,
+      "unlock_status": null,
+      "annual_inflation": null,
+      "net_inflation": null,
+      "mechanism_types": [
+        "burn",
+        "lock",
+        "hold"
+      ],
+      "revenue_denomination": "stablecoin",
+      "execution_type": "automated",
+      "transparency": "on-chain verifiable",
+      "verdicts": [
+        {
+          "analyst": "Charbonneau",
+          "verdict": "Bearish",
+          "verdict_raw": "Bearish",
+          "confidence": "Medium"
+        },
+        {
+          "analyst": "Hasu",
+          "verdict": "Bearish",
+          "verdict_raw": "Bearish",
+          "confidence": "High"
+        },
+        {
+          "analyst": "Cobie",
+          "verdict": "Bearish",
+          "verdict_raw": "Bearish",
+          "confidence": "High"
+        },
+        {
+          "analyst": "Hayes",
+          "verdict": "Bearish",
+          "verdict_raw": "Bearish",
+          "confidence": "High"
+        },
+        {
+          "analyst": "Monegro",
+          "verdict": "Bearish",
+          "verdict_raw": "Bearish",
+          "confidence": "High"
+        }
+      ],
+      "one_liner": "The most aggressive fee-to-buyback allocation in DeFi (up to 80%) attached to a protocol with serious wash-trading allegations, a -71% drawdown from ATH despite $214M+ in cumulative buybacks, and team unlocks beginning September 2026 that will test whether the mechanism is value accrual or an elaborate liquidity facility for CZ-adjacent insiders.",
+      "raw_metrics": {
+        "Market Cap": "~$1.72B",
+        "FDV": "~$5.54B",
+        "FDV/MCap": "3.22x",
+        "Annual Revenue (est)": "~$300M",
+        "Buyback Allocation": "Up to 80%",
+        "Annual Buyback (est)": "~$240M",
+        "Buyback Yield": "~3.8% (on FDV)",
+        "P/E Ratio": "~5.7x (MCap/Rev)",
+        "FDV P/E": "~18.5x",
+        "Circulating Supply": "~2.48B (31%)",
+        "Total Supply": "8B (pre-burn), ~7.92B (post-burn)",
+        "Tokens Burned": "~176.3M",
+        "Category": "Perps DEX (BNB Chain)"
+      },
+      "buyback_yield_score": 30.8,
+      "revenue_quality_score": 64.0,
+      "supply_cleanliness_score": 12.8,
+      "analyst_consensus_score": 0.0,
+      "mechanism_design_score": 100,
+      "composite_score": 41.5,
+      "rank": 13
+    }
+  ],
+  "statistics": {
+    "count": 13,
+    "composite": {
+      "mean": 51.8,
+      "median": 51.0,
+      "stdev": 8.3,
+      "min": 41.5,
+      "max": 67.6
+    },
+    "buyback_yield": {
+      "mean": 9.55,
+      "median": 5.8
+    },
+    "pe_ratio": {
+      "mean": 11.5,
+      "median": 4.6
+    },
+    "categories": {
+      "DEX / AMM": [
+        "Raydium"
+      ],
+      "RWA Lending / On-Chain Asset Management": [
+        "Maple Finance"
+      ],
+      "Liquid Restaking / Neobank": [
+        "etherfi"
+      ],
+      "Token Deployer / Launchpad": [
+        "Clanker"
+      ],
+      "DEX Aggregator": [
+        "Jupiter"
+      ],
+      "Token Launchpad": [
+        "pump-fun"
+      ],
+      "Perps L1": [
+        "Hyperliquid"
+      ],
+      "Perps DEX (Cosmos appchain)": [
+        "dYdX"
+      ],
+      "MEV/Staking Infrastructure": [
+        "jito"
+      ],
+      "Synthetic Dollar": [
+        "Ethena"
+      ],
+      "Oracle / Middleware Infrastructure": [
+        "Chainlink"
+      ],
+      "Oracle": [
+        "pyth-network"
+      ],
+      "Perps DEX": [
+        "Aster"
+      ]
+    },
+    "verdict_distribution": {
+      "Bullish": 7,
+      "Neutral": 20,
+      "Bearish": 38
+    }
+  }
+}

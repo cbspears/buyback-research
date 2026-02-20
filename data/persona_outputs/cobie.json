@@ -1,0 +1,119 @@
+{
+  "persona": "cobie",
+  "landscape_analysis": "## The State of Crypto Buybacks: A Field Guide to Exit Liquidity\n\nI looked at 13 token buyback programs. The verdict distribution tells you everything: 38 Bearish ratings, 20 Neutral, 7 Bullish. Out of 65 total analyst opinions across these protocols, over half were Bearish. That's not a pessimistic panel. That's a mechanism category telling you something about itself.\n\nHere's what 13 buybacks reveal in aggregate: **most token buybacks exist to create a narrative event, not an economic one.** The announcement moves price more than the buyback ever will. The governance proposal generates more alpha for its authors than the mechanism generates for holders. This is not a bug. This is the product.\n\nLet me walk through the tiers, because they're instructive.\n\n**Top tier: Maple and Raydium.** These are the only two protocols where the buyback mechanism is genuinely aligned with holders. Maple has a 1.05x FDV/MCap ratio — meaning almost nothing left to unlock — stablecoin revenue from institutional lending, and zero Bearish verdicts. It's boring. It works. Raydium is fully unlocked since 2024, has burned 14.4% of total supply, and runs an automated burn mechanism on real trading fees. The problem is its revenue comes from the memecoin casino, so it's cyclical as hell. But at least when the casino is running, the value accrual is real and the insiders aren't selling into it because there are no insiders left to sell.\n\n**The illusion tier: Hyperliquid, Jupiter, pump.fun, Ethena.** This is where it gets interesting and ugly. These protocols have real revenue — often massive revenue — but the buyback mechanism is either structurally broken or serving a different master than the one advertised. Hyperliquid runs $365M/year in buybacks, which sounds incredible until you notice the 4.04x FDV/MCap ratio, meaning 76% of tokens haven't hit the market yet. That 17:1 unlock-to-buyback ratio means the buyback is a rounding error on the sell pressure. Jupiter spent $70M buying back tokens at 4.6x the current price, the co-founder called it a waste of resources, and they halted it. pump.fun allocates 100% of revenue — $380M annually — to buybacks, and the token is still down 83% from ATH. Think about that. $255M in cumulative buybacks and the token still cratered. That's the strongest possible evidence that buybacks cannot overcome insider selling and cyclical revenue collapse. Ethena committed $890M through a SPAC buyback structure that failed to prevent a 92% drawdown. At some point you have to ask: if $890M in buybacks can't support your token price, maybe buybacks aren't the mechanism you need.\n\n**The dead money tier: dYdX, Jito, Chainlink, Pyth, Aster.** These range from \"buyback is immaterial\" to \"buyback is actively providing exit liquidity.\" dYdX runs an 11.1% buyback yield, which looks great on paper and terrible in practice — the market doesn't believe the revenue is durable because Hyperliquid ate their lunch. Chainlink is the best business in crypto with a 0.31% buyback yield, which is genuinely comedic. Pyth is running $130K/month in buybacks against a May 2026 unlock of 2.1 billion tokens. That's like trying to drain the ocean with a coffee mug. Aster is doing $240M/year in buybacks on revenue that may be significantly wash-traded, with CZ-adjacent team unlocks starting September 2026. I'll let you connect those dots.\n\nThe surprise, looking at all 13 together, is how clearly **supply cleanliness predicts everything.** The two protocols where I'd actually consider deploying capital — Maple and Raydium — both have FDV/MCap ratios under 2.1x. Maple is at 1.05x. Meanwhile, every protocol with a ratio above 2x is either unanimous Bearish or deeply split. The mechanism design barely matters if 70% of the supply is sitting in team and investor wallets waiting to hit the market. You can have the most elegant automated buyback-and-burn in DeFi, and it doesn't matter when the unlock schedule is a freight train aimed at your portfolio.\n\nHas this changed my framework? Slightly. I came in focused on \"who is exit liquidity\" and that's still the right question. But I'd add a corollary: **the scale test matters more than the design test.** I've seen perfectly designed buybacks that are economically irrelevant (Chainlink, Pyth) and terribly designed ones that at least move the needle on supply (Raydium's burn). If the buyback can't offset unlock pressure by at least 0.5x, the mechanism design is academic.\n\nIf you take away one thing: **a buyback is only as real as the supply schedule allows it to be.** If insiders can sell faster than the protocol can buy, you are the exit liquidity. Full stop. Check the FDV/MCap ratio before you check anything else. If it's above 2x, the buyback is almost certainly not for you.",
+  "portfolio": {
+    "allocations": [
+      {
+        "protocol": "Raydium",
+        "token": "RAY",
+        "amount": 100000,
+        "pct": 10.0,
+        "rationale": "Fully unlocked since 2024 with 14.4% of supply already burned — no insiders left to sell into the bid, which is the single most important thing I look for."
+      },
+      {
+        "protocol": "Maple Finance",
+        "token": "SYRUP",
+        "amount": 130000,
+        "pct": 13.0,
+        "rationale": "1.05x FDV/MCap is the cleanest cap table in the set, stablecoin revenue from institutional lending is about as boring and durable as crypto gets, and zero Bearish verdicts tells me this isn't controversial — it just works."
+      },
+      {
+        "protocol": "etherfi",
+        "token": "ETHFI",
+        "amount": 40000,
+        "pct": 4.0,
+        "rationale": "Real revenue and decent mechanism design, but the unlock pressure is still a problem and I was Neutral/Bearish for a reason — small position because the math is getting better but isn't clean yet."
+      },
+      {
+        "protocol": "Clanker",
+        "token": "CLANKER",
+        "amount": 0,
+        "pct": 0.0,
+        "rationale": "A 26.4% yield on memecoin casino revenue with a co-founder theft scandal and 30% team allocation without vesting — I was Bearish with high confidence, and the landscape view only reinforces that this is a zero."
+      },
+      {
+        "protocol": "Jupiter",
+        "token": "JUP",
+        "amount": 0,
+        "pct": 0.0,
+        "rationale": "The co-founder halted the buyback and called it a waste of resources — when the guy running the protocol tells you the buyback was exit liquidity, believe him."
+      },
+      {
+        "protocol": "pump-fun",
+        "token": "PUMP",
+        "amount": 0,
+        "pct": 0.0,
+        "rationale": "Allocating 100% of revenue to buybacks and still down 83% from ATH is the single most damning data point in this entire research series — proof that buybacks cannot overcome structural selling pressure and revenue cyclicality."
+      },
+      {
+        "protocol": "Hyperliquid",
+        "token": "HYPE",
+        "amount": 50000,
+        "pct": 5.0,
+        "rationale": "Best product in perps and real revenue, but the 4.04x FDV/MCap means I'm sizing this like a call option on the supply schedule clearing — if the unlock cadence slows or gets restructured, this reprices violently upward."
+      },
+      {
+        "protocol": "dYdX",
+        "token": "DYDX",
+        "amount": 0,
+        "pct": 0.0,
+        "rationale": "An 11.1% buyback yield that the market correctly prices as unsustainable because Hyperliquid took 95%+ of their volume — this is a melting ice cube paying you a yield to hold it."
+      },
+      {
+        "protocol": "jito",
+        "token": "JTO",
+        "amount": 20000,
+        "pct": 2.0,
+        "rationale": "Dominant MEV infrastructure on Solana with 95% validator penetration is a genuine moat, but the 2.28x FDV/MCap and 0.49x buyback-to-unlock ratio keep this as a tiny monitoring position."
+      },
+      {
+        "protocol": "Ethena",
+        "token": "ENA",
+        "amount": 0,
+        "pct": 0.0,
+        "rationale": "Committed $890M in SPAC buybacks, token still down 92% — at some point you have to acknowledge that the mechanism failed and the fee switch they pivoted to is an admission the buyback was never the right design."
+      },
+      {
+        "protocol": "Chainlink",
+        "token": "LINK",
+        "amount": 80000,
+        "pct": 8.0,
+        "rationale": "The best business in crypto with the worst token value accrual — but I'm buying the business, not the buyback mechanism, and the 0.31% yield is so irrelevant that it can't hurt me either."
+      },
+      {
+        "protocol": "pyth-network",
+        "token": "PYTH",
+        "amount": 0,
+        "pct": 0.0,
+        "rationale": "A $130K/month buyback against a 2.1B token unlock in May 2026 is not a mechanism, it's a rounding error — the unlock will be roughly 1,350x the monthly buyback capacity."
+      },
+      {
+        "protocol": "Aster",
+        "token": "ASTER",
+        "amount": 0,
+        "pct": 0.0,
+        "rationale": "Wash trading allegations, CZ-adjacent team with unlocks starting September 2026, and $214M in cumulative buybacks that failed to prevent a 71% drawdown — this is the clearest exit liquidity setup in the entire series."
+      }
+    ],
+    "cash": {
+      "amount": 580000,
+      "pct": 58.0,
+      "rationale": "58% cash because most of these buybacks are structurally broken and I refuse to be exit liquidity for insiders. I deploy this capital when: (1) Hyperliquid's unlock schedule gets meaningfully restructured or delayed, (2) a protocol with clean supply dynamics announces a simple fee-sharing mechanism instead of a buyback, (3) any of the top-tier protocols (Maple, Raydium) experience a >40% drawdown on market-wide selling rather than protocol-specific news, or (4) the next cycle's revenue data proves durability for currently-cyclical protocols. Cash is not a failure of conviction — it's the correct position when 38 out of 65 analyst ratings across these protocols are Bearish."
+    },
+    "total": 1000000
+  },
+  "key_themes": [
+    "Supply cleanliness (FDV/MCap ratio) is the single strongest predictor of buyback effectiveness — every protocol under 1.5x FDV/MCap received majority positive or neutral verdicts, while every protocol above 3x received majority Bearish verdicts, regardless of mechanism design quality.",
+    "The scale mismatch between buyback capacity and unlock pressure is the defining failure mode: across the 13 protocols, the median buyback-to-unlock ratio is well below 1x, meaning most buybacks are net subsidies to insiders even when executed perfectly.",
+    "Revenue source durability matters more than revenue magnitude — pump.fun generates $380M/year and allocates 100% to buybacks, yet the token is down 83% because memecoin casino revenue collapses exactly when you need the buyback most, while Maple's modest $6.25M annual buyback on institutional lending revenue carries real conviction because the revenue doesn't evaporate in a bear market.",
+    "The buyback-to-fee-switch pipeline is emerging as a pattern: Ethena's pivot and Jupiter's halt suggest that sophisticated protocols are learning in real-time that direct fee distribution is more honest and effective than buyback complexity, validating the preference for simple mechanisms over opaque ones.",
+    "The announcement-to-execution gap is the most exploitable inefficiency in crypto tokenomics — across these 13 protocols, the governance proposal or announcement consistently generated more short-term price impact than the cumulative economic effect of the buyback itself, creating a structural arbitrage that benefits proposal authors at the expense of long-term holders."
+  ],
+  "disagreements": [
+    "I expect Charbonneau to overweight Hyperliquid and other protocols with high mechanism design scores regardless of supply overhang, because his framework prioritizes architectural elegance — but the prettiest plumbing in the world doesn't matter when the water is flowing out faster than you can pump it back in.",
+    "Monegro will overweight infrastructure plays like Chainlink and Jito based on the fat protocols thesis and structural moats, but moats don't fix a 0.31% buyback yield or a 0.49x buyback-to-unlock ratio — the buyback mechanism at these protocols is decorative, not functional.",
+    "Hayes will probably hold even more cash than me because he sees cyclicality everywhere, but I think he underweights the two genuinely clean protocols (Maple, Raydium) that deserve capital now rather than waiting for some hypothetical perfect entry during a bear market that may not come before their mechanisms compound meaningfully.",
+    "Hasu will overweight revenue quality and cap table cleanliness, which directionally I agree with, but I think he'll be too generous to protocols like etherfi where the numbers are heading the right direction — heading the right direction is not the same as being there, and I'd rather wait than pay for an improving but still-broken supply schedule.",
+    "I expect all four other personas to underweight cash relative to me because they each have a framework that lets them talk themselves into positions — mechanism design, fat protocols, macro regime, revenue quality — but the simple reality is that when 58% of analyst verdicts are Bearish and most buybacks are structurally subsidizing insider exits, the highest-conviction position is no position at all."
+  ]
+}
