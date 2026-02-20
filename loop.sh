@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+# Allow launching from inside another Claude Code session
+unset CLAUDECODE 2>/dev/null || true
+
 MODE="${1:-build}"
 MAX="${2:-0}"
 COUNT=0
@@ -19,12 +22,12 @@ while :; do
     cat PROMPT_plan.md | claude -p \
       --dangerously-skip-permissions \
       --model opus \
-      --output-format stream-json 2>&1 | tee -a "$LOG"
+      --verbose --output-format stream-json 2>&1 | tee -a "$LOG"
   else
     cat PROMPT_build.md | claude -p \
       --dangerously-skip-permissions \
       --model opus \
-      --output-format stream-json 2>&1 | tee -a "$LOG"
+      --verbose --output-format stream-json 2>&1 | tee -a "$LOG"
   fi
 
   COUNT=$((COUNT + 1))
