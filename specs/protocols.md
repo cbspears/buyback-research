@@ -34,6 +34,10 @@ Maintained by the Discovery agent. Updated each loop iteration.
 | BNB Chain | BNB | L1 / Exchange | Auto-Burn quarterly (formula-driven) + BEP-95 real-time gas burns | Largest in crypto: $1.27B Q1 2026. 34 quarterly burns. Supply: 136.36M BNB. |
 | Lighter | LIT | Perps DEX (zk-L2) | Trading fee buybacks + Circle USDC interest revenue sharing | Active Jan 2026. Circle deal ~$30-40M/yr potential. Hyperliquid competitor. |
 | Bonk | BONK | Memecoin / Launchpad | BonkFun launchpad fees → buyback-burn, 65% supply already burned | $27.3M in 2025. $17M/mo burns from BonkFun. Digital Asset Trust structure. |
+| Uniswap | UNI | DEX | UNIfication: 100M UNI burned ($596M), fee switch active, burn-to-redeem "token jar" | Largest DEX. Novel mechanism. Expanding to 8+ chains. |
+| Bitget/Morph | BGB | CEX + L2 | 20% quarterly profits to buyback, on-chain burn formula | $1B+ burn. Target 91% supply reduction. CEX-L2 hybrid model. |
+| Renzo Protocol | REZ | Liquid Restaking | 100% revenue to buyback, 90% burn / 10% distribute | Direct ETHFI competitor. 1.79% supply burned. Token -77%. |
+| Aptos | APT | L1 (Move) | Programmatic buyback + 100% gas burns + 2.1B cap + 210M lock | Major L1 tokenomics overhaul. Proposed Feb 2026. |
 
 ## Discovery Candidates
 
@@ -45,10 +49,10 @@ Flagged for investigation — need verification of active buyback programs:
 | Banana Gun | BANANA | Trading Bot | Fee sharing (40% weekly), team exploring buyback, no formal program |
 | Rollbit | RLB | Casino/Trading | Revenue-based buyback-burn |
 | Metaplex | MPLX | NFT Infra | Protocol fee burn mechanism |
-| Uniswap | UNI | DEX | Fee switch debate ongoing |
+| Uniswap | UNI | DEX | **PROMOTED** to Primary Targets. UNIfication passed Dec 2025. 100M UNI burned ($596M). Fee switch active. |
 | Linea | LINEA | L2 | Dual-burn (80% LINEA / 20% ETH), EIP-1559 inspired |
-| Lido | LDO | Liquid Staking | NEST program pending governance vote, $10M/yr cap, anti-cyclical triggers |
-| OpenSea | SEA | NFT/Trading | 50% platform revenue to buyback, token launched Q1 2026 |
+| Lido | LDO | Liquid Staking | NEST approaching Q1 2026 vote. ETH $3K trigger, $40M rev threshold, $10M/yr cap. Anti-cyclical. |
+| OpenSea | SEA | NFT/Trading | Token launched Q1 2026. 50% revenue to buyback ACTIVE. $2.6B+ vol. |
 | World Liberty Financial | WLFI | DeFi | 100% protocol fees to buyback-burn, $10M+ executed. Trump-affiliated. |
 | MANTRA | OM | L1 (RWA) | $25M investor-funded buyback tranche (~10% circ supply). Not revenue-funded. |
 | Treehouse | TREE | DeFi (Yield) | 50% tETH fees to buyback, $294M deposits, DAO-held reserves |
@@ -58,6 +62,10 @@ Flagged for investigation — need verification of active buyback programs:
 | Monad | MON | L1 (EVM) | Category Labs potential $30M discretionary buyback H1 2026. Entity-funded. |
 | Ronin | RON | Gaming L1→L2 | Treasury-funded TWAP buyback ($4.6M initial) + ongoing Katana DEX/marketplace fees. |
 | Sonic | S | L1 (EVM) | Revenue-funded buybacks from vertical integration. $6M initial. FeeM 5% burn. |
+| Helium | HNT | DePIN | DISCONTINUED Jan 2026. 100% Mobile rev to buy-and-burn suspended — "market indifference." Anti-case study. |
+| Bitget/Morph | BGB | CEX + L2 | 20% quarterly profits to buyback. $1B+ burn. Target 91% supply reduction (1.1B→100M). |
+| Renzo | REZ | Liquid Restaking | 100% revenue to buyback (Nov 2025-May 2026). 90% burn / 10% distribute. 1.79% burned. Token -77%. |
+| Aptos | APT | L1 (Move) | Tokenomics overhaul proposed Feb 18, 2026. Buyback + 100% gas burns + 2.1B cap + 210M lock. |
 
 ## Status Tracking
 
@@ -74,3 +82,4 @@ Flagged for investigation — need verification of active buyback programs:
 | Chainlink | 2026-02-20 | 2026-02-20 | 2026-02-20 |
 | dYdX | 2026-02-20 | 2026-02-20 | 2026-02-20 |
 | Maple Finance | 2026-02-20 | 2026-02-20 | 2026-02-20 |
+| Clanker | 2026-02-20 | 2026-02-20 | 2026-02-20 |

@@ -9,10 +9,10 @@ created: 2026-02-19
 
 ## Status
 
-- **Current iteration**: 11
-- **Reports completed**: 11
+- **Current iteration**: 12
+- **Reports completed**: 12
 - **Last updated**: 2026-02-20
-- **Last discovery scan**: Iteration 9 (2026-02-20)
+- **Last discovery scan**: Iteration 12 (2026-02-20)
 
 ## Research Queue
 
@@ -33,7 +33,7 @@ Priority order for analysis. Project Lead works top-to-bottom.
 | 9 | Chainlink | LINK | Done | 2026-02-20 | Reserve mechanism (hold, not burn). 0.31% buyback yield, 80x P/E on-chain. $19M reserve vs $2.2B team holdings (no lockup). Team releases 20x more LINK than reserve accumulates. Enterprise revenue (SWIFT/DTCC/UBS) undisclosed — the thesis pivot. 3 Neutral, 2 Bearish. Best business, weakest token value accrual in the series. |
 | 10 | dYdX | DYDX | Done | 2026-02-20 | 75% net fees to buyback-and-STAKE. Unanimous Bearish. Stake-not-burn design flaw, 84% YoY revenue decline, 85% underwater on buyback cost basis. $9M/yr buyback on declining revenue in a market Hyperliquid dominates 40:1. |
 | 11 | Maple Finance | SYRUP | Done | 2026-02-20 | First zero-Bearish protocol in series. 4 Bullish, 1 Neutral. Real stablecoin revenue ($25M+), fully unlocked insiders (1.05x FDV/MCap), progressive governance (MIP-013→019). SSF buyback at 25% of revenue. $100M ARR target is the catalyst. |
-| 12 | Clanker | CLANKER | Queued | | Auto buyback-burn |
+| 12 | Clanker | CLANKER | Done | 2026-02-20 | 66.7% of WETH fees to buyback. 4 Bearish, 1 Neutral. Thinnest application in series — memecoin casino fees, no moat, manual execution, co-founder theft, 30% team without vesting. Revenue swings 33x week-to-week. |
 | 13 | Raydium | RAY | Queued | | 12% fee buyback & burn |
 
 ### Discovered in Iteration 3 — Promote to Primary Targets
@@ -66,6 +66,15 @@ Priority order for analysis. Project Lead works top-to-bottom.
 | 27 | Lighter | LIT | Queued | | Perps DEX (zk-rollup). Active buybacks from trading fees + Circle USDC interest ($30-40M/yr potential). Direct Hyperliquid competitor. |
 | 28 | Bonk | BONK | Queued | | Memecoin/launchpad. BonkFun fees → buyback-burn. $27.3M in 2025. 65% total supply burned. Unique ecosystem flywheel. |
 
+### Discovered in Iteration 12 — Promote to Primary Targets
+
+| # | Protocol | Token | Status | Date | Notes |
+|---|----------|-------|--------|------|-------|
+| 29 | Uniswap | UNI | Queued | | **PROMOTED from Discovery.** UNIfication passed Dec 2025 (near-unanimous). 100M UNI retroactively burned ($596M). Fee switch activated on v2/v3 — 1/4 to 1/6 of swap fees to "token jar" smart contract. Burn-to-redeem mechanism. Expanding to 8 chains Feb 2026. |
+| 30 | Bitget/Morph | BGB | Queued | | 20% quarterly profits to buyback. $1B+ burn of 220M BGB (Sept 2025). Target: reduce supply from 1.1B to 100M. On-chain burn formula tied to Morph L2 activity. |
+| 31 | Renzo Protocol | REZ | Queued | | 100% revenue to buyback (Nov 2025-May 2026). 90% burned / 10% distributed to stakers. 198.79M REZ ($2.27M) bought back, 1.79% supply burned. Token -77% since inception. Direct ETHFI competitor. |
+| 32 | Aptos | APT | Queued | | L1 tokenomics overhaul proposed Feb 18, 2026. Programmatic buyback + 100% gas burns + 2.1B hard cap + 210M lock + staking APR cut. Very fresh proposal. |
+
 ### Discovery Candidates (Need Verification)
 
 | Protocol | Token | Signal | Status |
@@ -74,10 +83,10 @@ Priority order for analysis. Project Lead works top-to-bottom.
 | Banana Gun | BANANA | Fee sharing (40% weekly), team exploring buyback, no formal program | Watch |
 | Rollbit | RLB | Revenue-based buyback-burn | Watch |
 | Metaplex | MPLX | Protocol fee burn | Watch |
-| Uniswap | UNI | Fee switch debate | Watch |
+| Uniswap | UNI | **PROMOTED** to Primary Targets (#29). UNIfication passed Dec 2025. | Promoted |
 | Linea | LINEA | Dual-burn mechanism (80/20 LINEA/ETH) | Watch |
-| Lido | LDO | NEST program pending governance vote, $10M/yr cap, anti-cyclical triggers | Watch |
-| OpenSea | SEA | 50% platform revenue to buyback, token launched Q1 2026 | Watch |
+| Lido | LDO | NEST program approaching Q1 2026 vote. ETH $3K trigger, $40M rev threshold, $10M/yr cap. Anti-cyclical. | Watch — Approaching Vote |
+| OpenSea | SEA | Token launched Q1 2026. 50% revenue to buyback ACTIVE. $2.6B+ trading vol. 90%+ from crypto trading. | Watch — Active |
 | World Liberty Financial | WLFI | 100% protocol fees to buyback-burn, $10M+ executed. Politically controversial (Trump-affiliated). | Watch |
 | MANTRA | OM | $25M investor-funded buyback tranche (~10% circ supply). Not revenue-funded. | Watch |
 | Treehouse | TREE | 50% tETH fees to buyback, $294M deposits, DAO-held reserves | Watch |
@@ -87,6 +96,7 @@ Priority order for analysis. Project Lead works top-to-bottom.
 | Monad | MON | Category Labs announced potential $30M discretionary buyback H1 2026. Entity-funded, not revenue. | Watch |
 | Ronin | RON | Treasury-funded TWAP buyback ($4.6M initial). Katana DEX/marketplace fees ongoing. Gaming L1→L2. | Watch |
 | Sonic | S | Revenue-funded buybacks from vertical integration. $6M initial purchase. FeeM 5% burn. Ramping 2026. | Watch |
+| Helium | HNT | DISCONTINUED buyback Jan 2026. 100% Mobile revenue ($3.4M/mo peak) to buy-and-burn — suspended due to "market indifference." Anti-case study. | Watch — Discontinued |
 
 ## Completed Reports
 
@@ -103,6 +113,7 @@ Priority order for analysis. Project Lead works top-to-bottom.
 | Chainlink | 2026-02-20 | output/chainlink-report.md | 0 Bullish, 3 Neutral, 2 Bearish |
 | dYdX | 2026-02-20 | output/dydx-report.md | 0 Bullish, 0 Neutral, 5 Bearish (unanimous) |
 | Maple Finance | 2026-02-20 | output/maple-report.md | 4 Bullish, 1 Neutral, 0 Bearish |
+| Clanker | 2026-02-20 | output/clanker-report.md | 0 Bullish, 1 Neutral, 4 Bearish |
 
 ## Methodology Notes
 
@@ -189,3 +200,9 @@ Priority order for analysis. Project Lead works top-to-bottom.
 - (From SYRUP analysis) Institutional credit data as non-forkable moat: Monegro argues Maple's 5+ years of borrower credit data creates an application-layer data moat that resists the Thin Applications thesis. Is "proprietary state at the application layer" a generalizable moat category for DeFi lending protocols? How does it compare to L1 network effects?
 - (From SYRUP analysis) Revenue growth rate vs buyback scale: at 2.4% current yield but 533% YoY growth, is the market pricing the buyback or the growth trajectory? Should analysts evaluate buybacks on current yield or forward yield? Is there a framework for "buyback yield at target revenue" as a valuation metric?
 - (From SYRUP analysis) SSF as strategic treasury vs burn: the Syrup Strategic Fund holds SYRUP + BTC + stablecoins rather than burning. Charbonneau and Hasu view this as a real treasury; Cobie flags optionality for future selling. Is a diversified DAO treasury (multiple assets, not just native token) structurally superior to single-asset burn? Compare against Chainlink reserve, Ethena SPAC hold, Jupiter Litterbox Trust.
+- (From CLANKER analysis) Revenue volatility and buyback credibility: Clanker's revenue swings 33x between peak and trough weeks. At what level of revenue volatility does a buyback become unmodelable and therefore non-credible? Should protocols with extreme revenue cyclicality adopt counter-cyclical reserves (accumulate in peaks, deploy in troughs) rather than pro-cyclical buybacks?
+- (From CLANKER analysis) Manual vs automated buyback execution: Clanker's manual execution with discretionary timing introduces trust assumptions. Across the series, is there a credibility spectrum from fully automated (Hyperliquid) to manual (Clanker)? Does automation correlate with analyst sentiment?
+- (From CLANKER analysis) Token deployer moats: Monegro identifies Clanker as the "thinnest application" — a convenience wrapper with no proprietary state, no data moat, and trivial forkability. The Farcaster social distribution is the only non-replicable asset. Can social distribution alone sustain a buyback? Compare against Pump.fun's similar moat challenges.
+- (From CLANKER analysis) Team integrity as buyback prerequisite: Clanker's co-founder was caught stealing from another protocol. Does team misconduct history predict buyback governance failures? Should analyst frameworks include a "team integrity discount"?
+- (From Discovery) Helium's buyback discontinuation: Helium suspended HNT buy-and-burn in Jan 2026 citing "market indifference." When buybacks demonstrably fail to impact price, is discontinuation the rational capital allocation decision? Does this validate Hasu's framework that premature/ineffective buybacks are value-destructive?
+- (From Discovery) Uniswap's burn-to-redeem "token jar": UNI holders burn tokens to withdraw proportional value from accumulated fees. Is this structurally different from (and superior to) traditional buyback-and-burn? Does forcing holders to actively burn create better alignment than passive supply reduction?
