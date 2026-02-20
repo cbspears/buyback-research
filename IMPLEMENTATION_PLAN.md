@@ -9,9 +9,9 @@ created: 2026-02-19
 
 ## Status
 
-- **Current iteration**: 7
-- **Reports completed**: 7
-- **Last updated**: 2026-02-19
+- **Current iteration**: 8
+- **Reports completed**: 8
+- **Last updated**: 2026-02-20
 - **Last discovery scan**: Iteration 6 (2026-02-19)
 
 ## Research Queue
@@ -29,7 +29,7 @@ Priority order for analysis. Project Lead works top-to-bottom.
 | 5 | Ether.fi | ETHFI | Done | 2026-02-19 | 3-layer buyback (withdrawal weekly, revenue monthly, $50M treasury conditional). $13.18M deployed at $0.46 (-94.6% ATH). Revenue $65-96M real. Unlock pressure 8.5x buyback capacity. 3 Neutral, 1 Neutral/Bearish, 1 Bearish. Cash Card is thesis-changing variable. |
 | 6 | Pump.fun | PUMP | Done | 2026-02-19 | 100% revenue to buyback, $255M deployed at avg $0.004-0.006 (now $0.0021). Unanimous Bearish. Buyback functioning as insider exit liquidity — $86.4M dumped after buyback wave. Revenue -78% from peak. $5.5B RICO lawsuit. |
 | 7 | Pyth Network | PYTH | Done | 2026-02-19 | 33% DAO treasury buyback ($130K/mo). 553x P/E, $260K deployed at $0.059 avg (underwater). May 2026 unlock 2.1B PYTH dwarfs buyback 700x. Hold-not-burn. Token has no economic rights. 4 Bearish, 1 Neutral. |
-| 8 | Aster | ASTER | Queued | | Up to 80% fees |
+| 8 | Aster | ASTER | Done | 2026-02-20 | Up to 80% fees, $214M+ bought back. Unanimous Bearish. Wash-trading allegations unresolved, -71% drawdown despite massive buybacks. |
 | 9 | Chainlink | LINK | Queued | | Reserve mechanism |
 | 10 | dYdX | DYDX | Queued | | 25-75% net fees |
 | 11 | Maple Finance | SYRUP | Queued | | Staking → buyback transition |
