@@ -19,6 +19,10 @@ Maintained by the Discovery agent. Updated each loop iteration.
 | Maple Finance | SYRUP | RWA Lending | 25% revenue, replaced staking with buyback | RWA lending, staking→buyback transition |
 | Clanker | CLANKER | Token Deployer | Auto buyback-burn from deployment fees | Farcaster ecosystem, automated mechanism |
 | Raydium | RAY | AMM | 12% trading fees to buyback & burn | Major Solana AMM, burn mechanism |
+| Aave | AAVE | Lending | $50M/yr permanent, weekly adaptive purchases | Largest lending protocol, revenue-funded, Aavenomics flywheel |
+| Sky (MakerDAO) | SKY | Stablecoin/CDP | ~$1M/day programmatic burn from surplus | OG DeFi, $338M revenue, 5.4% supply burned in 2025 |
+| Gains Network | GNS | Perps DEX | 100% revenue to buyback-and-burn | 25.7% supply burned, "Road to 1 GNS" |
+| GMX | GMX | Perps DEX | 27% revenue to buyback & distribute to stakers | 12.9% supply repurchased, governance debate on 90% allocation |
 
 ## Discovery Candidates
 
@@ -34,6 +38,10 @@ Flagged for investigation — need verification of active buyback programs:
 | Metaplex | MPLX | NFT Infra | Protocol fee burn mechanism |
 | WOO | WOO | DEX/CeFi | Buyback and burn program |
 | Uniswap | UNI | DEX | Fee switch debate ongoing |
+| LayerZero | ZRO | Cross-Chain | $160M buyback from investors + Stargate revenue pipeline |
+| Linea | LINEA | L2 | Dual-burn (80% LINEA / 20% ETH), EIP-1559 inspired |
+| PancakeSwap | CAKE | DEX | 29-month deflationary streak, buy-and-burn, cap reduction |
+| Lido | LDO | Liquid Staking | NEST automated buyback, conditional triggers (ETH >$3K, rev >$40M) |
 
 ## Status Tracking
 
@@ -41,3 +49,4 @@ Flagged for investigation — need verification of active buyback programs:
 |----------|---------------|----------------|--------------|
 | Hyperliquid | 2026-02-19 | 2026-02-19 | 2026-02-19 |
 | Jupiter | 2026-02-19 | 2026-02-19 | 2026-02-19 |
+| Ethena | 2026-02-19 | 2026-02-19 | 2026-02-19 |
