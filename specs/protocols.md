@@ -83,3 +83,4 @@ Flagged for investigation — need verification of active buyback programs:
 | dYdX | 2026-02-20 | 2026-02-20 | 2026-02-20 |
 | Maple Finance | 2026-02-20 | 2026-02-20 | 2026-02-20 |
 | Clanker | 2026-02-20 | 2026-02-20 | 2026-02-20 |
+| Raydium | 2026-02-20 | 2026-02-20 | 2026-02-20 |

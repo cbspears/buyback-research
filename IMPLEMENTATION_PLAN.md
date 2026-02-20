@@ -9,8 +9,8 @@ created: 2026-02-19
 
 ## Status
 
-- **Current iteration**: 12
-- **Reports completed**: 12
+- **Current iteration**: 13
+- **Reports completed**: 13
 - **Last updated**: 2026-02-20
 - **Last discovery scan**: Iteration 12 (2026-02-20)
 
@@ -34,7 +34,7 @@ Priority order for analysis. Project Lead works top-to-bottom.
 | 10 | dYdX | DYDX | Done | 2026-02-20 | 75% net fees to buyback-and-STAKE. Unanimous Bearish. Stake-not-burn design flaw, 84% YoY revenue decline, 85% underwater on buyback cost basis. $9M/yr buyback on declining revenue in a market Hyperliquid dominates 40:1. |
 | 11 | Maple Finance | SYRUP | Done | 2026-02-20 | First zero-Bearish protocol in series. 4 Bullish, 1 Neutral. Real stablecoin revenue ($25M+), fully unlocked insiders (1.05x FDV/MCap), progressive governance (MIP-013→019). SSF buyback at 25% of revenue. $100M ARR target is the catalyst. |
 | 12 | Clanker | CLANKER | Done | 2026-02-20 | 66.7% of WETH fees to buyback. 4 Bearish, 1 Neutral. Thinnest application in series — memecoin casino fees, no moat, manual execution, co-founder theft, 30% team without vesting. Revenue swings 33x week-to-week. |
-| 13 | Raydium | RAY | Queued | | 12% fee buyback & burn |
+| 13 | Raydium | RAY | Done | 2026-02-20 | Second zero-Bearish protocol (after Maple). 1 Bullish, 4 Neutral. Best-in-class automated execution ($250M+ cumulative, 14.4% supply burned). Net inflationary: 49M RAY/yr emitted vs ~40M burned. 53% revenue from LaunchLab memecoin launches. "Well-designed plumbing carrying volatile water." |
 
 ### Discovered in Iteration 3 — Promote to Primary Targets
 
@@ -114,6 +114,7 @@ Priority order for analysis. Project Lead works top-to-bottom.
 | dYdX | 2026-02-20 | output/dydx-report.md | 0 Bullish, 0 Neutral, 5 Bearish (unanimous) |
 | Maple Finance | 2026-02-20 | output/maple-report.md | 4 Bullish, 1 Neutral, 0 Bearish |
 | Clanker | 2026-02-20 | output/clanker-report.md | 0 Bullish, 1 Neutral, 4 Bearish |
+| Raydium | 2026-02-20 | output/raydium-report.md | 1 Bullish, 4 Neutral, 0 Bearish |
 
 ## Methodology Notes
 
@@ -206,3 +207,9 @@ Priority order for analysis. Project Lead works top-to-bottom.
 - (From CLANKER analysis) Team integrity as buyback prerequisite: Clanker's co-founder was caught stealing from another protocol. Does team misconduct history predict buyback governance failures? Should analyst frameworks include a "team integrity discount"?
 - (From Discovery) Helium's buyback discontinuation: Helium suspended HNT buy-and-burn in Jan 2026 citing "market indifference." When buybacks demonstrably fail to impact price, is discontinuation the rational capital allocation decision? Does this validate Hasu's framework that premature/ineffective buybacks are value-destructive?
 - (From Discovery) Uniswap's burn-to-redeem "token jar": UNI holders burn tokens to withdraw proportional value from accumulated fees. Is this structurally different from (and superior to) traditional buyback-and-burn? Does forcing holders to actively burn create better alignment than passive supply reduction?
+- (From RAY analysis) Net inflationary buybacks: Raydium emits 49M RAY/yr through mining while burning ~40M/yr through buyback. Is a buyback that merely slows supply expansion (rather than reducing it) fundamentally different from a deflationary buyback? Should "net emission rate" replace "buyback yield" as the primary metric?
+- (From RAY analysis) Mining emissions as structural headwind: with 40 years of emissions remaining at current rates, the buyback is fighting a permanent dilution source. Is there a governance playbook for reducing/eliminating LP mining emissions once protocol maturity is reached? Compare to Jupiter's Net-Zero Emissions pivot.
+- (From RAY analysis) Buyback cumulative spend vs market cap: Raydium has spent $250M+ on buybacks against a $175M market cap — 1.4x the current MCap. Across the series, is "cumulative buyback > market cap" a signal of mechanism failure or token mispricing? Does it indicate the buyback absorbed insider/emission selling rather than reducing float?
+- (From RAY analysis) Bear market survival as forward signal: Raydium is the only protocol in the series with a proven bear market survival track record (FTX collapse, Serum death, 99.4% drawdown). Does demonstrated survival predict future mechanism resilience, or does it merely confirm the protocol can operate at minimal revenue levels?
+- (From RAY analysis) The "fat application" liminal zone: Monegro identifies Raydium as application-layer by architecture but infrastructure-layer by function (55% Jupiter routing, primary Solana liquidity layer). Is there a structural category between fat protocols and thin applications? Do "fat applications" warrant different buyback evaluation frameworks?
+- (From RAY analysis) Revenue denomination and conversion: Raydium earns in hard assets (SOL, USDC) and converts to RAY for burning. Hayes argues this is "trading something real for something reflexive." Is hard-to-soft asset conversion always irrational, or does it make sense when the goal is permanent supply reduction? Compare to Chainlink's Payment Abstraction forcing all fees through LINK.
