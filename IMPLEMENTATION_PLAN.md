@@ -9,10 +9,10 @@ created: 2026-02-19
 
 ## Status
 
-- **Current iteration**: 5
-- **Reports completed**: 5
+- **Current iteration**: 6
+- **Reports completed**: 6
 - **Last updated**: 2026-02-19
-- **Last discovery scan**: Iteration 3 (2026-02-19)
+- **Last discovery scan**: Iteration 6 (2026-02-19)
 
 ## Research Queue
 
@@ -27,7 +27,7 @@ Priority order for analysis. Project Lead works top-to-bottom.
 | 3 | Ethena | ENA | Done | 2026-02-19 | $890M SPAC buyback (held, not burned). Token -92% from ATH, -83% during buyback. Fee switch is superior mechanism. 4 Bearish, 1 Neutral. |
 | 4 | Jito | JTO | Done | 2026-02-19 | 100% DAO rev to buyback via CSD. $2.5M deployed at $1.91 avg (now $0.29). 0.49x buyback-to-unlock ratio. 3 Neutral, 2 Bearish. Infrastructure strong, token value accrual nascent. |
 | 5 | Ether.fi | ETHFI | Done | 2026-02-19 | 3-layer buyback (withdrawal weekly, revenue monthly, $50M treasury conditional). $13.18M deployed at $0.46 (-94.6% ATH). Revenue $65-96M real. Unlock pressure 8.5x buyback capacity. 3 Neutral, 1 Neutral/Bearish, 1 Bearish. Cash Card is thesis-changing variable. |
-| 6 | Pump.fun | PUMP | Queued | | 100% revenue to buyback |
+| 6 | Pump.fun | PUMP | Done | 2026-02-19 | 100% revenue to buyback, $255M deployed at avg $0.004-0.006 (now $0.0021). Unanimous Bearish. Buyback functioning as insider exit liquidity — $86.4M dumped after buyback wave. Revenue -78% from peak. $5.5B RICO lawsuit. |
 | 7 | Pyth Network | PYTH | Queued | | 33% DAO treasury |
 | 8 | Aster | ASTER | Queued | | Up to 80% fees |
 | 9 | Chainlink | LINK | Queued | | Reserve mechanism |
@@ -45,22 +45,33 @@ Priority order for analysis. Project Lead works top-to-bottom.
 | 16 | Gains Network | GNS | Queued | | 100% revenue to burn, 25.7% supply burned. "Road to 1 GNS." |
 | 17 | GMX | GMX | Queued | | Buyback & Distribute model, 12.9% supply repurchased. Governance debate on 90% allocation. |
 
+### Discovered in Iteration 6 — Promote to Primary Targets
+
+| # | Protocol | Token | Status | Date | Notes |
+|---|----------|-------|--------|------|-------|
+| 18 | LayerZero | ZRO | Queued | | $150M+ spent repurchasing 5% supply from investors. Monthly buybacks from $2.4M Stargate revenue. Fee switch vote June 2026. |
+| 19 | PancakeSwap | CAKE | Queued | | 28 consecutive months deflationary. 15-23% spot fees + 20% perp profits to buy-and-burn. Target 4%/yr deflation, 20% supply reduction by 2030. |
+| 20 | WOO | WOO | Queued | | 300M token burn (15% supply) Jan 2026. 50% monthly revenue to buyback-burn. Strong execution. |
+| 21 | Optimism | OP | Queued | | 50% Superchain sequencer revenue to 12-month buyback pilot (~$8-9M/yr). Governance approved Jan 2026 with 84.4%. |
+| 22 | Aerodrome Finance | AERO | Queued | | PGF buyback + 4yr lock. 150M+ AERO acquired. Revenue > emissions ($39.4M vs $26.6M Sept 2025). Leading Base DEX. |
+| 23 | Arbitrum | ARB | Queued | | Offchain Labs strategic ARB purchase plan (March 2025). Entity-driven, not protocol-revenue funded. Needs investigation. |
+| 24 | Berachain | BERA | Queued | | PoL V2 buyback mechanism confirmed. BERA buybacks from PoL incentives active. Major unlock Feb 2026. |
+
 ### Discovery Candidates (Need Verification)
 
 | Protocol | Token | Signal | Status |
 |----------|-------|--------|--------|
-| Berachain | BERA | Novel PoL mechanism | Watch |
-| EigenLayer | EIGEN | AVS fee distribution | Watch |
-| Arbitrum | ARB | Sequencer revenue discussions | Watch |
-| Banana Gun | BANANA | Revenue share/buyback | Watch |
+| EigenLayer | EIGEN | ELIP-12 proposes 20% AVS fees to buyback — still a proposal | Watch |
+| Banana Gun | BANANA | Fee sharing (40% weekly), team exploring buyback, no formal program | Watch |
 | Rollbit | RLB | Revenue-based buyback-burn | Watch |
 | Metaplex | MPLX | Protocol fee burn | Watch |
-| WOO | WOO | Buyback and burn program | Watch |
 | Uniswap | UNI | Fee switch debate | Watch |
-| LayerZero | ZRO | $160M buyback from investors + Stargate revenue | Watch |
 | Linea | LINEA | Dual-burn mechanism (80/20 LINEA/ETH) | Watch |
-| PancakeSwap | CAKE | 29-month deflationary streak, buy-and-burn | Watch |
-| Lido | LDO | Conditional automated buyback (NEST program, 2026) | Watch |
+| Lido | LDO | NEST program pending governance vote, $10M/yr cap, anti-cyclical triggers | Watch |
+| OpenSea | SEA | 50% platform revenue to buyback, token launched Q1 2026 | Watch |
+| World Liberty Financial | WLFI | 100% protocol fees to buyback-burn, $10M+ executed. Politically controversial (Trump-affiliated). | Watch |
+| MANTRA | OM | $25M investor-funded buyback tranche (~10% circ supply). Not revenue-funded. | Watch |
+| Treehouse | TREE | 50% tETH fees to buyback, $294M deposits, DAO-held reserves | Watch |
 
 ## Completed Reports
 
@@ -71,6 +82,7 @@ Priority order for analysis. Project Lead works top-to-bottom.
 | Ethena | 2026-02-19 | output/ethena-report.md | 0 Bullish, 1 Neutral, 4 Bearish |
 | Jito | 2026-02-19 | output/jito-report.md | 0 Bullish, 3 Neutral, 2 Bearish |
 | Ether.fi | 2026-02-19 | output/etherfi-report.md | 0 Bullish, 3 Neutral, 1 Neutral/Bearish, 1 Bearish |
+| Pump.fun | 2026-02-19 | output/pumpfun-report.md | 0 Bullish, 0 Neutral, 5 Bearish (unanimous) |
 
 ## Methodology Notes
 
@@ -126,3 +138,10 @@ Priority order for analysis. Project Lead works top-to-bottom.
 - (From ETHFI analysis) Distribute-to-stakers vs burn for application-layer tokens: all 5 analysts agreed distribute is correct for non-monetary tokens. Is there empirical evidence that distribution creates more sustainable demand than burns at the application layer?
 - (From ETHFI analysis) Capital allocation at the inflection point: Hasu argues buyback capital should be redirected to Cash Card growth. When should protocols shift from "return capital" to "reinvest for growth"? Is there a revenue-to-FDV ratio that determines the optimal switch?
 - (From ETHFI analysis) Ecosystem embeddedness as a moat against forkability: weETH's 400+ DeFi integrations create switching friction at the ecosystem level (not user level). How durable is this moat compared to L1 network effects? Historical precedents?
+- (From PUMP analysis) Does 100% buyback allocation signal the absence of a capital allocation strategy rather than maximum shareholder alignment? When a protocol has no treasury, no governance, and no reserves, is "100% to buyback" a red flag?
+- (From PUMP analysis) Buyback as exit liquidity: the $86.4M insider dump following a $30M buyback wave is the clearest documented case. How prevalent is this pattern? Can it be detected programmatically by monitoring buyback wallet activity vs insider transfers?
+- (From PUMP analysis) ICO-to-buyback pipeline: when a protocol raises $1.3B in an ICO and then uses 100% of operating revenue to buy back the token it just sold, is this structurally circular? Does the ICO create the very sell pressure the buyback must absorb?
+- (From PUMP analysis) Casino revenue and buyback sustainability: Pump.fun's revenue is perfectly correlated with memecoin speculation. Is there a revenue source durability threshold below which buybacks are always value-destructive? How should "casino" revenue be discounted vs "utility" revenue?
+- (From PUMP analysis) Average buyback price as a diagnostic: PUMP's avg buyback at $0.004-0.006 vs current $0.0021 means 50-65% value destruction. Across all protocols studied, is "buyback underwater on cost basis" a reliable indicator of mechanism failure?
+- (From PUMP analysis) The reflexivity trap: Pump.fun's bull-market feedback loop (meme mania → revenue → buybacks → price → attention → more memes) reverses with equal ferocity in bear markets. Can any mechanism design break the reflexivity, or is it inherent to pro-cyclical revenue + buyback?
+- (From Discovery) Investor-funded vs revenue-funded buybacks: MANTRA's $25M investor buyback tranche is fundamentally different from revenue-funded buybacks. Should these be analyzed separately? Do investor buybacks create moral hazard?
