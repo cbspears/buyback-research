@@ -51,3 +51,4 @@ Flagged for investigation — need verification of active buyback programs:
 | Jupiter | 2026-02-19 | 2026-02-19 | 2026-02-19 |
 | Ethena | 2026-02-19 | 2026-02-19 | 2026-02-19 |
 | Jito | 2026-02-19 | 2026-02-19 | 2026-02-19 |
+| Ether.fi | 2026-02-19 | 2026-02-19 | 2026-02-19 |

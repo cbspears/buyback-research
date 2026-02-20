@@ -9,8 +9,8 @@ created: 2026-02-19
 
 ## Status
 
-- **Current iteration**: 4
-- **Reports completed**: 4
+- **Current iteration**: 5
+- **Reports completed**: 5
 - **Last updated**: 2026-02-19
 - **Last discovery scan**: Iteration 3 (2026-02-19)
 
@@ -26,7 +26,7 @@ Priority order for analysis. Project Lead works top-to-bottom.
 | 2 | Jupiter | JUP | Done | 2026-02-19 | 50% fee buyback HALTED. Litterbox Trust spent $70M at avg $0.74, token at $0.16. Unanimous Bearish from all 5 analysts. Pivoting to Net-Zero Emissions. |
 | 3 | Ethena | ENA | Done | 2026-02-19 | $890M SPAC buyback (held, not burned). Token -92% from ATH, -83% during buyback. Fee switch is superior mechanism. 4 Bearish, 1 Neutral. |
 | 4 | Jito | JTO | Done | 2026-02-19 | 100% DAO rev to buyback via CSD. $2.5M deployed at $1.91 avg (now $0.29). 0.49x buyback-to-unlock ratio. 3 Neutral, 2 Bearish. Infrastructure strong, token value accrual nascent. |
-| 5 | Ether.fi | ETHFI | Queued | | $50M approved, auto-trigger |
+| 5 | Ether.fi | ETHFI | Done | 2026-02-19 | 3-layer buyback (withdrawal weekly, revenue monthly, $50M treasury conditional). $13.18M deployed at $0.46 (-94.6% ATH). Revenue $65-96M real. Unlock pressure 8.5x buyback capacity. 3 Neutral, 1 Neutral/Bearish, 1 Bearish. Cash Card is thesis-changing variable. |
 | 6 | Pump.fun | PUMP | Queued | | 100% revenue to buyback |
 | 7 | Pyth Network | PYTH | Queued | | 33% DAO treasury |
 | 8 | Aster | ASTER | Queued | | Up to 80% fees |
@@ -70,6 +70,7 @@ Priority order for analysis. Project Lead works top-to-bottom.
 | Jupiter | 2026-02-19 | output/jupiter-report.md | 0 Bullish, 0 Neutral, 5 Bearish (unanimous) |
 | Ethena | 2026-02-19 | output/ethena-report.md | 0 Bullish, 1 Neutral, 4 Bearish |
 | Jito | 2026-02-19 | output/jito-report.md | 0 Bullish, 3 Neutral, 2 Bearish |
+| Ether.fi | 2026-02-19 | output/etherfi-report.md | 0 Bullish, 3 Neutral, 1 Neutral/Bearish, 1 Bearish |
 
 ## Methodology Notes
 
@@ -118,3 +119,10 @@ Priority order for analysis. Project Lead works top-to-bottom.
 - (From JTO analysis) Forkability at the infrastructure layer: Paladin forked Jito-Solana and eroded MEV share from 75% to 60% in 6 months. Does the JitoSOL flywheel (DeFi composability, TVL gravity) create a sufficient second moat, or will MEV infrastructure commoditize?
 - (From JTO analysis) Revenue denomination matters: Jito earns in SOL (hard asset) but converts to JTO (governance token) via buyback. Is this trade-down from hard asset to soft asset always value-destructive, or can it compound if the governance token appreciates?
 - (From JTO analysis) The "buyback and barter" model (inter-DAO token swaps): does distributing purchased tokens to partner DAOs create more durable demand than burning? Soft lock-up through relationships vs hard lock-up through code.
+- (From ETHFI analysis) Buyback-to-unlock ratio as a universal metric: Ether.fi's buyback absorbs 12-30% of unlock pressure (8.5x sell pressure vs buy pressure). Is there a minimum ratio below which buybacks are net-negative (providing exit liquidity for insiders while consuming treasury)?
+- (From ETHFI analysis) Nominal-price triggers vs valuation-based triggers: the $3 trigger is permanently active at $0.46. Should buyback triggers be P/E-based or revenue-multiple-based rather than nominal-price-based? Would this produce better capital allocation outcomes?
+- (From ETHFI analysis) Counter-cyclical withdrawal fee buybacks: Ether.fi's withdrawal fees fund buybacks during panic exits — a rare counter-cyclical element. How material is this in practice? Does it represent a generalizable design pattern for staking protocols?
+- (From ETHFI analysis) The "neobank escape hatch" — when DeFi middleware protocols pivot to consumer fintech (Cash cards, hotel bookings), does this create sufficient non-crypto-correlated revenue to sustain buybacks through crypto winters? Or does crypto card spending collapse in bear markets too?
+- (From ETHFI analysis) Distribute-to-stakers vs burn for application-layer tokens: all 5 analysts agreed distribute is correct for non-monetary tokens. Is there empirical evidence that distribution creates more sustainable demand than burns at the application layer?
+- (From ETHFI analysis) Capital allocation at the inflection point: Hasu argues buyback capital should be redirected to Cash Card growth. When should protocols shift from "return capital" to "reinvest for growth"? Is there a revenue-to-FDV ratio that determines the optimal switch?
+- (From ETHFI analysis) Ecosystem embeddedness as a moat against forkability: weETH's 400+ DeFi integrations create switching friction at the ecosystem level (not user level). How durable is this moat compared to L1 network effects? Historical precedents?
