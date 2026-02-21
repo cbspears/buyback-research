@@ -358,6 +358,24 @@
     margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--border);
     font-size: 13px; color: var(--text-muted); font-style: italic;
   }
+  .analyst-card { cursor: pointer; }
+  .analyst-card-toggle {
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .analyst-card-toggle-hint {
+    font-size: 12px; color: var(--text-muted); display: flex; align-items: center; gap: 6px;
+  }
+  .analyst-card-toggle-arrow {
+    font-size: 14px; transition: transform 0.25s;
+  }
+  .analyst-card.expanded .analyst-card-toggle-arrow { transform: rotate(180deg); }
+  .analyst-portfolio-panel {
+    display: none;
+    margin-top: 20px; padding-top: 20px;
+    border-top: 1px solid var(--border);
+  }
+  .analyst-card.expanded .analyst-portfolio-panel { display: block; }
+  .analyst-card.expanded { border-color: var(--accent); }
 
   /* Section description */
   .section-desc {
@@ -381,14 +399,12 @@
 <nav class="nav">
   <div class="nav-inner">
     <a href="#hero" class="nav-brand">BUYBACK RESEARCH</a>
+    <a href="#analysts">Analysts</a>
     <a href="#rankings">Rankings</a>
     <a href="#breakdown">Score Breakdown</a>
     <a href="#scatter">Yield vs P/E</a>
     <a href="#heatmap">Analyst Sentiment</a>
     <a href="#dilution">Supply Dilution</a>
-    <a href="#mechanisms">Mechanisms</a>
-    <a href="#analysts">Analysts</a>
-    <a href="#portfolios">Portfolios</a>
     <a href="#synthesis">Synthesis</a>
     <a href="#methodology">Methodology</a>
   </div>
@@ -432,6 +448,24 @@
       <p>The core finding: buybacks cannot manufacture value that doesn't already exist. Protocols with real revenue, clean supply schedules (low FDV/MCap), and structural moats — like <strong>Maple Finance</strong> and <strong>Raydium</strong> — can make buybacks work. But the majority treat buybacks as marketing tools rather than capital allocation decisions, spending real revenue to perform the theater of value return while insider unlocks overwhelm the mechanism by orders of magnitude.</p>
       <p>The most damning data points: pump.fun spent $255M on buybacks and its token fell 83%. Jupiter's own co-founder halted their $70M program, calling it "a waste of resources." Meanwhile, Maple Finance — with a modest 2.4% buyback yield from boring institutional lending — earned zero Bearish verdicts and unanimous conviction from all five analysts.</p>
       <p><strong>The single most important metric?</strong> FDV/MCap ratio. Protocols below 1.5x received majority positive verdicts. Protocols above 3x received unanimous Bearish. Check the supply schedule before you check anything else.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Analysts -->
+<section id="analysts">
+  <div class="container">
+    <p class="section-label">The Panel</p>
+    <h2>Meet the Five Analysts</h2>
+    <p class="section-desc">Each protocol was independently evaluated by five AI analyst personas, each modeled after a real crypto thought leader with a distinct analytical framework. They don't coordinate — they analyze the same data through different lenses and often disagree. When they converge, the signal is in the mechanism, not the methodology. <strong>Click any card to see their portfolio allocation.</strong></p>
+    <div class="analyst-grid" id="analystGrid"></div>
+    <h3 style="margin-top: 48px;">Cross-Persona Comparison (Top Protocols)</h3>
+    <p class="section-desc" style="margin-bottom: 16px;">How the five analysts' $1M allocations compare side-by-side. Cash ranges from 10% (Charbonneau) to 66.5% (Hayes).</p>
+    <div class="comparison-table-wrap">
+      <table class="comparison-table" id="comparisonTable">
+        <thead id="comparisonHead"></thead>
+        <tbody id="comparisonBody"></tbody>
+      </table>
     </div>
   </div>
 </section>
@@ -512,8 +546,8 @@
   </div>
 </section>
 
-<!-- Mechanism Classification -->
-<section id="mechanisms">
+<!-- Mechanism Classification (hidden) -->
+<section id="mechanisms" style="display:none">
   <div class="container">
     <p class="section-label">Mechanism Design</p>
     <h2>Mechanism Type vs Execution Classification</h2>
@@ -524,135 +558,7 @@
   </div>
 </section>
 
-<!-- Analysts -->
-<section id="analysts">
-  <div class="container">
-    <p class="section-label">The Panel</p>
-    <h2>Meet the Five Analysts</h2>
-    <p class="section-desc">Each protocol was independently evaluated by five AI analyst personas, each modeled after a real crypto thought leader with a distinct analytical framework. They don't coordinate — they analyze the same data through different lenses and often disagree. When they converge, the signal is in the mechanism, not the methodology.</p>
-    <div class="analyst-grid">
-
-      <div class="analyst-card">
-        <div class="analyst-card-header">
-          <div class="analyst-card-avatar">JC</div>
-          <div>
-            <div class="analyst-card-name">Charbonneau</div>
-            <div class="analyst-card-lens">Mechanism Design & Infrastructure</div>
-          </div>
-        </div>
-        <p class="analyst-card-bio">Modeled after Jon Charbonneau, co-founder of DBA and former structured credit analyst. Applies a purpose-built TEV/REV/Net Income framework for crypto networks, rejecting the notion that protocols are companies. Evaluates L1 tokens as "triple-point assets" — simultaneously capital assets, consumable assets, and stores of value.</p>
-        <div class="analyst-card-priorities">
-          <strong>Prioritizes</strong>
-          <ul>
-            <li>Mechanism architecture quality (burn vs. distribute vs. reinvest)</li>
-            <li>Infrastructure-layer positioning (DBA thesis)</li>
-            <li>Precise distinction between revenue source and revenue use</li>
-          </ul>
-        </div>
-        <div class="analyst-card-stance">"Is this well-designed?" — Systems thinker, not a trader. Leans toward the monetary camp for L1 tokens, cash-flow camp for application tokens.</div>
-      </div>
-
-      <div class="analyst-card">
-        <div class="analyst-card-header">
-          <div class="analyst-card-avatar">Ha</div>
-          <div>
-            <div class="analyst-card-name">Hasu</div>
-            <div class="analyst-card-lens">Game Theory & Capital Allocation</div>
-          </div>
-        </div>
-        <p class="analyst-card-bio">Modeled after @hasufl, co-founder of DBA, former professional poker player, and Strategy Lead at Flashbots. Treats blockchains as social contracts and applies game-theoretic reasoning inherited from poker. Insists that native tokens in a treasury are "authorized but unissued shares," not assets.</p>
-        <div class="analyst-card-priorities">
-          <strong>Prioritizes</strong>
-          <ul>
-            <li>Incentive alignment at equilibrium</li>
-            <li>Revenue sustainability and dilution quantification</li>
-            <li>Whether buybacks create value or are premature capital destruction</li>
-          </ul>
-        </div>
-        <div class="analyst-card-stance">"Do the incentives align at equilibrium?" — Disciplined capital allocator. Believes 90% of projects should not issue tokens.</div>
-      </div>
-
-      <div class="analyst-card">
-        <div class="analyst-card-header">
-          <div class="analyst-card-avatar">Co</div>
-          <div>
-            <div class="analyst-card-name">Cobie</div>
-            <div class="analyst-card-lens">Market Structure & Exit Liquidity</div>
-          </div>
-        </div>
-        <p class="analyst-card-bio">Modeled after Jordan Fish (Cobie), crypto trader, early-stage investor, and co-host of the UpOnly podcast. His north star question is "Who is exit liquidity?" He traces money flows end-to-end, examines unlock schedules against buyback timing, and performs "incentive archaeology" on who proposed each buyback.</p>
-        <div class="analyst-card-priorities">
-          <strong>Prioritizes</strong>
-          <ul>
-            <li>Identifying insider subsidies and VC exit patterns</li>
-            <li>Token unlock schedules vs. buyback magnitude</li>
-            <li>Simple, direct fee-sharing over buyback complexity</li>
-          </ul>
-        </div>
-        <div class="analyst-card-stance">"Who actually profits from this?" — Default skeptic. Assumes every buyback is VC exit liquidity until proven otherwise.</div>
-      </div>
-
-      <div class="analyst-card">
-        <div class="analyst-card-header">
-          <div class="analyst-card-avatar">AH</div>
-          <div>
-            <div class="analyst-card-name">Hayes</div>
-            <div class="analyst-card-lens">Macro Regime & Fiat Liquidity Cycles</div>
-          </div>
-        </div>
-        <p class="analyst-card-bio">Modeled after Arthur Hayes, co-founder of BitMEX and former commodities trader at Deutsche Bank. Fiat liquidity is THE master variable — central bank balance sheets determine crypto prices, and everything else is downstream. Distinguishes real yield (hard assets) from nominal yield (inflating governance tokens).</p>
-        <div class="analyst-card-priorities">
-          <strong>Prioritizes</strong>
-          <ul>
-            <li>Revenue durability across monetary regimes (loose vs. tight)</li>
-            <li>Pro-cyclicality trap: buybacks shrink when tokens need support most</li>
-            <li>Treasury reserves over buybacks as survival strategy</li>
-          </ul>
-        </div>
-        <div class="analyst-card-stance">"Does this survive a bear market?" — Macro-first. Would rather hold cash and wait for the regime to shift than buy yield that evaporates when the Fed tightens.</div>
-      </div>
-
-      <div class="analyst-card">
-        <div class="analyst-card-header">
-          <div class="analyst-card-avatar">JM</div>
-          <div>
-            <div class="analyst-card-name">Monegro</div>
-            <div class="analyst-card-lens">Fat Protocols & Structural Value Capture</div>
-          </div>
-        </div>
-        <p class="analyst-card-bio">Modeled after Joel Monegro, author of the Fat Protocols thesis and venture capital partner. Evaluates whether tokens have legitimate structural claims on protocol value. Draws a sharp distinction between value creation and value capture — enormous usage does not automatically translate to token value.</p>
-        <div class="analyst-card-priorities">
-          <strong>Prioritizes</strong>
-          <ul>
-            <li>Structural moats: switching costs, network effects, data moats</li>
-            <li>Forkability — if the app can be forked, no buyback is sustainable</li>
-            <li>Infrastructure-layer positioning (fat protocols thesis)</li>
-          </ul>
-        </div>
-        <div class="analyst-card-stance">"Does this token have a legitimate value claim?" — If no, nothing else matters. Forkable apps cannot sustain buybacks regardless of mechanism design.</div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- Persona Portfolios -->
-<section id="portfolios">
-  <div class="container">
-    <p class="section-label">Analyst Portfolios</p>
-    <h2>Persona Portfolio Allocations</h2>
-    <p class="section-desc">Each analyst was given a hypothetical $1M to allocate across the 13 protocols (plus cash). The donut charts show their individual allocations, and the comparison table below reveals where they agree and disagree. Cash allocation ranges from 10% (Charbonneau) to 66.5% (Hayes) — reflecting fundamentally different views on whether protocol-level alpha can overcome macro risk. Maple Finance is the only protocol where all five analysts allocated meaningful capital.</p>
-    <div class="tab-bar" id="personaTabBar"></div>
-    <div id="personaTabContent"></div>
-    <h3 style="margin-top: 48px;">Cross-Persona Comparison (Top Protocols)</h3>
-    <div class="comparison-table-wrap">
-      <table class="comparison-table" id="comparisonTable">
-        <thead id="comparisonHead"></thead>
-        <tbody id="comparisonBody"></tbody>
-      </table>
-    </div>
-  </div>
-</section>
+<!-- Old portfolios section removed — merged into Analysts section above -->
 
 <!-- Synthesis -->
 <section id="synthesis">
@@ -1210,37 +1116,81 @@ function renderMechanisms() {
 }
 
 // ============================================================
-// 7. PERSONA PORTFOLIOS
+// 7. ANALYST CARDS WITH EXPANDABLE PORTFOLIOS
 // ============================================================
-function renderPersonas() {
-  const tabBar = document.getElementById('personaTabBar');
-  const tabContent = document.getElementById('personaTabContent');
-  const personaNames = Object.keys(personas);
-  const initials = { 'Charbonneau': 'JC', 'Hasu': 'Ha', 'Cobie': 'Co', 'Hayes': 'AH', 'Monegro': 'JM' };
+const analystProfiles = {
+  'Charbonneau': {
+    initials: 'JC',
+    lens: 'Mechanism Design & Infrastructure',
+    bio: 'Modeled after Jon Charbonneau, co-founder of DBA and former structured credit analyst. Applies a purpose-built TEV/REV/Net Income framework for crypto networks. Evaluates L1 tokens as "triple-point assets" — simultaneously capital assets, consumable assets, and stores of value.',
+    priorities: ['Mechanism architecture quality (burn vs. distribute vs. reinvest)', 'Infrastructure-layer positioning (DBA thesis)', 'Precise distinction between revenue source and revenue use'],
+    stance: '"Is this well-designed?" — Systems thinker, not a trader. Leans toward the monetary camp for L1 tokens, cash-flow camp for application tokens.',
+  },
+  'Hasu': {
+    initials: 'Ha',
+    lens: 'Game Theory & Capital Allocation',
+    bio: 'Modeled after @hasufl, co-founder of DBA, former professional poker player, and Strategy Lead at Flashbots. Treats blockchains as social contracts and applies game-theoretic reasoning inherited from poker. Insists that native tokens in a treasury are "authorized but unissued shares," not assets.',
+    priorities: ['Incentive alignment at equilibrium', 'Revenue sustainability and dilution quantification', 'Whether buybacks create value or are premature capital destruction'],
+    stance: '"Do the incentives align at equilibrium?" — Disciplined capital allocator. Believes 90% of projects should not issue tokens.',
+  },
+  'Cobie': {
+    initials: 'Co',
+    lens: 'Market Structure & Exit Liquidity',
+    bio: 'Modeled after Jordan Fish (Cobie), crypto trader, early-stage investor, and co-host of the UpOnly podcast. His north star question is "Who is exit liquidity?" He traces money flows end-to-end, examines unlock schedules against buyback timing, and performs "incentive archaeology" on who proposed each buyback.',
+    priorities: ['Identifying insider subsidies and VC exit patterns', 'Token unlock schedules vs. buyback magnitude', 'Simple, direct fee-sharing over buyback complexity'],
+    stance: '"Who actually profits from this?" — Default skeptic. Assumes every buyback is VC exit liquidity until proven otherwise.',
+  },
+  'Hayes': {
+    initials: 'AH',
+    lens: 'Macro Regime & Fiat Liquidity Cycles',
+    bio: 'Modeled after Arthur Hayes, co-founder of BitMEX and former commodities trader at Deutsche Bank. Fiat liquidity is THE master variable — central bank balance sheets determine crypto prices, and everything else is downstream. Distinguishes real yield (hard assets) from nominal yield (inflating governance tokens).',
+    priorities: ['Revenue durability across monetary regimes (loose vs. tight)', 'Pro-cyclicality trap: buybacks shrink when tokens need support most', 'Treasury reserves over buybacks as survival strategy'],
+    stance: '"Does this survive a bear market?" — Macro-first. Would rather hold cash and wait for the regime to shift than buy yield that evaporates when the Fed tightens.',
+  },
+  'Monegro': {
+    initials: 'JM',
+    lens: 'Fat Protocols & Structural Value Capture',
+    bio: 'Modeled after Joel Monegro, author of the Fat Protocols thesis and venture capital partner. Evaluates whether tokens have legitimate structural claims on protocol value. Draws a sharp distinction between value creation and value capture — enormous usage does not automatically translate to token value.',
+    priorities: ['Structural moats: switching costs, network effects, data moats', 'Forkability — if the app can be forked, no buyback is sustainable', 'Infrastructure-layer positioning (fat protocols thesis)'],
+    stance: '"Does this token have a legitimate value claim?" — If no, nothing else matters. Forkable apps cannot sustain buybacks regardless of mechanism design.',
+  },
+};
 
-  let tabBarHtml = '';
-  let contentHtml = '';
+function renderAnalystCards() {
+  const grid = document.getElementById('analystGrid');
+  const personaNames = Object.keys(personas);
+  let html = '';
 
   personaNames.forEach((name, i) => {
+    const profile = analystProfiles[name];
     const p = personas[name];
-    tabBarHtml += `<button class="tab-btn ${i === 0 ? 'active' : ''}" onclick="switchPersonaTab(${i})">${name}</button>`;
-
+    const deployed = (100 - p.cash).toFixed(1);
     const allocs = p.allocations.filter(a => a.pct > 0);
-    const topAllocs = allocs.slice(0, 8);
-    const deployed = 100 - p.cash;
 
-    contentHtml += `<div class="tab-content ${i === 0 ? 'active' : ''}" id="personaTab${i}">
-      <div class="card">
-        <div class="persona-header">
-          <div class="persona-avatar">${initials[name]}</div>
+    html += `<div class="analyst-card" id="analystCard${i}" onclick="toggleAnalystCard(${i})">
+      <div class="analyst-card-toggle">
+        <div class="analyst-card-header" style="margin-bottom:0">
+          <div class="analyst-card-avatar">${profile.initials}</div>
           <div>
-            <div class="persona-name">${name}</div>
-            <div class="persona-lens">${p.lens}</div>
+            <div class="analyst-card-name">${name}</div>
+            <div class="analyst-card-lens">${profile.lens}</div>
           </div>
         </div>
+        <div class="analyst-card-toggle-hint">
+          <span>${deployed}% deployed</span>
+          <span class="analyst-card-toggle-arrow">&#9662;</span>
+        </div>
+      </div>
+      <p class="analyst-card-bio" style="margin-top:16px">${profile.bio}</p>
+      <div class="analyst-card-priorities">
+        <strong>Prioritizes</strong>
+        <ul>${profile.priorities.map(p => `<li>${p}</li>`).join('')}</ul>
+      </div>
+      <div class="analyst-card-stance">${profile.stance}</div>
+      <div class="analyst-portfolio-panel">
         <div class="persona-stats">
           <div class="persona-stat">
-            <div class="persona-stat-val" style="color:var(--green)">${deployed.toFixed(1)}%</div>
+            <div class="persona-stat-val" style="color:var(--green)">${deployed}%</div>
             <div class="persona-stat-label">Deployed</div>
           </div>
           <div class="persona-stat">
@@ -1252,7 +1202,7 @@ function renderPersonas() {
             <div class="persona-stat-label">Positions</div>
           </div>
           <div class="persona-stat">
-            <div class="persona-stat-val">${topAllocs.length > 0 ? topAllocs[0].pct + '%' : '0%'}</div>
+            <div class="persona-stat-val">${allocs.length > 0 ? allocs[0].pct + '%' : '0%'}</div>
             <div class="persona-stat-label">Top Position</div>
           </div>
         </div>
@@ -1265,21 +1215,28 @@ function renderPersonas() {
     </div>`;
   });
 
-  tabBar.innerHTML = tabBarHtml;
-  tabContent.innerHTML = contentHtml;
+  grid.innerHTML = html;
+}
 
-  // Render donuts
-  personaNames.forEach((name, i) => {
+window.toggleAnalystCard = function(idx) {
+  const card = document.getElementById('analystCard' + idx);
+  const wasExpanded = card.classList.contains('expanded');
+  card.classList.toggle('expanded');
+
+  // Render donut on first expand
+  if (!wasExpanded && !card.dataset.rendered) {
+    card.dataset.rendered = 'true';
+    const name = Object.keys(personas)[idx];
     const p = personas[name];
     const labels = [...p.allocations.filter(a => a.pct > 0).map(a => a.token), 'Cash'];
     const values = [...p.allocations.filter(a => a.pct > 0).map(a => a.pct), p.cash];
-    const colors = labels.map((l, idx) => {
+    const colors = labels.map((l, li) => {
       if (l === 'Cash') return '#3a3a5a';
-      const hue = (idx * 37 + 200) % 360;
+      const hue = (li * 37 + 200) % 360;
       return `hsl(${hue}, 55%, 55%)`;
     });
 
-    Plotly.newPlot(`donut${i}`, [{
+    Plotly.newPlot(`donut${idx}`, [{
       labels: labels,
       values: values,
       type: 'pie',
@@ -1299,15 +1256,7 @@ function renderPersonas() {
         showarrow: false, font: { size: 22, color: '#e8e8f0', family: 'Inter' },
       }],
     }, plotlyConfig);
-  });
-
-  // Comparison table
-  renderComparison();
-}
-
-window.switchPersonaTab = function(idx) {
-  document.querySelectorAll('.tab-btn').forEach((b, i) => b.classList.toggle('active', i === idx));
-  document.querySelectorAll('.tab-content').forEach((c, i) => c.classList.toggle('active', i === idx));
+  }
 };
 
 function renderComparison() {
@@ -1405,13 +1354,13 @@ window.addEventListener('scroll', () => {
 // ============================================================
 // INIT
 // ============================================================
+renderAnalystCards();
+renderComparison();
 renderTable();
 renderBreakdown();
 renderScatter();
 renderHeatmap();
 renderDilution();
-renderMechanisms();
-renderPersonas();
 renderSynthesis();
 </script>
 </body>
