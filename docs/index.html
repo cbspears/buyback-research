@@ -1185,16 +1185,30 @@ function renderAnalystCards() {
 
   grid.innerHTML = html;
 
+  // Global token color map — consistent across all charts
+  const tokenColorMap = {
+    'SYRUP':   '#22c55e', // green
+    'HYPE':    '#3b82f6', // blue
+    'RAY':     '#a855f7', // purple
+    'ETHFI':   '#f59e0b', // amber
+    'LINK':    '#06b6d4', // cyan
+    'JTO':     '#ec4899', // pink
+    'ENA':     '#f97316', // orange
+    'JUP':     '#14b8a6', // teal
+    'DYDX':    '#e879f9', // fuchsia
+    'CLANKER': '#84cc16', // lime
+    'PUMP':    '#ef4444', // red
+    'PYTH':    '#8b5cf6', // violet
+    'ASTER':   '#d946ef', // magenta
+    'Cash':    '#3a3a5a', // dark gray
+  };
+
   // Render all donuts immediately
   personaNames.forEach((name, i) => {
     const p = personas[name];
     const labels = [...p.allocations.filter(a => a.pct > 0).map(a => a.token), 'Cash'];
     const values = [...p.allocations.filter(a => a.pct > 0).map(a => a.pct), p.cash];
-    const colors = labels.map((l, li) => {
-      if (l === 'Cash') return '#3a3a5a';
-      const hue = (li * 37 + 200) % 360;
-      return `hsl(${hue}, 55%, 55%)`;
-    });
+    const colors = labels.map(l => tokenColorMap[l] || '#6c63ff');
 
     Plotly.newPlot(`donut${i}`, [{
       labels: labels,
