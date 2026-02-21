@@ -330,7 +330,7 @@
 
   /* Analyst cards */
   .analyst-grid {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    display: flex; flex-direction: column;
     gap: 20px;
   }
   .analyst-card {
@@ -338,7 +338,10 @@
     border-radius: 12px; padding: 28px;
     transition: border-color 0.2s;
   }
-  .analyst-card:hover { border-color: var(--accent); }
+  .analyst-card-inner {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: start;
+  }
+  @media (max-width: 960px) { .analyst-card-inner { grid-template-columns: 1fr; } }
   .analyst-card-header { display: flex; align-items: center; gap: 14px; margin-bottom: 16px; }
   .analyst-card-avatar {
     width: 48px; height: 48px; border-radius: 50%;
@@ -358,24 +361,9 @@
     margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--border);
     font-size: 13px; color: var(--text-muted); font-style: italic;
   }
-  .analyst-card { cursor: pointer; }
-  .analyst-card-toggle {
-    display: flex; align-items: center; justify-content: space-between;
-  }
-  .analyst-card-toggle-hint {
-    font-size: 12px; color: var(--text-muted); display: flex; align-items: center; gap: 6px;
-  }
-  .analyst-card-toggle-arrow {
-    font-size: 14px; transition: transform 0.25s;
-  }
-  .analyst-card.expanded .analyst-card-toggle-arrow { transform: rotate(180deg); }
   .analyst-portfolio-panel {
-    display: none;
-    margin-top: 20px; padding-top: 20px;
-    border-top: 1px solid var(--border);
+    padding-top: 0;
   }
-  .analyst-card.expanded .analyst-portfolio-panel { display: block; }
-  .analyst-card.expanded { border-color: var(--accent); }
 
   /* Section description */
   .section-desc {
@@ -424,24 +412,6 @@
       <span>&middot;</span>
       <span>Ralph Buyback Research System</span>
     </div>
-    <div class="stat-grid">
-      <div class="stat-card">
-        <div class="stat-value">Raydium</div>
-        <div class="stat-label">Highest Composite Score (67.6 / 100) — scored across yield, revenue quality, supply, consensus & mechanism design</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-value">51.0</div>
-        <div class="stat-label">Median Composite Score — a failing grade, meaning the typical buyback program is not delivering value to holders</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-value" style="background: linear-gradient(135deg, var(--green), var(--yellow), var(--red)); -webkit-background-clip: text; background-clip: text;">7 / 20 / 38</div>
-        <div class="stat-label">Bullish / Neutral / Bearish — total verdicts across 5 analysts x 13 protocols (65 total). 58% were Bearish</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-value">$18.9B</div>
-        <div class="stat-label">Combined market cap of all 13 protocols, from $32M (Clanker) to $7.2B (Hyperliquid)</div>
-      </div>
-    </div>
     <div class="tldr">
       <h3>TL;DR</h3>
       <p><strong>Most crypto token buybacks don't work.</strong> We analyzed 13 protocols running active buyback programs — from DeFi giants like Hyperliquid and Jupiter to newer experiments like pump.fun and Clanker — and ran each through five independent analytical frameworks. The result: <strong>58% of all analyst verdicts were Bearish.</strong> The median composite score was just 51 out of 100.</p>
@@ -457,7 +427,7 @@
   <div class="container">
     <p class="section-label">The Panel</p>
     <h2>Meet the Five Analysts</h2>
-    <p class="section-desc">Each protocol was independently evaluated by five AI analyst personas, each modeled after a real crypto thought leader with a distinct analytical framework. They don't coordinate — they analyze the same data through different lenses and often disagree. When they converge, the signal is in the mechanism, not the methodology. <strong>Click any card to see their portfolio allocation.</strong></p>
+    <p class="section-desc">Each protocol was independently evaluated by five AI analyst personas, each modeled after a real crypto thought leader with a distinct analytical framework. They don't coordinate — they analyze the same data through different lenses and often disagree. When they converge, the signal is in the mechanism, not the methodology. Each analyst was given a hypothetical $1M to allocate across the 13 protocols plus cash.</p>
     <div class="analyst-grid" id="analystGrid"></div>
     <h3 style="margin-top: 48px;">Cross-Persona Comparison (Top Protocols)</h3>
     <p class="section-desc" style="margin-bottom: 16px;">How the five analysts' $1M allocations compare side-by-side. Cash ranges from 10% (Charbonneau) to 66.5% (Hayes).</p>
@@ -1167,66 +1137,56 @@ function renderAnalystCards() {
     const deployed = (100 - p.cash).toFixed(1);
     const allocs = p.allocations.filter(a => a.pct > 0);
 
-    html += `<div class="analyst-card" id="analystCard${i}" onclick="toggleAnalystCard(${i})">
-      <div class="analyst-card-toggle">
-        <div class="analyst-card-header" style="margin-bottom:0">
-          <div class="analyst-card-avatar">${profile.initials}</div>
-          <div>
-            <div class="analyst-card-name">${name}</div>
-            <div class="analyst-card-lens">${profile.lens}</div>
+    html += `<div class="analyst-card" id="analystCard${i}">
+      <div class="analyst-card-inner">
+        <div class="analyst-card-left">
+          <div class="analyst-card-header">
+            <div class="analyst-card-avatar">${profile.initials}</div>
+            <div>
+              <div class="analyst-card-name">${name}</div>
+              <div class="analyst-card-lens">${profile.lens}</div>
+            </div>
           </div>
+          <p class="analyst-card-bio">${profile.bio}</p>
+          <div class="analyst-card-priorities">
+            <strong>Prioritizes</strong>
+            <ul>${profile.priorities.map(p => `<li>${p}</li>`).join('')}</ul>
+          </div>
+          <div class="analyst-card-stance">${profile.stance}</div>
         </div>
-        <div class="analyst-card-toggle-hint">
-          <span>${deployed}% deployed</span>
-          <span class="analyst-card-toggle-arrow">&#9662;</span>
-        </div>
-      </div>
-      <p class="analyst-card-bio" style="margin-top:16px">${profile.bio}</p>
-      <div class="analyst-card-priorities">
-        <strong>Prioritizes</strong>
-        <ul>${profile.priorities.map(p => `<li>${p}</li>`).join('')}</ul>
-      </div>
-      <div class="analyst-card-stance">${profile.stance}</div>
-      <div class="analyst-portfolio-panel">
-        <div class="persona-stats">
-          <div class="persona-stat">
-            <div class="persona-stat-val" style="color:var(--green)">${deployed}%</div>
-            <div class="persona-stat-label">Deployed</div>
+        <div class="analyst-portfolio-panel">
+          <div class="persona-stats">
+            <div class="persona-stat">
+              <div class="persona-stat-val" style="color:var(--green)">${deployed}%</div>
+              <div class="persona-stat-label">Deployed</div>
+            </div>
+            <div class="persona-stat">
+              <div class="persona-stat-val" style="color:var(--text-secondary)">${p.cash}%</div>
+              <div class="persona-stat-label">Cash</div>
+            </div>
+            <div class="persona-stat">
+              <div class="persona-stat-val" style="color:var(--accent)">${allocs.length}</div>
+              <div class="persona-stat-label">Positions</div>
+            </div>
+            <div class="persona-stat">
+              <div class="persona-stat-val">${allocs.length > 0 ? allocs[0].pct + '%' : '0%'}</div>
+              <div class="persona-stat-label">Top Position</div>
+            </div>
           </div>
-          <div class="persona-stat">
-            <div class="persona-stat-val" style="color:var(--text-secondary)">${p.cash}%</div>
-            <div class="persona-stat-label">Cash</div>
+          <div id="donut${i}" style="height: 320px;"></div>
+          <div class="persona-landscape">
+            <h4 style="color: var(--text-primary); margin-bottom: 8px;">Landscape View</h4>
+            <p>${p.landscape_excerpt}</p>
           </div>
-          <div class="persona-stat">
-            <div class="persona-stat-val" style="color:var(--accent)">${allocs.length}</div>
-            <div class="persona-stat-label">Positions</div>
-          </div>
-          <div class="persona-stat">
-            <div class="persona-stat-val">${allocs.length > 0 ? allocs[0].pct + '%' : '0%'}</div>
-            <div class="persona-stat-label">Top Position</div>
-          </div>
-        </div>
-        <div id="donut${i}" style="height: 340px;"></div>
-        <div class="persona-landscape">
-          <h4 style="color: var(--text-primary); margin-bottom: 8px;">Landscape View</h4>
-          <p>${p.landscape_excerpt}</p>
         </div>
       </div>
     </div>`;
   });
 
   grid.innerHTML = html;
-}
 
-window.toggleAnalystCard = function(idx) {
-  const card = document.getElementById('analystCard' + idx);
-  const wasExpanded = card.classList.contains('expanded');
-  card.classList.toggle('expanded');
-
-  // Render donut on first expand
-  if (!wasExpanded && !card.dataset.rendered) {
-    card.dataset.rendered = 'true';
-    const name = Object.keys(personas)[idx];
+  // Render all donuts immediately
+  personaNames.forEach((name, i) => {
     const p = personas[name];
     const labels = [...p.allocations.filter(a => a.pct > 0).map(a => a.token), 'Cash'];
     const values = [...p.allocations.filter(a => a.pct > 0).map(a => a.pct), p.cash];
@@ -1236,7 +1196,7 @@ window.toggleAnalystCard = function(idx) {
       return `hsl(${hue}, 55%, 55%)`;
     });
 
-    Plotly.newPlot(`donut${idx}`, [{
+    Plotly.newPlot(`donut${i}`, [{
       labels: labels,
       values: values,
       type: 'pie',
@@ -1248,16 +1208,16 @@ window.toggleAnalystCard = function(idx) {
       sort: false,
     }], {
       ...plotlyLayout,
-      height: 340,
-      margin: { l: 20, r: 20, t: 20, b: 20 },
+      height: 320,
+      margin: { l: 10, r: 10, t: 10, b: 10 },
       showlegend: false,
       annotations: [{
         text: `${(100 - p.cash).toFixed(0)}%<br><span style="font-size:11px;color:#9898b0">deployed</span>`,
         showarrow: false, font: { size: 22, color: '#e8e8f0', family: 'Inter' },
       }],
     }, plotlyConfig);
-  }
-};
+  });
+}
 
 function renderComparison() {
   const personaNames = Object.keys(personas);
